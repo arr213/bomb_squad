@@ -3,3 +3,16 @@
 html, body {
     height: 100%;
 }
+
+.red {
+    background-color: #FF534F;
+}
+
+.blue {
+    background-color: #4b49fb;
+}
+
+.yellow {
+    background-color: #fbe449;
+}
+
