@@ -1,5 +1,5 @@
 // // SQ Scheme Summary
-// /* eslint-disable */
+// /* eslint-disable */ 
 
 // User = {
 //     email,
@@ -49,7 +49,7 @@
 // //bomb quality object example
 // quality1 = {
 // 	type: 'battery' || 'serial number' || 'DVI-port',
-// 	subtype, // color,
+// 	subtype, // color, 
 // 	userAssigned: user1
 // }
 
