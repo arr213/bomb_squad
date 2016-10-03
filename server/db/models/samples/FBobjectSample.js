@@ -1,4 +1,4 @@
-// /* eslint-disable */ 
+// /* eslint-disable */
 // FBobj = {
 // 	games: [sq1, sq2, ...]
 
@@ -34,7 +34,7 @@
 // //bomb quality object example
 // quality1 = {
 // 	type: 'battery' || 'serial number' || 'DVI-port',
-// 	subtype, // color, 
+// 	subtype, // color,
 // 	userAssigned: user1
 // }
 
