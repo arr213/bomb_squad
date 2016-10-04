@@ -16,7 +16,21 @@ app.controller('WiresController', function($scope) {
 
     // $scope.wires = firebaseArray(ref);
 
-    $scope.wires = [{color: 'red'}, {color: 'blue'}, {color:'yellow'}, {color: 'red'}];
+    // var ref = new Firebase('https://<YOUR-FIREBASE-APP>.firebaseio.com/1/wires');
+
+    // $scope.wires = [];
+
+    // ref.on('value', function (snapshot) { // information changed
+    //     console.log('Change from Firebase');
+    //     $scope.wires = snapshot.val();
+    //     $scope.$digest();
+    // });
+
+    $scope.wires = [
+        {color: 'red'},
+        {color: 'blue'},
+        {color: 'yellow'}
+    ];
 
     $scope.submit = function() {
         console.log('Hey you clicked this! You win.');
