@@ -49,6 +49,7 @@
 // //bomb quality object example
 // quality1 = {
 // 	type: 'battery' || 'serial number' || 'DVI-port',
+// 	content, // number,
 // 	subtype, // color, 
 // 	userAssigned: user1
 // }

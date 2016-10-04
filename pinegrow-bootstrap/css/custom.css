@@ -2,6 +2,7 @@
 
 html, body {
     height: 100%;
+    background-color: #fff;
 }
 
 .red {
@@ -16,3 +17,42 @@ html, body {
     background-color: #fbe449;
 }
 
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: #ff534f;
+  position: fixed;
+}
+
+.top-header {
+  background-color: #ff534f;
+  height: 50%;
+  color: white;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.bottom-header {
+  background-color: white;
+  height: 50%;
+  border-bottom: .3px solid lightgrey;
+
+}
+
+.bottom-header .cont {
+  display: inline-block;
+  text-align: center;
+  color: #ff534f;
+  line-height: 50px;
+  height: 100%;
+  border-right: .3px solid lightgrey;
+}
+
+.circle {
+  height: 10px;
+  width: 10px;
+  color: red;
+}
