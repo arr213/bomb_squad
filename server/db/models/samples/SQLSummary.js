@@ -1,5 +1,5 @@
 // // SQ Scheme Summary
-// /* eslint-disable */
+// /* eslint-disable */ 
 
 // User = {
 //     email,
@@ -50,6 +50,7 @@
 // quality1 = {
 // 	type: 'battery' || 'serial number' || 'DVI-port',
 // 	content, // number,
+// 	subtype, // color, 
 // 	userAssigned: user1
 // }
 
