@@ -11,7 +11,7 @@ wireGen.generate = function(serialNumber) {
     const wireSeq = wireColorGen(numWires);
     const solution = wireSolver.solve(wireSeq, serialNumber);
     const objSeq = wireColorGen(numWires).map(objectifyWire);
-    objSeq[solution]['solution'] = true;
+    objSeq[solution].solution = true;
     return objSeq;
 };
 
