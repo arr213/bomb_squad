@@ -3,10 +3,15 @@ const _ = require('lodash');
 const gameGenerator = {};
 module.exports = gameGenerator;
 const componentGenerator = require('./componentGenerator');
-const wireGenerator = require('../mod-1-wires/wireGenerator');
+const moduleGenerator = require('./moduleGenerator');
 
-gameGenerator.generate = function(numUsers, numModules, time) {
-	const game = {};
-	game.components = componentGenerator.generate();
-	game.modules = 
+gameGenerator.generate = function(numModules, time, mode, strikeLimit) {
+    const game = {};
+    game.strikes = 0;
+    game.strikeLimit = strikeLimit || 3;
+    game.mode = mode || 'standard';
+    game.timeLimit = time || 300000;
+    game.components = componentGenerator.generate();
+    game.modules = moduleGenerator.generate(numModules);
+    return game;
 }
