@@ -23,9 +23,10 @@
 // //module object example
 // mod1 = {
 // 	userAssigned: user1,
+// 	stageDisplayed: 2,
 // 	type: 'wires',
 // 	sequence: ['black', 'blue', 'red', 'white'],
-// 	solution: 3 //cut fourth wire
+// 	solution: 3, //cut fourth wire
 // 	status: 'completed' || 'current' || 'pending',
 // 	timeStarted,
 // 	timeCompleted
