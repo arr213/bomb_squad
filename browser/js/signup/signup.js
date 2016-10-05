@@ -36,7 +36,7 @@ app.controller('SignupCtrl', function ($scope, $state, $log, AuthService, UserFa
                     AuthService.login($scope.loginInfo);
                 })
                 .then(function() {
-                        $state.go('home');
+                    $state.go('game');
                 })
                 .catch(function() {
                     $scope.error = 'Invalid sign up credentials.';

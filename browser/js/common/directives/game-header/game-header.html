@@ -2,15 +2,17 @@
     <div class="top-header">{{ squadName }}</div>
     <div class="bottom-header">
 
-        <div class="cont timer col-xs-4">{{ time }}</div>
+        <div class="cont timer col-xs-4" ng-click="clicked()">click</div>
         <div class="cont components col-xs-4">
           <div ng-show="components.userAssigned === loggedInUserId">
-
           </div>
-
         </div>
+
         <div class="cont strikes col-xs-4">
-          <!-- <div class="circle" ng-repeat="strike in strikes">ddd</div> -->
+           <div ng-repeat="strike in strikes">
+            <div class="circle" ng-class="strike.active ? 'stroked' : 'unstroked'">
+            </div>
+           </div>
         </div>
 
     </div>
