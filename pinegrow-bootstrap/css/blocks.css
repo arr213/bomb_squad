@@ -579,11 +579,12 @@ Version: 1.0
 
 
 #header-3 .hero {
-	background-color: #ffffff;
+	background-color: #FF534F;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+
 	padding: 50px 0 300px 0;
 	height: 100%;
 }

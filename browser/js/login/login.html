@@ -1,16 +1,21 @@
-<form id="login-form" name="loginForm" ng-submit="loginForm.$valid && sendLogin(login)">
+<header id="header-3" class="soft-scroll header-3">
+    <section class="hero">
+        <div class="container">
+            <div class="container" style="background-color: #FF534F">
+                <div>
+                    <img class="logo-placeholder" src="https://c1.staticflickr.com/9/8271/29489026654_bc7816dd05_n.jpg">
+                </div>
 
-    <alert type="danger" ng-show="error">
-        {{ error }}
-    </alert>
+                <form class="login-form" novalidate name="login" ng-submit="sendLogin(login)">
+                    <input class="login-input" ng-model="email" ng-class="{ invalid: formInvalid }" placeholder="email" type="email" name="username" required/>
+                    <input class="login-input" ng-model="password" ng-class="{ invalid: formInvalid }" placeholder="password" type="password" name="username" required/>
 
-    <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="text" ng-model="login.email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-        <label for="login-password">Password</label>
-        <input type="password" ng-model="login.password" class="form-control" id="login-password" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+                    <button class="login-button" type="submit">continue</button>
+                </form>
+            </div>
+        </div>
+        <div class="signup-text">
+            <h5>Don't have an account? <a ui-sref="signup" style="color: #3836EB">Sign Up</a></h5>
+        </div>
+    </section>
+</header>
