@@ -4,17 +4,33 @@ const moduleGenerator = {};
 module.exports = moduleGenerator;
 const wireGenerator = require('../mod-1-wires/wireGenerator');
 
-moduleGenerator.generate = function(numModules) {
-    moduleTypes = _.times(numModules, () => _.random(1, 1));
-    const modArray = moduleTypes.map(type => {
-        switch (type) {
-            case 1:
-                return wireGenerator.generate();
-            default:
-                return wireGenerator.generate();
-        }
-    })
-    return modArray
+
+const modTypes = [{
+    type: 'wires',
+    generate: wireGenerator.generate
+}]
+
+function objectifyMod(modType, game) {
+    const modObj = {
+        type: modType.type,
+        content: modType.generate(game),
+        userAssigned: null,
+        stageDisplayed: null,
+        status: 'pending',
+        timeStarted: null,
+        timeCompleted: null
+    }
+    return modObj;
 }
 
-console.log(moduleGenerator.generate(2));
+moduleGenerator.generate = function(game) {
+    const moduleTypes = _.times(game.numModules, () => _.sample(modTypes));
+    const modArray = moduleTypes.map(function(modType) {
+        return objectifyMod(modType, game)
+    });
+    game.modules = modArray;
+}
+
+// var testObj = {numModules: 4};
+// moduleGenerator.generate(testObj);
+// console.log(testObj)
