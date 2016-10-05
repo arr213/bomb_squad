@@ -17,7 +17,9 @@ app.controller('GameHeaderCtrl', function($scope){
 
   $scope.squadName = 'the squad';
 
-  $scope.strikes = [ true, false, false ];
+  $scope.strikes = [ { active: true } , { active: false }, { active: false } ];
+
+
 
 
 })

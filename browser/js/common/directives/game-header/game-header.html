@@ -9,8 +9,19 @@
           </div>
 
         </div>
+
         <div class="cont strikes col-xs-4">
-          <!-- <div class="circle" ng-repeat="strike in strikes">ddd</div> -->
+     <!--    ng-repeat="strike in strikes" -->
+          <!-- <div ng-repeat="strike in strikes"> -->
+
+           <div ng-repeat="strike in strikes">
+
+            <div class="circle" ng-class="strike.active ? 'stroked' : 'unstroked'">
+
+            </div>
+
+           </div>
+    <!--       </div> -->
         </div>
 
     </div>
