@@ -2,11 +2,11 @@ const _ = require('lodash');
 const wireSolver = {};
 module.exports = wireSolver;
 
-wireSolver.solve = function(arr, serialNumber) {
+wireSolver.solve = function(arr, batteries) {
     if (arr.length === 3) return threeWireSolver(arr);
-    if (arr.length === 4) return fourWireSolver(arr, serialNumber);
-    if (arr.length === 5) return fiveWireSolver(arr, serialNumber);
-    if (arr.length === 6) return sixWireSolver(arr, serialNumber);
+    if (arr.length === 4) return fourWireSolver(arr, batteries);
+    if (arr.length === 5) return fiveWireSolver(arr, batteries);
+    if (arr.length === 6) return sixWireSolver(arr, batteries);
 };
 
 //defining rules of what wires to cut
@@ -17,23 +17,23 @@ function threeWireSolver(arr) {
     return 2;
 }
 
-function fourWireSolver(arr, serialNumber) {
-    if ((arr.filter(color => color === 'red').length > 1) && (serialNumber[5] % 2 !== 0)) return arr.lastIndexOf('red');
+function fourWireSolver(arr, batteries) {
+    if ((arr.filter(color => color === 'red').length > 1) && _.filter(batteries, _.matches({ color: 'green' }) % 2 !== 0)) return arr.lastIndexOf('red');
     if (arr[3] === 'yellow' && arr.indexOf('red') === -1) return 0;
     if (arr.filter(color => color === 'blue').length === 1) return 0;
     if (arr.filter(color => color === 'yellow').length > 1) return 3;
     return 1;
 }
 
-function fiveWireSolver(arr, serialNumber) {
-    if (arr[4] === 'black' && serialNumber[5] % 2 !== 0) return 3;
+function fiveWireSolver(arr, batteries) {
+    if (arr[4] === 'black' && _.filter(batteries, _.matches({ color: 'yellow' }) % 2 !== 0)) return 3;
     if (arr.filter(color => color === 'red').length === 1 && arr.filter(color => color === 'yellow').length > 1) return 0;
     if (arr.indexOf('black') === -1) return 1;
     return 0;
 }
 
-function sixWireSolver(arr, serialNumber) {
-    if (arr.indexOf('yellow') === -1 && serialNumber[5] % 2 !== 0) return 2;
+function sixWireSolver(arr, batteries) {
+    if (arr.indexOf('yellow') === -1 && _.filter(batteries, _.matches({ color: 'black' }) % 2 !== 0)) return 2;
     if (arr.filter(color => color === 'yellow').length === 1 && arr.filter(color => color === 'white').length > 1) return 3;
     if (arr.indexOf('red') === -1) return 5;
     return 3;
