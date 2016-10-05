@@ -1,26 +1,11 @@
-// // SQ Scheme Summary
-// /* eslint-disable */ 
-
-// User = {
-//     email,
-//     password,
-//     salt,
-//     twitter_id,
-//     facebook_id,
-//     google_id,
-// }
-
-// Game = {
-// 	users: [],
-// 	outcome: 'won' || 'lost',
-// 	modules: [mod1, mod],
-// 	timeAllotted: 1234,
-// 	timeUsed: 123,
+// /* eslint-disable */
+// FBobj = {
+// 	games: [sq1, sq2, ...]
 
 // }
 
-
-// squad1 = {
+// //squad object example
+// game1 = {
 // 	publicStatus: 'private' || 'public',
 // 	squadKey,
 // 	members: [user1, user2, ...],
@@ -29,6 +14,7 @@
 // 	timeStarted,
 // 	timeCompleted,
 // 	chatRoom,
+//  strikes: [ ]
 // 	manual: [man1, man2],
 // 	bombQualities: [quality1, quality2, ...],
 // 	gameMode: 'standard' || 'simultaneous' || 'crazy hard mode'
@@ -49,8 +35,7 @@
 // //bomb quality object example
 // quality1 = {
 // 	type: 'battery' || 'serial number' || 'DVI-port',
-// 	content, // number,
-// 	subtype, // color, 
+// 	subtype, // color,
 // 	userAssigned: user1
 // }
 
@@ -66,3 +51,4 @@
 // 	body: TEXT,
 // 	usersAssigned: [user1, user2, ...]
 // }
+

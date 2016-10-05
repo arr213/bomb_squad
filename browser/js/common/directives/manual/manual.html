@@ -1,8 +1,7 @@
-<div class="container">
+<div class="col-xs-12">
     <div ng-repeat="section in sections" ng-click="showBody(section)">{{ section.header }}
         <div ng-show="section.show">
             <p>{{ section.body }}</p>
         </div>
     </div>
-
 </div>
