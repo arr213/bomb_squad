@@ -2,6 +2,7 @@
 var router = require('express').Router(); // eslint-disable-line new-cap
 module.exports = router;
 var _ = require('lodash');
+var User = require('../../../db/models/user.js');
 
 var ensureAuthenticated = function (req, res, next) {
     var err;
@@ -32,4 +33,12 @@ router.get('/secret-stash', ensureAuthenticated, function (req, res) {
 
     res.send(_.shuffle(theStash));
 
+});
+
+router.post('/', function(req, res, next) {
+    User.create(req.body)
+    .then(function(user) {
+        res.status(201).send(user);
+    })
+    .catch(next);
 });

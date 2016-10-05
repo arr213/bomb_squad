@@ -12,14 +12,7 @@ app.controller('LoginCtrl', function ($scope, AuthService, $state, $timeout, $lo
 
     $scope.formInvalid = false;
 
-    // $scope.submit = function(testing){
-    //  if (testing.$invalid) {
-    //    $scope.formInvalid = true;
-    //    $timeout(function(){
-    //      $scope.formInvalid = false;
-    //    }, 1000);
-    //  }
-    // };
+    $scope.login = {};
 
     $scope.sendLogin = function (loginInfo) {
         if (loginInfo.$invalid) {
@@ -33,7 +26,7 @@ app.controller('LoginCtrl', function ($scope, AuthService, $state, $timeout, $lo
         $scope.password = null;
 
         AuthService.login(loginInfo).then(function () {
-            $state.go('home');
+            $state.go('game');
         }).catch($log.error);
 
     };
