@@ -7,7 +7,8 @@ const gameDB = firebaseDB.ref().child('game');
 const gameGen = require('../../utilities/game/gameGenerator.js');
 
 router.post('/addGame', function(req,res){
-    let user = req.user || 'user';
+    console.log(req.user.id);
+    let user = String(req.user.id) || 'user';
     let newGame = gameGen.generate();
     newGame.users = [user];
     console.log("hitting route!!!!!---------------");
@@ -17,11 +18,12 @@ router.post('/addGame', function(req,res){
     })
 });
 
-router.get('/joinGame', function(req,res){
-    let user = req.body.user || 'user';
-    let password = req.body.password || 'password';
+router.put('/joinGame', function(req,res){
+    let user = String(req.user.id) || 'user';
+    console.log(req.body);
+    let gamePass = String(req.body.gamePass) || 'gamePass';
     console.log("hitting route!!!!!---------------");
-    gameDB.orderByChild('gamePass').equalTo(password).once("value",function(snap){
+    gameDB.orderByChild('gamePass').equalTo(gamePass).once("value",function(snap){
         if(!snap.val()){
             console.log("Not found");
             res.sendStatus(404);
@@ -29,6 +31,10 @@ router.get('/joinGame', function(req,res){
             let key = Object.keys(snap.val())[0];
             let game = snap.val()[key];
             let users = game.users;
+            if(users.indexOf(user)!==-1 || users.length>3){
+                res.sendStatus(401);
+                return;
+            }
             users.push(user);
             let joinGame = gameDB.child(key);
             joinGame.update({users: users})
