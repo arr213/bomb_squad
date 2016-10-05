@@ -6,7 +6,28 @@ app.directive('gameHeader', function(){
   }
 })
 
-app.controller('GameHeaderCtrl', function($scope){
+app.controller('GameHeaderCtrl', function($scope, $firebaseObject){
+
+  var rootRef = firebase.database().ref('/game');
+
+  var currentGame = rootRef.child('-KTLBzOuPzVqm_kp_nhT');
+
+  // $scope.strikes = [];
+
+  currentGame.on('value', function(snapshot) {
+
+    $scope.strikes = snapshot.val().strikes;
+    console.log($scope.strikes);
+    $scope.$digest();
+
+  });
+
+  $scope.clicked = function() {
+    console.log('clicked');
+    rootRef.once('value', function(snap) {
+      console.log(snap.val());
+    });
+  };
 
   $scope.loggedInUserId = 1;
 
@@ -17,9 +38,8 @@ app.controller('GameHeaderCtrl', function($scope){
 
   $scope.squadName = 'the squad';
 
-  $scope.strikes = [ { active: true } , { active: false }, { active: false } ];
+  // $scope.strikes = { '0': { active: true } , '1': { active: false }, '2': { active: false } };
 
 
 
-
-})
+});
