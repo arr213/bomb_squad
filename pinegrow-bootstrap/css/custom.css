@@ -5,6 +5,10 @@ html, body {
     background-color: #FF534F;
 }
 
+spacer {
+    height: 100px;
+}
+
 .red {
     background-color: #FF534F;
 }
@@ -106,6 +110,13 @@ h2 {
   text-transform: uppercase;
 }
 
+.login-input[type="username"] {
+  color: #1D88EA;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
 .login-input[type="password"] {
   color: #1D88EA;
   font-size: 20px;
@@ -170,4 +181,14 @@ h2 {
 .signup-text {
     text-align: center;
     color: #FFFFFF;
+}
+
+.arrow {
+    width: 30px;
+}
+
+.arrow-div {
+    padding-left: 15px;
+    padding-top: 15px;
+    background-color: #FF534F;
 }

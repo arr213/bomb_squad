@@ -29,7 +29,8 @@ app.controller('WiresController', function($scope) {
     $scope.wires = [
         {color: 'red'},
         {color: 'blue'},
-        {color: 'yellow'}
+        {color: 'yellow'},
+        {color: 'red'}
     ];
 
     $scope.submit = function() {
