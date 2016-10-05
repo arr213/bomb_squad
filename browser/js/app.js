@@ -1,5 +1,15 @@
 'use strict';
-window.app = angular.module('FullstackGeneratedApp', ['fsaPreBuilt', 'ui.router', 'ui.bootstrap', 'ngAnimate']);
+window.app = angular.module('FullstackGeneratedApp', ['fsaPreBuilt', 'ui.router', 'ui.bootstrap', 'ngAnimate', 'firebase']);
+
+var config = {
+    apiKey: "AIzaSyD835UTQkcpROmdymHoHK6z-bDbV9o5qtY",
+    authDomain: "bombsquad-74087.firebaseapp.com",
+    databaseURL: "https://bombsquad-74087.firebaseio.com",
+    storageBucket: "bombsquad-74087.appspot.com",
+    messagingSenderId: "327718890371"
+  };
+
+firebase.initializeApp(config);
 
 app.config(function ($urlRouterProvider, $locationProvider) {
     // This turns off hashbang urls (/#about) and changes it to something normal (/about)

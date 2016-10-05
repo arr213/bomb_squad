@@ -131,21 +131,18 @@ h2 {
   color: #1D88EA;
   font-size: 15px;
   letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
 .login-input[type="username"] {
   color: #1D88EA;
   font-size: 15px;
   letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
 .login-input[type="password"] {
   color: #1D88EA;
   font-size: 20px;
   letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
 .login-button {
