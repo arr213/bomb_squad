@@ -7,15 +7,19 @@ const gameDB = firebaseDB.ref().child('game');
 const gameGen = require('../../utilities/game/gameGenerator.js');
 
 router.post('/addGame', function(req,res){
+    let user = req.user || 'user';
     let newGame = gameGen.generate();
+    newGame.users = [user];
     console.log("hitting route!!!!!---------------");
-    gameDB.push(newGame);
-    res.sendStatus(201);
+    let gameKey = gameDB.push(newGame);
+    gameKey.once('value', function(snap){
+        res.send(snap.key);
+    })
 });
 
 router.get('/joinGame', function(req,res){
     let user = req.body.user || 'user';
-    let password = req.body.gamePass || 'password';
+    let password = req.body.password || 'password';
     console.log("hitting route!!!!!---------------");
     gameDB.orderByChild('gamePass').equalTo(password).once("value",function(snap){
         if(!snap.val()){
@@ -27,8 +31,10 @@ router.get('/joinGame', function(req,res){
             let users = game.users;
             users.push(user);
             let joinGame = gameDB.child(key);
-            joinGame.update({users: users}) //async so use then...
-            res.sendStatus(200);
+            joinGame.update({users: users})
+            .then(function(updating){
+                 res.send(key);
+            }) //async so use then...
         }
     });
 });
