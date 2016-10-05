@@ -1,17 +1,25 @@
-// game-generator.js
-const _ = require('lodash');
 const gameGenerator = {};
 module.exports = gameGenerator;
-const componentGenerator = require('./componentGenerator');
+const batteryGenerator = require('./batteryGenerator');
 const moduleGenerator = require('./moduleGenerator');
+const strikeGenerator = require('./strikeGenerator');
+const gamePassGenerator = require('./gamePassGenerator');
 
 gameGenerator.generate = function(numModules, time, mode, strikeLimit) {
-    const game = {};
-    game.strikes = 0;
-    game.strikeLimit = strikeLimit || 3;
-    game.mode = mode || 'standard';
-    game.timeLimit = time || 300000;
-    game.components = componentGenerator.generate();
-    game.modules = moduleGenerator.generate(numModules);
+    const game = {
+        users: [],
+        chatLog: [],
+        numModules: numModules || 4,
+        strikeLimit: strikeLimit || 3,
+        mode: mode || 'standard',
+        timeLimit: time || 300000
+    };
+    strikeGenerator.generate(game); // Add generated strikes to the game object.
+    gamePassGenerator.generate(game); // Add generated gamepass to the game object.
+    batteryGenerator.generate(game); // Add generated battery to the game object.
+    moduleGenerator.generate(game); // Add generated module to the game object.
     return game;
 }
+
+
+console.log(gameGenerator.generate());
