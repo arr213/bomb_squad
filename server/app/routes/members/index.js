@@ -42,3 +42,14 @@ router.post('/', function(req, res, next) {
     })
     .catch(next);
 });
+
+router.get('/name/:id', function(req,res,next){
+    User.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(function(findingUser){
+        res.send(findingUser.email);
+    });
+});

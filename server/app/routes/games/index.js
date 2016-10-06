@@ -6,7 +6,7 @@ const firebaseDB = require('../../../firebase');
 const gameDB = firebaseDB.ref().child('game');
 const gameGen = require('../../utilities/game/gameGenerator.js');
 
-router.post('/addGame', function(req,res){
+router.post('/createGame', function(req,res){
     console.log(req.user.id);
     let user = String(req.user.id) || 'user';
     let newGame = gameGen.generate();
@@ -14,6 +14,7 @@ router.post('/addGame', function(req,res){
     console.log("hitting route!!!!!---------------");
     let gameKey = gameDB.push(newGame);
     gameKey.once('value', function(snap){
+        console.log(snap.val());
         res.send(snap.key);
     })
 });
