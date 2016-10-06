@@ -21,6 +21,3 @@ gameGenerator.generate = function(numModules, time, mode, strikeLimit) {
     moduleGenerator.generate(game); // Add generated module to the game object.
     return game;
 }
-
-
-console.log(gameGenerator.generate());
