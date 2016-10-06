@@ -9,11 +9,12 @@ gameGenerator.generate = function(numModules, time, mode, strikeLimit) {
     const game = {
         users: [],
         chatLog: [],
-        startTime: null,
+        startTime: 0,
         numModules: numModules || 4,
         strikeLimit: strikeLimit || 3,
         mode: mode || 'standard',
-        timeLimit: time || 300000
+        timeLimit: time || 300000,
+        gameStarted: false
     };
     strikeGenerator.generate(game); // Add generated strikes to the game object.
     gamePassGenerator.generate(game); // Add generated gamepass to the game object.

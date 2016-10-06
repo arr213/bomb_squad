@@ -12,7 +12,7 @@ app.controller('GameCtrl', function($scope){
 
   var rootRef = firebase.database().ref('/game');
 
-  var currentGame = rootRef.child('-KTLBzOuPzVqm_kp_nhT');
+  var currentGame = rootRef.child('-KTQR8kPn75maqwIsqjr');
 
   currentGame.on('value', function(snapshot) {
 
@@ -41,20 +41,33 @@ app.controller('GameCtrl', function($scope){
 
   $scope.gamePlaying = null;
 
-  $scope.startTime = null;
+  // $scope.startTime = null;
+  currentGame.child('gameStarted').on('value', function(snap){
+    if(snap.val()){
+      if (!$scope.gamePlaying) {
+        $scope.gamePlaying = true;
+        $scope.startGame();
+        $scope.$digest();
+      } else {
+        return;
+      }
+    }
+  });
 
   $scope.startGame = function() {
 
-      $scope.gamePlaying = true;
+      if(!$scope.gamePlaying){
+        $scope.gamePlaying = true;
+        currentGame.update({ gameStarted: true });
+        currentGame.update({ startTime: Date.now() });
+      }
+
       $scope.timerNum = '5:00';
 
       currentGame.on('value', function(snapshot) {
+          $scope.startTime = snapshot.val().startTime;
           $scope.timeLimit = snapshot.val().timeLimit;
       });
-
-      $scope.startTime = Date.now();
-
-      currentGame.set({ startTime: $scope.startTime })
 
       setInterval(function() {
 
@@ -71,18 +84,17 @@ app.controller('GameCtrl', function($scope){
 
           $scope.timerNum = (((ms / 1000 / 60) << 0) + ':' + seconds());
 
-
-
           $scope.$digest();
 
           console.log($scope.timerNum);
       }, 500);
 
 
+
   }
 
 
 
-})
+});
 
 
