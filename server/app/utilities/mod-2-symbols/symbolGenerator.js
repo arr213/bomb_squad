@@ -5,10 +5,10 @@ module.exports = symbolGenerator;
 const symbolOptions = require('./symbolOptions')
 
 
-symbolGenerator.generate = function(game) {
+symbolGenerator.generate = function(game, modObj) {
     var column = _.sample(symbolOptions.columns);
     const buttons = buttonGen(column);
-    game.content = buttons;
+    modObj.content = buttons;
 };
 
 
@@ -25,7 +25,7 @@ function buttonGen(column) {
     return thisCol;
 }
 
-// // Test below:
-// var testObj = {};
-// symbolGenerator.generate(testObj);
-// console.log(testObj)
+// Test below:
+var testObj = {};
+symbolGenerator.generate(testObj);
+console.log(testObj)
