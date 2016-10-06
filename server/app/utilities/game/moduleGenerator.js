@@ -19,7 +19,7 @@ function objectifyMod(modType, game) {
         timeStarted: null,
         timeCompleted: null
     };
-    modType.generate(game);
+    modType.generate(game, modObj);
     return modObj;
 }
 
