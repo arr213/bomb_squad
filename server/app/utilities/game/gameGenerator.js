@@ -9,6 +9,7 @@ gameGenerator.generate = function(numModules, time, mode, strikeLimit) {
     const game = {
         users: [],
         chatLog: [],
+        startTime: null,
         numModules: numModules || 4,
         strikeLimit: strikeLimit || 3,
         mode: mode || 'standard',

@@ -2,28 +2,24 @@
 const _ = require('lodash');
 const symbolGenerator = {};
 module.exports = symbolGenerator;
+const symbolOptions = require('./symbolOptions')
 
-//5 available colors
-const wireColors = ['white', 'blue', 'yellow', 'black', 'red'];
 
 symbolGenerator.generate = function(game) {
-    const numWires = _.random(3, 6);
-    const wireSeq = wireColorGen(numWires);
-    const solution = wireSolver.solve(wireSeq, game.batteries);
-    const objSeq = wireColorGen(numWires).map(objectifyWire);
-    objSeq[solution].solution = true;
-    return objSeq;
+    var column = _.sample(symbolOptions.columns);
+    const buttons = buttonGen(column);
+    game.content = buttons;
 };
 
-//Generates an array of colors indicating the order of wires by colors
-function wireColorGen(num) {
-    return _.times(num, () => _.sample(wireColors));
-}
 
-function objectifyWire(color) {
-    return {
-        color: color,
-        wasCut: false,
-        solution: false
-    };
+function buttonGen(column) {
+    var thisCol = column;
+    _.times(3, function() {
+        thisCol.splice(_.random(0, thisCol.length), 1);
+    })
+    for (let i = 0; i < thisCol.length; i++) {
+        thisCol[i].pressOrder = i + 1;
+        thisCol[i].pressed = false;
+    }
+    return thisCol;
 }

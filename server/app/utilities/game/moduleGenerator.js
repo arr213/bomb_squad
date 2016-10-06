@@ -13,13 +13,13 @@ const modTypes = [{
 function objectifyMod(modType, game) {
     const modObj = {
         type: modType.type,
-        content: modType.generate(game),
         userAssigned: null,
         stageDisplayed: null,
         status: 'pending',
         timeStarted: null,
         timeCompleted: null
-    }
+    };
+    modType.generate(game);
     return modObj;
 }
 

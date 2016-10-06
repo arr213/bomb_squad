@@ -12,7 +12,7 @@ wireGenerator.generate = function(game) {
     const solution = wireSolver.solve(wireSeq, game.batteries);
     const objSeq = wireColorGen(numWires).map(objectifyWire);
     objSeq[solution].solution = true;
-    return objSeq;
+    game.content = objSeq;
 };
 
 //Generates an array of colors indicating the order of wires by colors
