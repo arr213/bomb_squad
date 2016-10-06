@@ -238,3 +238,12 @@ h2 {
 .timer {
     color: black;
 }
+
+.startbtn {
+  background-color: red;
+  height: 50px;
+  width: 200px;
+  display: inline-block;
+  border-radius: 50px;
+
+}
