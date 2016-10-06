@@ -3,40 +3,23 @@ app.directive('wires', function () {
     return {
         restrict: 'E',
         templateUrl: 'js/common/directives/wires/wires.html',
-        controller: 'WiresController'
+        controller: 'WiresCtrl'
     };
 
 });
 
-app.controller('WiresController', function($scope) {
+app.controller('WiresCtrl', function($scope) {
 
-    // inject $firebaseArray;
+    $scope.currentGame.child('modules').once('value', function(snap) {
+        $scope.wires = snap.val()[0].content;
+    });
 
-    // var ref = new Firebase('#');
-
-    // $scope.wires = firebaseArray(ref);
-
-    // var ref = new Firebase('https://<YOUR-FIREBASE-APP>.firebaseio.com/1/wires');
-
-    // $scope.wires = [];
-
-    // ref.on('value', function (snapshot) { // information changed
-    //     console.log('Change from Firebase');
-    //     $scope.wires = snapshot.val();
-    //     $scope.$digest();
-    // });
-
-    $scope.wires = [
-        {color: 'red'},
-        {color: 'blue'},
-        {color: 'yellow'},
-        {color: 'red'},
-        {color: 'blue'},
-        {color: 'blue'}
-    ];
-
-    $scope.submit = function() {
-        console.log('Hey you clicked this! You win.');
+    $scope.submit = function(wire) {
+        if (wire.solution === true) {
+            console.log('YOU WIN!!');
+        } else {
+            console.log('it is a strike!');
+        }
     };
 
     $scope.assignColor = function(wire) {
