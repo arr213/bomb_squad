@@ -7,27 +7,27 @@ module.exports = symbolOptions;
 symbolOptions.symbolList = [{
     id: 1,
     name: 'lollipop',
-    unicode: null
+    unicode: 'Ϙ'
 }, {
     id: 2,
     name: 'A',
-    unicode: null
+    unicode: 'Ѧ'
 }, {
     id: 3,
     name: 'lambda',
-    unicode: null
+    unicode: 'ƛ'
 }, {
     id: 4,
     name: 'zig-zag',
-    unicode: null
+    unicode: 'ѭ'
 }, {
     id: 5,
     name: 'kitty-cat',
-    unicode: null
+    unicode: 'ѭ'
 }, {
     id: 6,
     name: 'curly-H',
-    unicode: null
+    unicode: 'ϗ'
 }, {
     id: 7,
     name: 'backwards-C-dot',
@@ -35,15 +35,15 @@ symbolOptions.symbolList = [{
 }, {
     id: 8,
     name: 'backwards-E',
-    unicode: null
+    unicode: 'Ӭ'
 }, {
     id: 9,
     name: 'lowercase-phi',
-    unicode: null
+    unicode: 'Ҩ'
 }, {
     id: 10,
     name: 'outline-star',
-    unicode: null
+    unicode: '☆'
 }, {
     id: 11,
     name: 'upside-down-question-mark',
@@ -51,15 +51,15 @@ symbolOptions.symbolList = [{
 }, {
     id: 12,
     name: 'copyright',
-    unicode: null
+    unicode: '©'
 }, {
     id: 13,
     name: 'cyclops',
-    unicode: null
+    unicode: 'Ѽ'
 }, {
     id: 14,
     name: 'mirrored-K',
-    unicode: null
+    unicode: 'Ж'
 }, {
     id: 15,
     name: 'right-half-R',
@@ -67,7 +67,7 @@ symbolOptions.symbolList = [{
 }, {
     id: 16,
     name: 'lowercase-delta',
-    unicode: null
+    unicode: 'Ϭ'
 }, {
     id: 17,
     name: 'pilcrow',
@@ -75,15 +75,15 @@ symbolOptions.symbolList = [{
 }, {
     id: 18,
     name: 'T-b',
-    unicode: null
+    unicode: 'Ѣ'
 }, {
     id: 19,
     name: 'smiley',
-    unicode: null
+    unicode: '☺'
 }, {
     id: 20,
     name: 'capital-psi',
-    unicode: null
+    unicode: 'ψ'
 }, {
     id: 21,
     name: 'C-dot',
@@ -91,15 +91,15 @@ symbolOptions.symbolList = [{
 }, {
     id: 22,
     name: 'snake',
-    unicode: null
+    unicode: 'Ѯ'	
 }, {
     id: 23,
     name: 'filled-in-star',
-    unicode: null
+    unicode: '★'
 }, {
     id: 24,
     name: 'unequal',
-    unicode: null
+    unicode: '҂'
 }, {
     id: 25,
     name: 'a-e',
@@ -107,11 +107,11 @@ symbolOptions.symbolList = [{
 }, {
     id: 26,
     name: 'backwards-N',
-    unicode: null
+    unicode: 'Ҋ'
 }, {
     id: 27,
     name: 'capital-omega',
-    unicode: null
+    unicode: 'Ω'
 }];
 
 symbolOptions.columns = [
