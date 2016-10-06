@@ -1,4 +1,4 @@
-// moduleGenerator.js
+
 const _ = require('lodash');
 const moduleGenerator = {};
 module.exports = moduleGenerator;
@@ -19,7 +19,7 @@ function objectifyMod(modType, game) {
         timeStarted: 0,
         timeCompleted: 0
     };
-    modType.generate(game, modObj);
+    modType.generate(game);
     return modObj;
 }
 
@@ -33,4 +33,4 @@ moduleGenerator.generate = function(game) {
 
 // var testObj = {numModules: 4};
 // moduleGenerator.generate(testObj);
-// console.log(testObj)
+// console.log(testObj);
