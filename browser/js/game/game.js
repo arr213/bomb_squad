@@ -1,18 +1,18 @@
 app.config(function ($stateProvider) {
 
     $stateProvider.state('game', {
-        url: '/game',
+        url: '/game/:gameKey',
         templateUrl: 'js/game/game.html',
         controller: 'GameCtrl'
     });
 
 });
 
-app.controller('GameCtrl', function($scope){
+app.controller('GameCtrl', function($scope,$stateParams){
 
   var rootRef = firebase.database().ref('/game');
 
-  var currentGame = rootRef.child('-KTQR8kPn75maqwIsqjr');
+  var currentGame = rootRef.child($stateParams.gameKey);
 
   currentGame.on('value', function(snapshot) {
 

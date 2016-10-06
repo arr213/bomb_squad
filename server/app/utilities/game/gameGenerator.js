@@ -14,7 +14,8 @@ gameGenerator.generate = function(numModules, time, mode, strikeLimit) {
         strikeLimit: strikeLimit || 3,
         mode: mode || 'standard',
         timeLimit: time || 300000,
-        gameStarted: false
+        gameStarted: false,
+        readyUp: 0
     };
     strikeGenerator.generate(game); // Add generated strikes to the game object.
     gamePassGenerator.generate(game); // Add generated gamepass to the game object.

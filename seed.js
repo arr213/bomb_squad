@@ -31,15 +31,19 @@ const PlayedModule = db.model('playedModule');
 const seedUsers = function() {
 
     const users = [{
+        username: 'tsa',
         email: 'tsa@tsa.tsa',
         password: 'password'
     }, {
+        username: 'obama',
         email: 'obama@gmail.com',
         password: 'potus'
     }, {
+        username: 'adam',
         email: 'adam@adam.adam',
         password: 'adam'
     }, {
+        username: 'nat',
         email: 'nat@nat.nat',
         password: 'nattyLite'
     }];
