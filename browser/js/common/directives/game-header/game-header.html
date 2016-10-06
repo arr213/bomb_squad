@@ -2,7 +2,9 @@
     <div class="top-header">{{ squadName }}</div>
     <div class="bottom-header">
 
-        <div class="cont timer col-xs-4" ng-click="clicked()">click</div>
+        <div class="cont timer col-xs-4" ng-click="clicked()">
+          <h1 class="timer">{{ timerNum }}</h1>
+        </div>
         <div class="cont components col-xs-4">
           <div ng-show="components.userAssigned === loggedInUserId">
           </div>
