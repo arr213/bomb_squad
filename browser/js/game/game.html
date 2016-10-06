@@ -3,7 +3,8 @@
         <game-header></game-header>
         <div class="main-content">
         <!-- <manual></manual> -->
-        <wires></wires>
+        <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
+        <wires ng-show="gamePlaying"></wires>
         </div>
     </div>
 </header>
