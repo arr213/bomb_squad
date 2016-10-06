@@ -25,7 +25,7 @@ spacer {
 
 .header {
   width: 100%;
-  height: 100px;
+  height: 150px;
   background-color: #ff534f;
   position: fixed;
 }
@@ -45,7 +45,6 @@ spacer {
   background-color: white;
   height: 50%;
   border-bottom: .3px solid lightgrey;
-
 }
 
 .bottom-header .cont {
@@ -212,4 +211,30 @@ h2 {
     padding-left: 15px;
     padding-top: 15px;
     background-color: #FF534F;
+}
+
+.wire {
+    margin: 28px;
+    width: 230px;
+    height: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wires-container {
+
+}
+
+.wires-background {
+    margin-top: 220px;
+    background-color: #ececec;
+    height: 315px;
+    width: 315px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer {
+    color: black;
 }
