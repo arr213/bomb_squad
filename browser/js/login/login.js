@@ -26,7 +26,7 @@ app.controller('LoginCtrl', function ($scope, AuthService, $state, $timeout, $lo
         $scope.password = null;
 
         AuthService.login(loginInfo).then(function () {
-            $state.go('game');
+            $state.go('home');
         }).catch($log.error);
 
     };

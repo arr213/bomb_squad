@@ -8,40 +8,33 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('GameCtrl', function($scope,$stateParams){
+app.controller('GameCtrl', function($scope, $stateParams){
 
   var rootRef = firebase.database().ref('/game');
-
   var currentGame = rootRef.child($stateParams.gameKey);
 
-  currentGame.on('value', function(snapshot) {
-
-    $scope.strikes = snapshot.val().strikes;
-    console.log($scope.strikes);
-    $scope.$digest();
-
-  });
-
-  $scope.clicked = function() {
-    console.log('clicked');
-    rootRef.once('value', function(snap) {
-      console.log(snap.val());
-    });
-  };
-
   $scope.loggedInUserId = 1;
-
-  // $scope.time = '09:59';
 
   $scope.components = [{ userAssigned: 1, type: 'battery', content: null }, { userAssigned: 2, type: 'serial number', content: '1238548'}, { userAssigned: 3, type: 'battery', content: null }];
 
 
   $scope.squadName = 'the squad';
 
+  currentGame.on('value', function(snapshot) {
+    $scope.strikes = snapshot.val().strikes;
+    console.log($scope.strikes);
+    $scope.$digest();
+  });
+
+  // $scope.clicked = function() {
+  //   console.log('clicked');
+  //   rootRef.once('value', function(snap) {
+  //     console.log(snap.val());
+  //   });
+  // };
 
   $scope.gamePlaying = null;
 
-  // $scope.startTime = null;
   currentGame.child('gameStarted').on('value', function(snap){
     if(snap.val()){
       if (!$scope.gamePlaying) {
@@ -71,6 +64,11 @@ app.controller('GameCtrl', function($scope,$stateParams){
 
       setInterval(function() {
 
+        if ($scope.timerNum === '0:00') {
+            console.log('YOU EXPLODED!!!!');
+            return;
+        }
+
           var ms = $scope.timeLimit - (Date.now() - $scope.startTime);
           var seconds = function() {
               var s = (ms / 1000) % 60;
@@ -83,16 +81,11 @@ app.controller('GameCtrl', function($scope,$stateParams){
           }
 
           $scope.timerNum = (((ms / 1000 / 60) << 0) + ':' + seconds());
-
           $scope.$digest();
 
-          console.log($scope.timerNum);
       }, 500);
 
-
-
   }
-
 
 
 });
