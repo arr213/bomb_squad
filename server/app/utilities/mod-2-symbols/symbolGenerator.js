@@ -25,8 +25,7 @@ function buttonGen(column) {
     return thisCol;
 }
 
-// Test below:
-var testObj = {};
-var testMod = {};
-symbolGenerator.generate(testObj, testMod);
-console.log(testMod);
+// // Test below:
+// var testObj = {};
+// symbolGenerator.generate(testObj);
+// console.log(testObj)

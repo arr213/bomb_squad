@@ -5,22 +5,30 @@ const stageGenerator = require('../stage/stageGenerator');
 const strikeGenerator = require('./strikeGenerator');
 const gamePassGenerator = require('./gamePassGenerator');
 
-gameGenerator.generate = function(numModules, time, mode, strikeLimit) {
+gameGenerator.generate = function() {
     const game = {
         users: [],
+        numModules: 4,
+        strikeLimit: 3,
+        timeLimit: 300000,
+        mode: 'standard',
         chatLog: [],
-        startTime: 0,
-        numModules: numModules || 4,
-        strikeLimit: strikeLimit || 3,
-        mode: mode || 'standard',
-        timeLimit: time || 300000,
-        gameStarted: false,
-        readyUp: 0,
-        currentStage: 1
+        readyUp: 0
     };
-    strikeGenerator.generate(game); // Add generated strikes to the game object.
-    gamePassGenerator.generate(game); // Add generated gamepass to the game object.
-    batteryGenerator.generate(game); // Add generated batteries to the game object.
-    //stageGenerator.generate(game); // Add generated stages to the game object.
+    game.gamePass = gamePassGenerator.generate(); // Add generated gamepass to the game object.
     return game;
+}
+
+// console.log(gameGenerator.generate());
+
+gameGenerator.update = function(gameObj) {
+    const game = gameObj;
+    if (game.mode === 'standard') {
+        game.numModules = game.users.length;
+        game.timeLimit = 75000 * game.users.length;
+    }
+    game.batteries = batteryGenerator.generate(game); // Add generated batteries to the game object.
+    game.strikes = strikeGenerator.generate(game); // Add generated strikes to the game object.
+    game.stages = stageGenerator.generate(game); // Add generated stages to the game object.;
+
 }
