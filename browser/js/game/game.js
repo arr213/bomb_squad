@@ -2,16 +2,30 @@ app.config(function ($stateProvider) {
 
     $stateProvider.state('game', {
         url: '/game/:gameKey',
-        templateUrl: 'js/game/game.html',
+        templateUrl: '/js/game/game.html',
         controller: 'GameCtrl'
     });
 
 });
 
 app.controller('GameCtrl', function($scope, $stateParams){
-
+  $scope.currentStage = 0;
   var rootRef = firebase.database().ref('/game');
   $scope.currentGame = rootRef.child($stateParams.gameKey);
+
+  $scope.currentGame.child('stages').once('value', function(snap) {
+      $scope.stages = snap.val();
+      $scope.currentModule = $scope.stages[$scope.currentStage].modules;
+      $scope.$evalAsync();
+        console.log('stageeeeeeeeees',$scope.stages);
+  });
+
+
+  $scope.currentGame.child('currentStage').on('value', function(snap){
+    $scope.currentStage = snap.val();
+  });
+
+  console.log($scope.currentModule);
 
   $scope.loggedInUserId = 1;
 
@@ -21,12 +35,9 @@ app.controller('GameCtrl', function($scope, $stateParams){
   $scope.squadName = 'the squad';
 
   // console.log('plz work', $scope.error)
-
-
   $scope.currentGame.on('value', function(snapshot) {
     $scope.strikes = snapshot.val().strikes;
-    console.log('this is scope.strikes', $scope.strikes);
-    $scope.$digest();
+    $scope.$evalAsync();
   });
 
   $scope.gamePlaying = null;
@@ -36,7 +47,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
       if (!$scope.gamePlaying) {
         $scope.gamePlaying = true;
         $scope.startGame();
-        $scope.$digest();
+        $scope.$evalAsync();
       } else {
         return;
       }
@@ -76,7 +87,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
           }
 
           $scope.timerNum = (((ms / 1000 / 60) << 0) + ':' + seconds());
-          $scope.$digest();
+          $scope.$evalAsync();
       }, 500);
 
   }

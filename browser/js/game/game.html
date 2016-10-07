@@ -1,10 +1,13 @@
 <header id="header-3" class="soft-scroll header-3">
     <div class="container">
         <game-header></game-header>
+
         <div class="main-content">
-        <!-- <manual></manual> -->
-        <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
-        <wires ng-show="gamePlaying"></wires>
+            <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
+            <div ng-repeat="stage in stages">
+                <stage ng-show="currentStage === stages.indexOf(stage)" stage="stage"></stage>
+            </div>
         </div>
+
     </div>
 </header>

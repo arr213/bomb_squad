@@ -1,0 +1,10 @@
+<h1>HEY STAGE</h1>
+<div ng-repeat="module in modules">
+    <module ng-if="module.userAssigned === userId" module="module"></module>
+</div>
+
+<div ng-repeat="manual in manuals">
+    <manual ng-if="module.userAssigned === userId" manual="{{ manual }}"></manual>
+</div>
+
+<!-- <chat></chat> -->

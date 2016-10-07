@@ -2,6 +2,9 @@ app.directive('manual', function () {
 
     return {
         restrict: 'E',
+        scope: {
+            manual: '='
+        },
         templateUrl: 'js/common/directives/manual/manual.html',
         controller: 'ManualController'
     };
