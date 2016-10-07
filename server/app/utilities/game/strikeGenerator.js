@@ -4,7 +4,8 @@ module.exports = strikeGenerator;
 
 strikeGenerator.generate = function(game) {
 	if (game.strikeLimit > 3) game.strikeLimit = 3;
-    game.strikes = _.times(game.strikeLimit, function() {
+    const strikes = _.times(game.strikeLimit, function() {
         return { active: false };
     })
+    return strikes;
 }
