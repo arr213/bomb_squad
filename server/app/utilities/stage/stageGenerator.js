@@ -1,16 +1,18 @@
-// const stageGenerator = {};
-// module.exports = stageGenerator;
-// const batteryGenerator = require('./batteryGenerator');
+const stageGenerator = {};
+module.exports = stageGenerator;
+const moduleGenerator = require('../module/moduleGenerator');
+const manualGenerator = require('../manual/manualGenerator');
 
 
-// stageGenerator.generate = function(game) {
+stageGenerator.generate = function(game) {
 
-//     if (game.mode === 'standard')
-//     const stages = [];
-//     for (let i = 0; i < game.numModules; i++){
-//         moduleGenerator.generate();
-//     }
-
-//     stageGenerator.generate(game); // Add generated stages to the game object.
-//     return game;
-// }
+    const stages = [];
+    if (game.mode === 'standard') {
+        for (let i = 0; i < game.numModules; i++) {
+            stages[i] = {};
+            stages[i].modules = [moduleGenerator.generate(game)];
+            stages[i].manuals = [manualGenerator.generate()];
+        }
+    }
+    return stages;
+}

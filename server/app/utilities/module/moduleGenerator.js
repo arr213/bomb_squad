@@ -4,7 +4,6 @@ const moduleGenerator = {};
 module.exports = moduleGenerator;
 const wireGenerator = require('../mod-1-wires/wireGenerator');
 
-
 const modTypes = [{
     type: 'wires',
     generate: wireGenerator.generate
@@ -19,16 +18,12 @@ function objectifyMod(modType, game) {
         timeStarted: 0,
         timeCompleted: 0
     };
-    modType.generate(game, modObj);
+    modObj.content = modType.generate(game, modObj);
     return modObj;
 }
 
 moduleGenerator.generate = function(game) {
-    const moduleTypes = _.times(game.numModules, () => _.sample(modTypes));
-    const modArray = moduleTypes.map(function(modType) {
-        return objectifyMod(modType, game)
-    });
-    game.modules = modArray;
+    return objectifyMod(_.sample(modTypes), game);
 }
 
 // var testObj = {numModules: 4};

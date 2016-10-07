@@ -17,9 +17,12 @@ gameGenerator.generate = function(numModules, time, mode, strikeLimit) {
         gameStarted: false,
         readyUp: 0
     };
-    strikeGenerator.generate(game); // Add generated strikes to the game object.
-    gamePassGenerator.generate(game); // Add generated gamepass to the game object.
-    batteryGenerator.generate(game); // Add generated batteries to the game object.
-    stageGenerator.generate(game); // Add generated stages to the game object.
+    game.gamePass = gamePassGenerator.generate(); // Add generated gamepass to the game object.
+    game.batteries = batteryGenerator.generate(); // Add generated batteries to the game object.
+    game.strikes = strikeGenerator.generate(game); // Add generated strikes to the game object.
+    game.stages = stageGenerator.generate(game); // Add generated stages to the game object.
     return game;
 }
+
+
+console.log(gameGenerator.generate());

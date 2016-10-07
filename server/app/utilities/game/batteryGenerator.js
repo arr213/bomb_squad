@@ -4,14 +4,13 @@ module.exports = batteryGenerator;
 
 const batteryColors = ['yellow', 'green', 'black']
 
-batteryGenerator.generate = function(game) {
+batteryGenerator.generate = function() {
     const batteries = [];
     let numBatteries = _.random(3, 8);
     for (let i = 0; i < numBatteries; i++) {
         batteries.push({ userAssigned: i % 4, color: _.sample(batteryColors) });
     }
-
-    game.batteries = batteries;
+    return batteries;
 }
 
 // var testObj = {};

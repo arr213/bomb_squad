@@ -1,8 +1,11 @@
 // manualOptions.js
+const manualOptions = {};
+module.exports = manualOptions;
 
-const wireManual = {
+manualOptions.wires = {
     moduleType: 'wires',
-    heading: 'On the Subject of Wires',
+    usersAssigned: [],
+    heading: 'wires',
     content: `Wires are the lifeblood of electronics! Wait, no, electricity is the lifeblood.
 Wires are more like the arteries. The veins? No matter…
 A wire module can have 3-6 wires on it.
