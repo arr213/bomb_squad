@@ -26,7 +26,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
   $scope.currentGame.on('value', function(snapshot) {
     $scope.strikes = snapshot.val().strikes;
     console.log('this is scope.strikes', $scope.strikes);
-    $scope.$digest();
+    $scope.$evalAsync();
   });
 
   $scope.gamePlaying = null;
@@ -36,7 +36,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
       if (!$scope.gamePlaying) {
         $scope.gamePlaying = true;
         $scope.startGame();
-        $scope.$digest();
+        $scope.$evalAsync();
       } else {
         return;
       }
@@ -76,7 +76,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
           }
 
           $scope.timerNum = (((ms / 1000 / 60) << 0) + ':' + seconds());
-          $scope.$digest();
+          $scope.$evalAsync();
       }, 500);
 
   }

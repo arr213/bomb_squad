@@ -8,7 +8,7 @@ app.directive('symbols', function () {
 
 });
 
-app.controller('SymbolsCtrl', function ($scope, $firebaseObject) {
+app.controller('SymbolsCtrl', function ($scope, StrikeFactory) {
 
   $scope.symbols = [{
     id: 10,
@@ -45,10 +45,12 @@ app.controller('SymbolsCtrl', function ($scope, $firebaseObject) {
         symbol.pressed = true;
       } else {
         alert('you messed up');
+        StrikeFactory.strike($scope.strikes, $scope.currentGame);
       }
     }
-  }
+  };
 
   $scope.correctPressCount = 1;
+
 
 });

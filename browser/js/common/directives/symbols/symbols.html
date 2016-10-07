@@ -7,6 +7,6 @@
 
 <div class="symbolic">
     <div ng-repeat="symbol in symbols">
-        <button class='symbol-button' ng-class="pressed: btn-disabled" ng-click='buttonPress(symbol)'>{{symbol.unicode}}</button>
+        <button class='symbol-button' ng-class="{'btn-disabled' : symbol.pressed}" ng-click='buttonPress(symbol)'>{{symbol.unicode}}</button>
     </div>
 </div>
