@@ -8,6 +8,11 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('GameoverCtrl', function ($scope){
+app.controller('GameoverCtrl', function ($scope, $state){
+
+    $scope.playAgain = function(){
+        console.log('pushed!')
+        $state.go('home');
+    }
 
 });

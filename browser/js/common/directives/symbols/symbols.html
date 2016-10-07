@@ -1,12 +1,21 @@
 <!--<div class="col-xs-12">
     <div class="symbolic" ng-repeat="symbol in symbols">
         <!--<div></div>-->
-        <!--<button class='symbol-button'>{{symbol.unicode}}</button>
+<!--<button class='symbol-button'>{{symbol.unicode}}</button>
     </div>
 </div>-->
 
-<div class="symbolic">
-    <div ng-repeat="symbol in symbols">
-        <button class='symbol-button' ng-class="{'btn-disabled' : symbol.pressed}" ng-click='buttonPress(symbol)'>{{symbol.unicode}}</button>
+
+
+<div class="col-xs-12">
+    <div>
+        <div class="wires-background">
+                <div class="symbolic">
+                    <div ng-repeat="symbol in symbols">
+                        <button class='symbol-button' ng-class="{'btn-disabled' : symbol.pressed}" ng-click='buttonPress(symbol)'>{{symbol.unicode}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
