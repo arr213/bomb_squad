@@ -13,30 +13,35 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObject, $firebaseArray, user, $state){
+app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObject, $firebaseArray, $log, user, $state, StagingFactory){
 
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
     gameRef.once('value', function(snap){
         $scope.gamePass = snap.val().gamePass;
-        $scope.$evalAsync();
+        $scope.$digest();
     });
 
     gameRef.child('users').on('value', function(snap){
+        console.log(snap.val());
         $scope.userCount = snap.val().length;
         $scope.usersJoined = snap.val();
-        $http.get('/api/members/name/'+$scope.usersJoined[$scope.userCount-1])
-        .then(function(joiningUser){
-            if($scope.usernames) $scope.usernames.push(joiningUser.data)
-            else $scope.usernames = [joiningUser.data];
-        })
-        $scope.$evalAsync();
+       // console.log(snap.val()[$scope.usersJoined-1]);
+        // $http.get('/api/members/name/'+String(snap.val[$scope.usersJoined]))
+        // .then(function(gettingName){
+        //     if($scope.usernames){
+        //         $scope.usernames.push(gettingName.data)
+        //     } else {
+        //         $scope.usernames = [gettingName.data];
+        //     }
+        // });
+        $scope.$digest();
     });
 
 
     gameRef.child('readyUp').on('value', function(snap){
         $scope.readyArray = snap.val();
-        $scope.$evalAsync();
+        $scope.$digest();
         var key = $stateParams.gameKey
         console.log('readyArray: ', $scope.readyArray);
     });
@@ -64,7 +69,12 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObj
 
     gameRef.child('readyUp').on('value', function(snap){
         if(snap.val()===$scope.userCount){
-            $state.go('game', {gameKey: $stateParams.gameKey});
+            StagingFactory.updateGame($stateParams.gameKey)
+            .then(function(updatedGame) {
+                $state.go('game', {gameKey: $stateParams.gameKey});
+            })
+            .catch($log.error);
+
         }
     });
 

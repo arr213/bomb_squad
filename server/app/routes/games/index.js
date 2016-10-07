@@ -52,5 +52,5 @@ router.put('/startGame/:gameKey', function(req, res, next) {
         return gameDB.child(gameKey).set(thisGame);
     })
     .then(updatedGame => res.send(updatedGame))
-    .catch(next);
+    .catch(updatedGame => res.send(updatedGame));
 });

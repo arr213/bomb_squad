@@ -65,7 +65,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
         $scope.currentGame.update({ startTime: Date.now() });
       }
 
-      $scope.timerNum = '5:00';
+      $scope.timerNum = '';
 
       $scope.currentGame.on('value', function(snapshot) {
           $scope.startTime = snapshot.val().startTime;
