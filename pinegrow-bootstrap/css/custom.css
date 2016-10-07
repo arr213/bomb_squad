@@ -1,6 +1,8 @@
 /* Put your custom styles here */
 
-/*html, */
+html {
+  height: 100%;
+}
 
 body {
     height: 100%;
@@ -264,7 +266,6 @@ chat-container {
 }
 
 .startbtn {
-  background-color: red;
   height: 50px;
   width: 200px;
   display: inline-block;
@@ -331,9 +332,16 @@ chat-container {
   width: 100%;
 }
 
+.lobby-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-wrap: wrap;
+  padding-top: 30%;
+  background-color: #FF534F;
+}
 
-
-
-
-
-
+.stagingArea {
+  height: 100%;
+}

@@ -13,7 +13,7 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObject, $firebaseArray, user, $state){
+app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObject, $firebaseArray, $log, user, $state, StagingFactory){
 
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
@@ -69,7 +69,12 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObj
 
     gameRef.child('readyUp').on('value', function(snap){
         if(snap.val()===$scope.userCount){
-            $state.go('game', {gameKey: $stateParams.gameKey});
+            StagingFactory.updateGame($stateParams.gameKey)
+            .then(function(updatedGame) {
+                $state.go('game', {gameKey: $stateParams.gameKey});
+            })
+            .catch($log.error);
+
         }
     });
 

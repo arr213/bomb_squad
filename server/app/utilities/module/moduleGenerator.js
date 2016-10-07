@@ -9,11 +9,11 @@ const modTypes = [{
     generate: wireGenerator.generate
 }]
 
-function objectifyMod(modType, game) {
+function objectifyMod(modType, game, stageNum) {
     const modObj = {
         type: modType.type,
-        userAssigned: 0,
-        stageDisplayed: 0,
+        userAssigned: game.users[stageNum],
+        stageDisplayed: stageNum,
         status: 'pending',
         timeStarted: 0,
         timeCompleted: 0
@@ -22,10 +22,10 @@ function objectifyMod(modType, game) {
     return modObj;
 }
 
-moduleGenerator.generate = function(game) {
-    return objectifyMod(_.sample(modTypes), game);
+moduleGenerator.generate = function(game, stageNum) {
+    return objectifyMod(_.sample(modTypes), game, stageNum);
 }
 
 // var testObj = {numModules: 4};
-// moduleGenerator.generate(testObj);
-// console.log(testObj)
+// var thisMod = moduleGenerator.generate(testObj);
+// console.log(thisMod);

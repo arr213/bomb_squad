@@ -2,21 +2,30 @@ app.config(function ($stateProvider) {
 
     $stateProvider.state('game', {
         url: '/game/:gameKey',
-        templateUrl: 'js/game/game.html',
-        controller: 'GameCtrl',
-        // resolve: {
-        //   user: function(AuthService){
-        //    return AuthService.getLoggedInUser();
-        //   }
-        // }
+        templateUrl: '/js/game/game.html',
+        controller: 'GameCtrl'
     });
 
 });
 
 app.controller('GameCtrl', function($scope, $stateParams){
-
+  $scope.currentStage = 0;
   var rootRef = firebase.database().ref('/game');
   $scope.currentGame = rootRef.child($stateParams.gameKey);
+
+  $scope.currentGame.child('stages').once('value', function(snap) {
+      $scope.stages = snap.val();
+      $scope.currentModule = $scope.stages[$scope.currentStage].modules;
+      $scope.$evalAsync();
+        console.log('stageeeeeeeeees',$scope.stages);
+  });
+
+
+  $scope.currentGame.child('currentStage').on('value', function(snap){
+    $scope.currentStage = snap.val();
+  });
+
+  console.log($scope.currentModule);
 
   $scope.loggedInUserId = 1;
 
@@ -26,12 +35,12 @@ app.controller('GameCtrl', function($scope, $stateParams){
   $scope.squadName = 'the squad';
 
   // console.log('plz work', $scope.error)
-
-
   $scope.currentGame.on('value', function(snapshot) {
     $scope.strikes = snapshot.val().strikes;
-    console.log('this is scope.strikes', $scope.strikes);
-    $scope.$digest();
+    if($scope.strikes[2]['active']){
+        $state.go('gameover');
+    }
+    $scope.$evalAsync();
   });
 
   $scope.gamePlaying = null;
@@ -41,7 +50,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
       if (!$scope.gamePlaying) {
         $scope.gamePlaying = true;
         $scope.startGame();
-        $scope.$digest();
+        $scope.$evalAsync();
       } else {
         return;
       }
@@ -56,7 +65,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
         $scope.currentGame.update({ startTime: Date.now() });
       }
 
-      $scope.timerNum = '5:00';
+      $scope.timerNum = '';
 
       $scope.currentGame.on('value', function(snapshot) {
           $scope.startTime = snapshot.val().startTime;
@@ -66,6 +75,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
       setInterval(function() {
         if ($scope.timerNum === '0:00') {
             console.log('YOU EXPLODED!!!!');
+            $state.go('gameover');
             return;
         }
 
@@ -81,7 +91,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
           }
 
           $scope.timerNum = (((ms / 1000 / 60) << 0) + ':' + seconds());
-          $scope.$digest();
+          $scope.$evalAsync();
       }, 500);
 
   }

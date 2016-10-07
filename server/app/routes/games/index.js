@@ -4,29 +4,25 @@ const _ = require('lodash');
 const firebase = require('firebase');
 const firebaseDB = require('../../../firebase');
 const gameDB = firebaseDB.ref().child('game');
-const gameGen = require('../../utilities/game/gameGenerator.js');
+const gameGenerator = require('../../utilities/game/gameGenerator.js');
 
 router.post('/createGame', function(req,res){
-    console.log(req.user.id);
+
     let user = String(req.user.id) || 'user';
-    let newGame = gameGen.generate();
+    let newGame = gameGenerator.generate();
     newGame.users = [user];
-    console.log("hitting route!!!!!---------------");
+
     let gameKey = gameDB.push(newGame);
     gameKey.once('value', function(snap){
-        console.log(snap.val());
         res.send(snap.key);
     })
 });
 
 router.put('/joinGame', function(req,res){
     let user = String(req.user.id) || 'user';
-    console.log(req.body);
     let gamePass = String(req.body.gamePass) || 'gamePass';
-    console.log("hitting route!!!!!---------------");
     gameDB.orderByChild('gamePass').equalTo(gamePass).once("value",function(snap){
         if(!snap.val()){
-            console.log("Not found");
             res.sendStatus(404);
         } else {
             let key = Object.keys(snap.val())[0];
@@ -44,4 +40,17 @@ router.put('/joinGame', function(req,res){
             }) //async so use then...
         }
     });
+});
+
+router.put('/startGame/:gameKey', function(req, res, next) {
+    let gameKey = req.params.gameKey;
+
+    gameDB.child(gameKey).once('value', function(snap) {
+        let thisGame = snap.val();
+        gameGenerator.update(thisGame);
+        console.log('thisGame', thisGame)
+        return gameDB.child(gameKey).set(thisGame);
+    })
+    .then(updatedGame => res.send(updatedGame))
+    .catch(updatedGame => res.send(updatedGame));
 });
