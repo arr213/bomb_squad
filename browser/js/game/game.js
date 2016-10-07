@@ -3,7 +3,12 @@ app.config(function ($stateProvider) {
     $stateProvider.state('game', {
         url: '/game/:gameKey',
         templateUrl: 'js/game/game.html',
-        controller: 'GameCtrl'
+        controller: 'GameCtrl',
+        // resolve: {
+        //   user: function(AuthService){
+        //    return AuthService.getLoggedInUser();
+        //   }
+        // }
     });
 
 });
