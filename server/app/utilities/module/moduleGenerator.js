@@ -27,5 +27,5 @@ moduleGenerator.generate = function(game) {
 }
 
 // var testObj = {numModules: 4};
-// moduleGenerator.generate(testObj);
-// console.log(testObj)
+// var thisMod = moduleGenerator.generate(testObj);
+// console.log(thisMod);
