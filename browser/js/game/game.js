@@ -20,9 +20,12 @@ app.controller('GameCtrl', function($scope, $stateParams){
 
   $scope.squadName = 'the squad';
 
+  // console.log('plz work', $scope.error)
+
+
   $scope.currentGame.on('value', function(snapshot) {
     $scope.strikes = snapshot.val().strikes;
-    console.log($scope.strikes);
+    console.log('this is scope.strikes', $scope.strikes);
     $scope.$digest();
   });
 

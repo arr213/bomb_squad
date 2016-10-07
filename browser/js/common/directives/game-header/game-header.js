@@ -37,7 +37,4 @@ app.directive('gameHeader', function(){
 
   // $scope.squadName = 'the squad';
 
-
-
-
 // });
