@@ -6,11 +6,11 @@ app.directive('stage', function() {
             stage: '='
         },
         templateUrl: 'js/common/directives/stage/stage.html',
-        controller: 'StageCtrl'
+        link: function(scope, elements, attr) {
+            console.log('!!!!', scope.stage)
+            scope.modules = scope.stage.modules;
+        }
     };
 
 });
 
-app.controller('StageCtrl', function($scope) {
-
-});
