@@ -23,10 +23,8 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObj
     });
 
     gameRef.child('users').on('value', function(snap){
-        console.log(snap.val());
         $scope.userCount = snap.val().length;
         $scope.usersJoined = snap.val();
-        console.log(snap.val()[$scope.userCount-1]);
         $http.get('/api/members/name/'+$scope.usersJoined[$scope.userCount-1])
         .then(function(joiningUser){
             if($scope.usernames) $scope.usernames.push(joiningUser.data)
