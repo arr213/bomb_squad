@@ -4,7 +4,10 @@
         <div class="main-content">
         <!-- <manual></manual> -->
         <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
-        <wires ng-show="gamePlaying"></wires>
+        <div ng-repeat="stage in stages">
+            <stage currentStage="{{ stage }}"></stage>
+        </div>
+        <!-- <wires ng-show="gamePlaying"></wires> -->
         </div>
     </div>
 </header>
