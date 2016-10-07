@@ -19,29 +19,24 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObj
 
     gameRef.once('value', function(snap){
         $scope.gamePass = snap.val().gamePass;
-        $scope.$digest();
+        $scope.$evalAsync();
     });
 
     gameRef.child('users').on('value', function(snap){
-        console.log(snap.val());
         $scope.userCount = snap.val().length;
         $scope.usersJoined = snap.val();
-       // console.log(snap.val()[$scope.usersJoined-1]);
-        // $http.get('/api/members/name/'+String(snap.val[$scope.usersJoined]))
-        // .then(function(gettingName){
-        //     if($scope.usernames){
-        //         $scope.usernames.push(gettingName.data)
-        //     } else {
-        //         $scope.usernames = [gettingName.data];
-        //     }
-        // });
-        $scope.$digest();
+        $http.get('/api/members/name/'+$scope.usersJoined[$scope.userCount-1])
+        .then(function(joiningUser){
+            if($scope.usernames) $scope.usernames.push(joiningUser.data)
+            else $scope.usernames = [joiningUser.data];
+        })
+        $scope.$evalAsync();
     });
 
 
     gameRef.child('readyUp').on('value', function(snap){
         $scope.readyArray = snap.val();
-        $scope.$digest();
+        $scope.$evalAsync();
         var key = $stateParams.gameKey
         console.log('readyArray: ', $scope.readyArray);
     });

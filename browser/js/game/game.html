@@ -6,8 +6,8 @@
             <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
             <div ng-repeat="stage in stages">
                 <stage ng-show="currentStage === stages.indexOf(stage)" stage="stage"></stage>
+                 <symbols></symbols>
             </div>
         </div>
-
     </div>
 </header>
