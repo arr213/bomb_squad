@@ -18,16 +18,8 @@ app.controller('WiresCtrl', function($scope, StrikeFactory) {
         if (wire.solution === true) {
             console.log('YOU WIN!!');
         } else {
-            console.log('it is a strike!');
-
-            $scope.currentGame.on('value', function(snapshot) {
-                $scope.strikes = snapshot.val().strikes;
-                $scope.$evalAsync();
-            });
-
             // console.log('this is a strike in wires & means its working', $scope.strikes[0].active);
             StrikeFactory.strike($scope.strikes, $scope.currentGame);
-
         }
     };
 
@@ -36,3 +28,4 @@ app.controller('WiresCtrl', function($scope, StrikeFactory) {
     };
 
 });
+

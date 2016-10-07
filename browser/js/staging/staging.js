@@ -26,15 +26,12 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObj
         console.log(snap.val());
         $scope.userCount = snap.val().length;
         $scope.usersJoined = snap.val();
-       // console.log(snap.val()[$scope.usersJoined-1]);
-        // $http.get('/api/members/name/'+String(snap.val[$scope.usersJoined]))
-        // .then(function(gettingName){
-        //     if($scope.usernames){
-        //         $scope.usernames.push(gettingName.data)
-        //     } else {
-        //         $scope.usernames = [gettingName.data];
-        //     }
-        // });
+        console.log(snap.val()[$scope.userCount-1]);
+        $http.get('/api/members/name/'+$scope.usersJoined[$scope.userCount-1])
+        .then(function(joiningUser){
+            if($scope.usernames) $scope.usernames.push(joiningUser.data)
+            else $scope.usernames = [joiningUser.data];
+        })
         $scope.$evalAsync();
     });
 

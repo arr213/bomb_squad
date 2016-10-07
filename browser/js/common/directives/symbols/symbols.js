@@ -36,15 +36,17 @@ app.controller('SymbolsCtrl', function ($scope, StrikeFactory) {
     pressed: false
   }];
 
-  $scope.active = true;
+  $scope.currentGame.once('value', function(snap){
+    $scope.strikes = snap.val().strikes;
+    console.log($scope.strikes);
+  })
 
   $scope.buttonPress = function (symbol) {
-    if (!symbol.pressed && $scope.active) {
+    if (!symbol.pressed) {
       if (symbol.pressOrder === $scope.correctPressCount) {
         $scope.correctPressCount++;
         symbol.pressed = true;
       } else {
-        alert('you messed up');
         StrikeFactory.strike($scope.strikes, $scope.currentGame);
       }
     }
