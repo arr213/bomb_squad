@@ -246,21 +246,6 @@ h2 {
 }
 
 
-/*.chat-background {
-    margin-top: 220px;
-    background-color: #ececec;
-    height: 150%;
-    width: 315px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-chat-container {
-
-}*/
-
-
 .timer {
     color: black;
 }
@@ -344,4 +329,9 @@ chat-container {
 
 .stagingArea {
   height: 100%;
+}
+
+button.submit-chat {
+  background-color: blue;
+  width: 40px;
 }
