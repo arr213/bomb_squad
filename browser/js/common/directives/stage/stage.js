@@ -6,10 +6,10 @@ app.directive('stage', function() {
             stage: '='
         },
         templateUrl: 'js/common/directives/stage/stage.html',
-        link: function(scope, elements, attr) {
-            console.log('!!!!', scope.stage)
-            scope.modules = scope.stage.modules;
-        }
+        // link: function(scope, elements, attr) {
+        //     // console.log('!!!!', scope.stage)
+        //     // scope.modules = scope.stage.modules;
+        // }
     };
 
 });

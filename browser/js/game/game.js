@@ -9,23 +9,28 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('GameCtrl', function($scope, $stateParams){
+  // console.log('Setting the currentStage now.');
   $scope.currentStage = 0;
   var rootRef = firebase.database().ref('/game');
   $scope.currentGame = rootRef.child($stateParams.gameKey);
 
+
   $scope.currentGame.child('stages').once('value', function(snap) {
       $scope.stages = snap.val();
-      $scope.currentModule = $scope.stages[$scope.currentStage].modules;
+      // console.log('The stages are: ', $scope.stages);
+      // console.log('The currentStage is: ', $scope.currentStage);
+      $scope.currentModule = $scope.stages[$scope.currentStage].modules[0];
+      // console.log('This module is ', $scope.currentModule); 
       $scope.$evalAsync();
-        console.log('stageeeeeeeeees',$scope.stages);
   });
 
 
   $scope.currentGame.child('currentStage').on('value', function(snap){
     $scope.currentStage = snap.val();
+    // console.log('the currentStage has been set to: ', $scope.currentStage);
   });
 
-  console.log($scope.currentModule);
+  // console.log($scope.currentModule);
 
   $scope.loggedInUserId = 1;
 
