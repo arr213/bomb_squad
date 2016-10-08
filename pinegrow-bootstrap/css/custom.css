@@ -245,6 +245,22 @@ h2 {
     justify-content: center;
 }
 
+
+/*.chat-background {
+    margin-top: 220px;
+    background-color: #ececec;
+    height: 150%;
+    width: 315px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+chat-container {
+
+}*/
+
+
 .timer {
     color: black;
 }
@@ -255,6 +271,65 @@ h2 {
   display: inline-block;
   border-radius: 50px;
 
+}
+
+/****************************************/
+/****************************************/
+/************CRAZY CHAT STYLEZZZZ********/
+/****************************************/
+/****************************************/
+
+.chat-background {
+    margin-top: 220px;
+    background-color: #ececec;
+    height: 150%;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#messages {
+  background-color: white;
+  height: 75%;
+  width: 90%;
+/*  align-self: flex-start;*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+/*  -webkit-align-items: flex-end;
+  align-items: flex-end;*/
+}
+
+.txt-box {
+  background-color: white;
+  height: 40px;
+  width: 95%;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+/*  -webkit-flex-direction: row;
+  flex-direction: row;*/
+/*  align-items: center;*/
+}
+
+.msg {
+  margin-left: auto;
+  padding-right: 10px;
+}
+
+#send-message {
+  margin-top: 20px;
+  background-color: white;
+  width: 90%;
+  height: 10%;
+  display: inline-flex;
+}
+
+.msg-input {
+  width: 100%;
 }
 
 .lobby-container {
