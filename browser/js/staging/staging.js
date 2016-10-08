@@ -19,7 +19,7 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObj
 
     gameRef.once('value', function(snap){
         $scope.gamePass = snap.val().gamePass;
-        $scope.$digest();
+        $scope.$evalAsync();
     });
 
     gameRef.child('users').on('value', function(snap){
@@ -35,13 +35,13 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObj
         //         $scope.usernames = [gettingName.data];
         //     }
         // });
-        $scope.$digest();
+        $scope.$evalAsync();
     });
 
 
     gameRef.child('readyUp').on('value', function(snap){
         $scope.readyArray = snap.val();
-        $scope.$digest();
+        $scope.$evalAsync();
         var key = $stateParams.gameKey
         // console.log('readyArray: ', $scope.readyArray);
     });

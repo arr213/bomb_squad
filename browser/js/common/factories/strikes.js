@@ -26,10 +26,7 @@ app.factory('StrikeFactory', function() {
         
         console.log(strikeCount);
 
-        if (strikeCount[strikeCount.length - 1].active) {
-            console.log('GAME OVER');
-            console.log('YOU EXPLODED!');
-        }
+       
     }
 
     return StrikeFactory;
