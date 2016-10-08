@@ -26,6 +26,7 @@ gameGenerator.update = function(gameObj) {
     if (game.mode === 'standard') {
         game.numModules = game.users.length;
         game.timeLimit = 75000 * game.users.length;
+        game.currentStage = 0;
     }
     game.batteries = batteryGenerator.generate(game); // Add generated batteries to the game object.
     game.strikes = strikeGenerator.generate(game); // Add generated strikes to the game object.
