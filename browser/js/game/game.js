@@ -8,7 +8,7 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('GameCtrl', function($scope, $stateParams){
+app.controller('GameCtrl', function($scope, $stateParams, $state){
   // console.log('Setting the currentStage now.');
   $scope.currentStage = 0;
   var rootRef = firebase.database().ref('/game');
@@ -43,6 +43,7 @@ app.controller('GameCtrl', function($scope, $stateParams){
   $scope.currentGame.on('value', function(snapshot) {
     $scope.strikes = snapshot.val().strikes;
     if($scope.strikes[2]['active']){
+        $scope.currentGame = null;
         $state.go('gameover');
     }
     $scope.$evalAsync();
@@ -77,9 +78,10 @@ app.controller('GameCtrl', function($scope, $stateParams){
           $scope.timeLimit = snapshot.val().timeLimit;
       });
 
-      setInterval(function() {
+      var interval = setInterval(function() {
         if ($scope.timerNum === '0:00') {
             console.log('YOU EXPLODED!!!!');
+            clearInterval(interval);
             $state.go('gameover');
             return;
         }
