@@ -38,7 +38,7 @@ app.controller('SymbolsCtrl', function ($scope, StrikeFactory) {
 
   $scope.currentGame.once('value', function(snap){
     $scope.strikes = snap.val().strikes;
-    console.log($scope.strikes);
+    // console.log($scope.strikes);
   })
 
   $scope.buttonPress = function (symbol) {

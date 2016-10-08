@@ -6,8 +6,8 @@ app.factory('StrikeFactory', function() {
 
         // console.log('Pre-angular copy', strikeCount);
 
-        console.log(strikeCount);
-        console.log(game);
+        // console.log(strikeCount);
+        // console.log(game);
         strikeCount = angular.copy(strikeCount);
 
         // console.log('Post Angular Copy', strikeCount);
@@ -16,7 +16,7 @@ app.factory('StrikeFactory', function() {
             if (!strikeCount[i].active) {
                 //set that value in firebase to true
                 strikeCount[i].active = true;
-                console.log(game);
+                // console.log(game);
                 game.set({ strikes: strikeCount });
                 break;
             }

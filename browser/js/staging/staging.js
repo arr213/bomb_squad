@@ -23,7 +23,7 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObj
     });
 
     gameRef.child('users').on('value', function(snap){
-        console.log(snap.val());
+        // console.log(snap.val());
         $scope.userCount = snap.val().length;
         $scope.usersJoined = snap.val();
        // console.log(snap.val()[$scope.usersJoined-1]);
@@ -43,7 +43,7 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObj
         $scope.readyArray = snap.val();
         $scope.$digest();
         var key = $stateParams.gameKey
-        console.log('readyArray: ', $scope.readyArray);
+        // console.log('readyArray: ', $scope.readyArray);
     });
 
     let clickedReady = false;
