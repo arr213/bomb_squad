@@ -8,7 +8,7 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('GameCtrl', function($scope, $stateParams){
+app.controller('GameCtrl', function($scope, $stateParams, $state){
   // console.log('Setting the currentStage now.');
   $scope.currentStage = 0;
   var rootRef = firebase.database().ref('/game');
