@@ -3,23 +3,34 @@ app.directive('wires', function() {
     return {
         restrict: 'E',
         templateUrl: 'js/common/directives/wires/wires.html',
+        scope: {
+            module: '='
+        },
         controller: 'WiresCtrl'
     };
 
 });
 
-app.controller('WiresCtrl', function($scope, StrikeFactory) {
+app.controller('WiresCtrl', function($scope, StrikeFactory, $http, $stateParams, $firebaseObject, $firebaseArray) {
 
-    $scope.currentGame.child('modules').once('value', function(snap) {
-        $scope.wires = snap.val()[0].content;
+    let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
+
+    gameRef.once('value', function(snap) {
+        $scope.currentGame = snap.val();
+        $scope.strikes = $scope.currentGame.strikes;
+        $scope.$evalAsync();
     });
+
+    console.log('THE CURRENT GAME IS IS: ', $scope.currentGame);
+    $scope.wires = $scope.module.content;
+    $scope.strikes = $scope.currentGame.strikes;
 
     $scope.submit = function(wire) {
         if (wire.solution === true) {
             console.log('YOU WIN!!');
         } else {
-            // console.log('this is a strike in wires & means its working', $scope.strikes[0].active);
-            StrikeFactory.strike($scope.strikes, $scope.currentGame);
+            console.log('this is a strike in wires & means its working', $scope.strikes);
+            StrikeFactory.strike($scope.strikes, gameRef);
         }
     };
 
@@ -28,4 +39,3 @@ app.controller('WiresCtrl', function($scope, StrikeFactory) {
     };
 
 });
-

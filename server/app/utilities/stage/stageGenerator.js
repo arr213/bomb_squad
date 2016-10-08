@@ -10,8 +10,8 @@ stageGenerator.generate = function(game) {
     if (game.mode === 'standard') {
         for (let i = 0; i < game.numModules; i++) {
             stages[i] = {};
-            stages[i].modules = [moduleGenerator.generate(game, i + 1)];
-            stages[i].manuals = [manualGenerator.generate(game, i + 1)];
+            stages[i].modules = [moduleGenerator.generate(game, i)];
+            stages[i].manuals = [manualGenerator.generate(game, i)];
         }
     }
     return stages;
