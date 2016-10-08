@@ -2,6 +2,10 @@
     <div class="container">
         <game-header></game-header>
         <div class="main-content">
+        <!-- <manual></manual> -->
+        <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
+      <!--   <wires ng-show="gamePlaying"></wires> -->
+        <chat></chat>
             <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
             <div ng-repeat="stage in stages">
                 <stage ng-show="currentStage === stages.indexOf(stage)" stage="stage"></stage>
