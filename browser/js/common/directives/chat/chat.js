@@ -23,7 +23,7 @@ app.controller('ChatCtrl', function($scope, AuthService){
       })
 
 
-  console.log('username in controller', $scope.username)
+  // console.log('username in controller', $scope.username)
 
    $scope.messages = [];
 
@@ -35,7 +35,7 @@ app.controller('ChatCtrl', function($scope, AuthService){
 
   $scope.submit = function(chatMsg){
     chatMsg = angular.copy(chatMsg);
-    console.log('chat message', chatMsg);
+    // console.log('chat message', chatMsg);
     chatRef.push({username: $scope.username, 'message': chatMsg })
   }
 
