@@ -12,6 +12,13 @@ stageGenerator.generate = function(game) {
             stages[i].modules = [moduleGenerator.generate(game, i)];
             stages[i].manuals = manualGenerator.generate(game);
         }
+        for (var j = 0; j < stages.length; j++) {
+            stages[j].manuals = [manualGenerator.generate(game, stages[j].modules[0].userAssigned)];
+        }
     }
+
+    // for(var i = 0; i<stages.length; i++){
+    //     console.log('user assigned! ', stages[i].manuals[0].usersAssigned);
+    // }
     return stages;
 };
