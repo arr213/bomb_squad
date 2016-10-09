@@ -12,7 +12,7 @@ app.directive('chat', function() {
 });
 
 app.controller('ChatCtrl', function($scope, AuthService){
-  var chatRef = firebase.database().ref('/chat');
+  var chatRef =  $scope.currentGame.child('chat'); //firebase.database().ref('/chat');
 
   // var username = user.username;
   // console.log('user name', username)
