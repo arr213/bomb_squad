@@ -73,7 +73,7 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state) {
             $scope.timeLimit = snapshot.val().timeLimit;
         });
 
-        var interval = setInterval(function () {
+        interval = setInterval(function () {
             if ($scope.timerNum === '0:00') {
                 console.log('YOU EXPLODED!!!!');
                 clearInterval(interval);
