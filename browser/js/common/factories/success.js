@@ -4,7 +4,9 @@ app.factory('SuccessFactory', function(){
 
     SuccessFactory.success = function(currentStage,game){
         currentStage++;
+        console.log(currentStage);
         var curStage = angular.copy(currentStage);
+        console.log(curStage);
         game.update({currentStage: curStage});
     }
 
