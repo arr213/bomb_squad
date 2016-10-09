@@ -3,7 +3,10 @@ app.directive('chat', function() {
     return {
         restrict: 'E',
         templateUrl: 'js/common/directives/chat/chat.html',
-        controller: 'ChatCtrl'
+        controller: 'ChatCtrl',
+        scope: {
+          messages: '='
+        }
         // link: function(scope){
         //   scope.username = user.username;
         //   console.log('username in link func', scope.username)
@@ -25,7 +28,7 @@ app.controller('ChatCtrl', function($scope, AuthService){
 
   // console.log('username in controller', $scope.username)
 
-   $scope.messages = [];
+   $scope.gameMessages = [];
 
   chatRef.on('child_added', function(snap){
     $scope.messages.push(snap.val())
@@ -35,7 +38,6 @@ app.controller('ChatCtrl', function($scope, AuthService){
 
   $scope.submit = function(chatMsg){
     chatMsg = angular.copy(chatMsg);
-    // console.log('chat message', chatMsg);
     chatRef.push({username: $scope.username, 'message': chatMsg })
   }
 
