@@ -32,7 +32,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state) {
     
     $scope.currentGame.child('strikes').on('value', function (snapshot) {
         $scope.strikes = snapshot.val();
-        console.log($scope.strikes);
         if ($scope.strikes[2]['active']) {
             $scope.currentGame = null;
             clearInterval(interval);
@@ -66,11 +65,14 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state) {
                 startTime: Date.now()
             });
         }
+        
         $scope.timerNum = '';
+        
         $scope.currentGame.on('value', function (snapshot) {
             $scope.startTime = snapshot.val().startTime;
             $scope.timeLimit = snapshot.val().timeLimit;
         });
+
         var interval = setInterval(function () {
             if ($scope.timerNum === '0:00') {
                 console.log('YOU EXPLODED!!!!');
