@@ -30,8 +30,6 @@ app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams
 
     $scope.submit = function (wire) {
         $scope.$evalAsync();
-        let currentStage = angular.copy($scope.currentStage);
-        console.log(currentStage);
         if (wire.solution === true) {
             console.log('YOU WIN!!');
             SuccessFactory.success($scope.currentStage, gameRef);
