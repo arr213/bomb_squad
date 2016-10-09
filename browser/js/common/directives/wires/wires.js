@@ -21,9 +21,9 @@ app.controller('WiresCtrl', function($scope, StrikeFactory, $http, $stateParams,
         $scope.$evalAsync();
     });
 
-    console.log('THE CURRENT GAME IS IS: ', $scope.currentGame);
+    console.log("This is the module content: ", $scope.module.content);
+
     $scope.wires = $scope.module.content;
-    $scope.strikes = $scope.currentGame.strikes;
 
     $scope.submit = function(wire) {
         console.log($scope.currentGame.currentStage);
