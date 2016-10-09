@@ -1,7 +1,7 @@
 app.config(function ($stateProvider) {
 
     $stateProvider.state('game', {
-        url: '/game/:gameKey',
+        url: '/game/:gameKey/:squad',
         templateUrl: '/js/game/game.html',
         controller: 'GameCtrl'
     });
@@ -9,6 +9,8 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('GameCtrl', function ($scope, $stateParams, $state) {
+
+    $scope.squadName = $stateParams.squad;
 
     let interval;
     $scope.currentStage = 0;
