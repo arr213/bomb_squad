@@ -80,7 +80,8 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
                 .then(function (updatedGame) {
                     $state.go('game', {
                         gameKey: $stateParams.gameKey,
-                        squad : $scope.squad
+                        squad : $scope.squad,
+                        userId : user.id
                     });
                 })
                 .catch($log.error);
