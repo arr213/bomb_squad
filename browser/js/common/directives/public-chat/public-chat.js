@@ -1,14 +1,15 @@
-app.directive('chat', function() {
+app.directive('publicChat', function() {
 
     return {
         restrict: 'E',
-        templateUrl: 'js/common/directives/chat/chat.html',
-        controller: 'ChatCtrl'
+        templateUrl: 'js/common/directives/public-chat/public-chat.html',
+        controller: 'PublicChatCtrl'
     };
+
 });
 
-app.controller('ChatCtrl', function($scope, AuthService){
-  var chatRef =  $scope.currentGame.child('chat'); //firebase.database().ref('/chat');
+app.controller('PublicChatCtrl', function($scope, AuthService){
+  var chatRef =  firebase.database().ref('/public-chat');
 
   // var username = user.username;
   // console.log('user name', username)
@@ -18,10 +19,7 @@ app.controller('ChatCtrl', function($scope, AuthService){
               $scope.username = user.username;
       })
 
-
-  // console.log('username in controller', $scope.username)
-
-   $scope.gameMessages = [];
+   $scope.messages = [];
 
   chatRef.on('child_added', function(snap){
     $scope.messages.push(snap.val())
@@ -31,6 +29,7 @@ app.controller('ChatCtrl', function($scope, AuthService){
 
   $scope.submit = function(chatMsg){
     chatMsg = angular.copy(chatMsg);
+    // console.log('chat message', chatMsg);
     chatRef.push({username: $scope.username, 'message': chatMsg })
   }
 

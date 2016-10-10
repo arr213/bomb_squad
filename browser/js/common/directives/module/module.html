@@ -1,4 +1,9 @@
 
 <!-- <pre>{{ module | json }}</pre> -->
-<wires ng-if="true || module.type === 'wires'" module="module"></wires>
+<div ng-if="userId === module.userAssigned">
+<wires ng-if="module.type === 'wires'" module="module"></wires>
+{{currentStage}}
+This is the user Id : {{userId}}
+Module:  {{module}}
 <symbols ng-if="module.type === 'symbols'" module="module"></symbols>
+</div>

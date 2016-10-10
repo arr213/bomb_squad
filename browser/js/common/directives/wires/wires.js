@@ -1,4 +1,4 @@
-app.directive('wires', function() {
+app.directive('wires', function () {
 
     return {
         restrict: 'E',
@@ -11,30 +11,36 @@ app.directive('wires', function() {
 
 });
 
-app.controller('WiresCtrl', function($scope, StrikeFactory, $http, $stateParams, $firebaseObject, $firebaseArray) {
+app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams, $firebaseObject, $firebaseArray, SuccessFactory) {
 
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
-    gameRef.once('value', function(snap) {
+    gameRef.on('value', function (snap) {
         $scope.currentGame = snap.val();
         $scope.strikes = $scope.currentGame.strikes;
+        $scope.currentStage = snap.val().currentStage;
+        console.log("This is the current stage ", $scope.currentStage);
         $scope.$evalAsync();
     });
 
-    console.log('THE CURRENT GAME IS IS: ', $scope.currentGame);
-    $scope.wires = $scope.module.content;
-    $scope.strikes = $scope.currentGame.strikes;
+    console.log("This is the module content: ", $scope.module.content);
 
-    $scope.submit = function(wire) {
+    $scope.wires = $scope.module.content;
+
+   
+
+    $scope.submit = function (wire) {
+        $scope.$evalAsync();
         if (wire.solution === true) {
             console.log('YOU WIN!!');
+            SuccessFactory.success($scope.currentStage, gameRef);
         } else {
             console.log('this is a strike in wires & means its working', $scope.strikes);
             StrikeFactory.strike($scope.strikes, gameRef);
         }
     };
 
-    $scope.assignColor = function(wire) {
+    $scope.assignColor = function (wire) {
         return wire.color;
     };
 

@@ -8,7 +8,16 @@ app.directive('symbols', function () {
 
 });
 
-app.controller('SymbolsCtrl', function ($scope, StrikeFactory) {
+app.controller('SymbolsCtrl', function ($scope, StrikeFactory, SuccessFactory) {
+
+  let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
+
+  gameRef.on('value', function (snap) {
+        $scope.currentGame = snap.val();
+        $scope.strikes = $scope.currentGame.strikes;
+        $scope.currentStage = snap.val().currentStage;
+        $scope.$evalAsync();
+    });
 
   $scope.symbols = [{
     id: 10,
@@ -36,16 +45,14 @@ app.controller('SymbolsCtrl', function ($scope, StrikeFactory) {
     pressed: false
   }];
 
-  $scope.currentGame.once('value', function(snap){
-    $scope.strikes = snap.val().strikes;
-    // console.log($scope.strikes);
-  })
-
   $scope.buttonPress = function (symbol) {
     if (!symbol.pressed) {
       if (symbol.pressOrder === $scope.correctPressCount) {
         $scope.correctPressCount++;
         symbol.pressed = true;
+        if($scope.correctPressCount===4){
+          SuccessFactory.success($scope.currentStage, gameRef);
+        }
       } else {
         StrikeFactory.strike($scope.strikes, $scope.currentGame);
       }

@@ -5,7 +5,7 @@ app.config(function ($stateProvider) {
         templateUrl: 'js/staging/staging.html',
         controller: 'StagingCtrl',
         resolve: {
-            user: function(AuthService) {
+            user: function (AuthService) {
                 return AuthService.getLoggedInUser();
             }
         }
@@ -13,70 +13,83 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('StagingCtrl', function($http, $scope, $stateParams, $firebaseObject, $firebaseArray, $log, user, $state, StagingFactory){
+app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user, $state, StagingFactory, $mdToast) {
 
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
-    gameRef.once('value', function(snap){
+    gameRef.once('value', function (snap) {
         $scope.gamePass = snap.val().gamePass;
         $scope.$evalAsync();
     });
 
-    gameRef.child('users').on('value', function(snap){
-        // console.log(snap.val());
+    gameRef.child('users').on('value', function (snap) {
         $scope.userCount = snap.val().length;
         $scope.usersJoined = snap.val();
-       // console.log(snap.val()[$scope.usersJoined-1]);
-        // $http.get('/api/members/name/'+String(snap.val[$scope.usersJoined]))
-        // .then(function(gettingName){
-        //     if($scope.usernames){
-        //         $scope.usernames.push(gettingName.data)
-        //     } else {
-        //         $scope.usernames = [gettingName.data];
-        //     }
-        // });
         $scope.$evalAsync();
     });
 
 
-    gameRef.child('readyUp').on('value', function(snap){
+    gameRef.child('readyUp').on('value', function (snap) {
         $scope.readyArray = snap.val();
         $scope.$evalAsync();
         var key = $stateParams.gameKey
-        // console.log('readyArray: ', $scope.readyArray);
+            // console.log('readyArray: ', $scope.readyArray);
     });
 
     let clickedReady = false;
 
-    $scope.ready = function() {
-        gameRef.child('readyUp').once('value', function(snap) {
-            if(clickedReady){
-                gameRef.update({'readyUp' : snap.val() - 1});
+    $scope.ready = function () {
+        gameRef.child('readyUp').once('value', function (snap) {
+            if (clickedReady) {
+                gameRef.update({
+                    'readyUp': snap.val() - 1
+                });
                 clickedReady = false;
             } else {
-                gameRef.update({'readyUp' : snap.val() + 1});
+                gameRef.update({
+                    'readyUp': snap.val() + 1
+                });
                 clickedReady = true;
             }
-            // if (snap.val().indexOf(user.id.toString()) !== -1) {
-            //     gameRef.child('readyUp').push(user.id);
-            //     //snap.val().$add(user.id.toString());
-            // } else {
-            //     snap.val().$remove(user.id.toString());
-            // }
         });
 
     };
 
-    gameRef.child('readyUp').on('value', function(snap){
-        if(snap.val()===$scope.userCount){
+    const showReadyCount = function (readyCount) {
+        $mdToast.show({
+            hideDelay: 1000,
+            position: 'bottom right',
+            controller: 'ToastCtrl',
+            template:
+        '<md-toast>' +
+          '<div class="md-toast-content">' +
+            readyCount+' users have clicked ready!' +
+          '</div>' +
+        '</md-toast>'
+        });
+    };
+
+    gameRef.child('readyUp').on('value', function (snap) {
+
+        let readyCount = snap.val();
+
+        showReadyCount(readyCount);
+
+        if (readyCount === $scope.userCount) {
             StagingFactory.updateGame($stateParams.gameKey)
-            .then(function(updatedGame) {
-                $state.go('game', {gameKey: $stateParams.gameKey});
-            })
-            .catch($log.error);
+                .then(function (updatedGame) {
+                    $state.go('game', {
+                        gameKey: $stateParams.gameKey,
+                        squad : $scope.squad,
+                        userId : user.id
+                    });
+                })
+                .catch($log.error);
 
         }
     });
 
-});
+   
 
+
+})
