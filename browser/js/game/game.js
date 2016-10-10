@@ -8,7 +8,7 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope) {
+app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $mdToast) {
 
     $scope.squadName = $stateParams.squad;
 
@@ -54,6 +54,18 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope) {
     
     $scope.currentGame.child('strikes').on('value', function (snapshot) {
         $scope.strikes = snapshot.val();
+        if($scope.strikes[0]['active']){
+             $mdToast.show({
+                    hideDelay: 1000,
+                    position: 'bottom right',
+                    controller: 'ToastCtrl',
+                    template: '<md-toast>' +
+                        '<div class="md-toast-content">' +
+                        "STRIKE" +
+                        '</div>' +
+                        '</md-toast>'
+        });
+        }
         if ($scope.strikes[2]['active']) {
             $scope.currentGame = null;
             clearInterval(interval);

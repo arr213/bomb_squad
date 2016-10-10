@@ -40,17 +40,17 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
 
     $scope.ready = function () {
         gameRef.child('readyUp').once('value', function (snap) {
-            if (clickedReady) {
-                gameRef.update({
-                    'readyUp': snap.val() - 1
-                });
-                clickedReady = false;
-            } else {
+            // if (clickedReady) {
+            //     gameRef.update({
+            //         'readyUp': snap.val() - 1
+            //     });
+            //     clickedReady = false;
+            // } else {
                 gameRef.update({
                     'readyUp': snap.val() + 1
                 });
                 clickedReady = true;
-            }
+            // }
         });
 
     };
