@@ -5,7 +5,7 @@
         <module ng-if="userId === module.userAssigned" module="module"></module>
     </div>
     <div ng-repeat="manual in stage.manuals">
-        <manual ng-if="manual.usersAssigned.indexOf(''+userId)!==-1" manual="manual"></manual>
+        <manual ng-if="manual.usersAssigned.indexOf(''+userId)!==-1 && manual.usersAssigned.indexOf(''+userId)!==undefined " manual="manual"></manual>
     </div>
 <!-- </div> -->
 <!-- <chat></chat> -->
