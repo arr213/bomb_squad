@@ -8,7 +8,7 @@ const symbolOptions = require('./symbolOptions')
 symbolGenerator.generate = function(game, modObj) {
     var column = _.sample(symbolOptions.columns);
     const buttons = buttonGen(column);
-    modObj.content = buttons;
+    return buttons;
 };
 
 
@@ -27,5 +27,5 @@ function buttonGen(column) {
 
 // // Test below:
 // var testObj = {};
-// symbolGenerator.generate(testObj);
-// console.log(testObj)
+// var testButtons = symbolGenerator.generate(testObj);
+// console.log(testButtons)

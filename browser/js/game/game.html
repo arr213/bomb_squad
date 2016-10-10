@@ -8,7 +8,7 @@
       <!--   <wires ng-show="gamePlaying"></wires> -->
         <chat messages="gameMessages" ng-show="gamePlaying && swiped"></chat>
             <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
-            <div ng-show="!swiped"ng-repeat="stage in stages">
+            <div ng-show="!swiped" ng-repeat="stage in stages">
                 <stage ng-show="gamePlaying && currentStage === $index" stage="stage"></stage>
             </div>
         </div>
