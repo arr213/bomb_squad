@@ -46,10 +46,12 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
             //     });
             //     clickedReady = false;
             // } else {
+                if(!clickedReady){
                 gameRef.update({
                     'readyUp': snap.val() + 1
                 });
                 clickedReady = true;
+                }
             // }
         });
 
