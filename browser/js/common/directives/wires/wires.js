@@ -11,7 +11,7 @@ app.directive('wires', function () {
 
 });
 
-app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams, $firebaseObject, $firebaseArray, SuccessFactory) {
+app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams, $firebaseObject, $firebaseArray, SuccessFactory, $mdToast) {
 
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
@@ -27,14 +27,22 @@ app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams
 
     $scope.wires = $scope.module.content;
 
-   
-
     $scope.submit = function (wire) {
         $scope.$evalAsync();
         if (wire.solution === true) {
             console.log('YOU WIN!!');
             SuccessFactory.success($scope.currentStage, gameRef);
         } else {
+            $mdToast.show({
+                    hideDelay: 1000,
+                    position: 'bottom right',
+                    controller: 'ToastCtrl',
+                    template: '<md-toast>' +
+                        '<div class="md-toast-content">' +
+                        "You have cut the wrong wire" +
+                        '</div>' +
+                        '</md-toast>'
+            });
             console.log('this is a strike in wires & means its working', $scope.strikes);
             StrikeFactory.strike($scope.strikes, gameRef);
         }

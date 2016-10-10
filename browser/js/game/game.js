@@ -8,11 +8,12 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('GameCtrl', function ($scope, $stateParams, $state) {
+app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope) {
 
     $scope.squadName = $stateParams.squad;
 
     $scope.userId = $stateParams.userId;
+    $rootScope.userId = $scope.userId;
 
     let interval;
     $scope.currentStage = 0;
