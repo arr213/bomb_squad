@@ -6,7 +6,7 @@
         <!-- <manual></manual> -->
      <!--    <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game> -->
       <!--   <wires ng-show="gamePlaying"></wires> -->
-        <chat messages="gameMessages"></chat>
+        <chat messages="gameMessages" ng-show="gamePlaying"></chat>
             <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
             <div ng-repeat="stage in stages">
                 <stage ng-show="gamePlaying && currentStage === $index" stage="stage"></stage>
