@@ -1,5 +1,5 @@
 'use strict';
-window.app = angular.module('FullstackGeneratedApp', ['fsaPreBuilt', 'ui.router', 'ui.bootstrap', 'ngAnimate', 'firebase', 'ngMaterial']);
+window.app = angular.module('FullstackGeneratedApp', ['fsaPreBuilt', 'ui.router', 'ui.bootstrap', 'ngAnimate', 'firebase', 'ngMaterial', 'mobile-angular-ui']);
 
 var config = {
     apiKey: "AIzaSyD835UTQkcpROmdymHoHK6z-bDbV9o5qtY",
