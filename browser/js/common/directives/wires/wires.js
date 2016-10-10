@@ -19,6 +19,7 @@ app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams
         $scope.currentGame = snap.val();
         $scope.strikes = $scope.currentGame.strikes;
         $scope.currentStage = snap.val().currentStage;
+        console.log("This is the current stage ", $scope.currentStage);
         $scope.$evalAsync();
     });
 
@@ -26,12 +27,10 @@ app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams
 
     $scope.wires = $scope.module.content;
 
-    console.log("This is the current stage ", $scope.currentStage);
+   
 
     $scope.submit = function (wire) {
         $scope.$evalAsync();
-        let currentStage = angular.copy($scope.currentStage);
-        console.log(currentStage);
         if (wire.solution === true) {
             console.log('YOU WIN!!');
             SuccessFactory.success($scope.currentStage, gameRef);

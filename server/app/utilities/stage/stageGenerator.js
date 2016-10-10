@@ -5,12 +5,12 @@ const manualGenerator = require('../manual/manualGenerator');
 
 
 stageGenerator.generate = function(game) {
-    console.log('This is a pristine game before it gets fucked...');
     var stages = [];
     if (game.mode === 'standard') {
         for (var i = 0; i < game.numModules; i++) {
             stages[i] = {};
             stages[i].modules = [moduleGenerator.generate(game, i)];
+            stages[i].manuals = manualGenerator.generate(game);
         }
         for (var j = 0; j < stages.length; j++) {
             stages[j].manuals = [manualGenerator.generate(game, stages[j].modules[0].userAssigned)];
@@ -20,6 +20,5 @@ stageGenerator.generate = function(game) {
     // for(var i = 0; i<stages.length; i++){
     //     console.log('user assigned! ', stages[i].manuals[0].usersAssigned);
     // }
-
     return stages;
 };

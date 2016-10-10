@@ -9,7 +9,7 @@
         <chat></chat>
             <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
             <div ng-repeat="stage in stages">
-                <stage ng-show="true || currentStage === stages.indexOf(stage)" stage="stage"></stage>
+                <stage ng-show="currentStage === $index" stage="stage"></stage>
             </div>
         </div>
     </div>
