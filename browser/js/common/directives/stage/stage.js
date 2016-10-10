@@ -5,6 +5,7 @@ app.directive('stage', function() {
         scope: {
             stage: '='
         },
+        controller: 'StageCtrl',
         templateUrl: 'js/common/directives/stage/stage.html'
         // link: function(scope, elements, attr) {
         //     // console.log('!!!!', scope.stage)
@@ -14,3 +15,6 @@ app.directive('stage', function() {
 
 });
 
+app.controller('StageCtrl', function($rootScope, $scope){
+    $scope.userId = $rootScope.userId;
+});
