@@ -2,13 +2,20 @@ app.config(function ($stateProvider) {
     $stateProvider.state('home', {
         url: '/home',
         templateUrl: 'js/home/home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl',
+        resolve: {
+            user: function(AuthService){
+                return AuthService.getLoggedInUser();
+            }
+        }
     });
 });
 
-app.controller('HomeCtrl', function($scope){
+app.controller('HomeCtrl', function($scope, user, $state){
 
-    
+    if(!user){
+        $state.go('login');
+    }
 
     $scope.swiped = false;
 

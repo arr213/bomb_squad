@@ -15,6 +15,23 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope) {
     $scope.userId = $stateParams.userId;
     $rootScope.userId = $scope.userId;
 
+
+    $scope.swiped = false;
+
+    $scope.onSwipeRight = function(ev){
+        console.log('swiped right!')
+        if(!$scope.swiped){
+            $scope.swiped = true;
+        }
+    };
+
+    $scope.onSwipeLeft = function(ev){
+        console.log('swiped left!');
+        if($scope.swiped){
+            $scope.swiped = false;
+        }
+    };
+
     let interval;
     $scope.currentStage = 0;
     var rootRef = firebase.database().ref('/game');
