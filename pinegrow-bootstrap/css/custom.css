@@ -291,15 +291,15 @@ h2 {
 }
 
 .join-input:hover {
-  border: 2px solid #F34A47;
+  border: 2px solid #FF534F;
 }
 
 .join-input:focus {
-  border: 2px solid #F34A47;
+  border: 2px solid #FF534F;
 }
 
 .join-input[type="text"] {
-  color: #1D88EA;
+  color: #FF534F;
   font-size: 15px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -345,7 +345,7 @@ h6 {
 
 h6:before,
 h6:after {
-    background-color: #000;
+    background-color: #686868;
     content: "";
     display: inline-block;
     height: 1px;
