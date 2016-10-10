@@ -2,10 +2,10 @@
 <!-- <div ng-if="stage"> -->
 
     <div ng-repeat="module in stage.modules">
-        <module ng-if="module[0].userAssigned === userId" module="module"></module>
+        <module ng-if="userId === module.userAssigned" module="module"></module>
     </div>
     <div ng-repeat="manual in stage.manuals">
-        <manual ng-if="manual[0].userAssigned.indexOf(userId)!==-1" manual="manual"></manual>
+        <manual ng-if="manual.usersAssigned.indexOf(''+userId)!==-1 && manual.usersAssigned.indexOf(''+userId)!==undefined " manual="manual"></manual>
     </div>
 <!-- </div> -->
 <!-- <chat></chat> -->
