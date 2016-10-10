@@ -2,13 +2,13 @@
     <div class="container">
         <game-header></game-header>
 
-        <div class="main-content">
+        <div class="main-content" md-swipe-right="onSwipeRight()" md-swipe-left="onSwipeLeft()">
         <!-- <manual></manual> -->
      <!--    <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game> -->
       <!--   <wires ng-show="gamePlaying"></wires> -->
-        <chat messages="gameMessages" ng-show="gamePlaying"></chat>
+        <chat messages="gameMessages" ng-show="gamePlaying && swiped"></chat>
             <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
-            <div ng-repeat="stage in stages">
+            <div ng-show="!swiped"ng-repeat="stage in stages">
                 <stage ng-show="gamePlaying && currentStage === $index" stage="stage"></stage>
             </div>
         </div>
