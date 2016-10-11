@@ -1,6 +1,5 @@
 // symbolOptions.js
 
-const _ = require('lodash');
 const symbolOptions = {};
 module.exports = symbolOptions;
 
@@ -91,7 +90,7 @@ symbolOptions.symbolList = [{
 }, {
     id: 22,
     name: 'snake',
-    unicode: 'Ѯ'	
+    unicode: 'Ѯ'
 }, {
     id: 23,
     name: 'filled-in-star',
