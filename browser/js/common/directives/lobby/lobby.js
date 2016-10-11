@@ -56,7 +56,7 @@ app.controller('LobbyController', function($scope, $http, AuthService, $state) {
     };
     $scope.joinGame = function() {
         console.log("Joining Game ", $scope.gamePass);
-        $http.put('/api/games/joinGame', { gamePass: $scope.gamePass })
+        $http.put('/api/games/joinGame', { gamePass: $scope.gamePass.toUpperCase() })
             .then(function(res) {
                 $state.go('staging', { gameKey: res.data });
             });

@@ -331,6 +331,7 @@ button.startbtn {
     border: 2.5px solid #FF534F;
     border-radius: 50px;
     outline: none;
+    text-transform: uppercase;
 }
 
 .join-input:hover {
@@ -577,6 +578,12 @@ input:-webkit-autofill:active {
   background-size: 3px 3px;
 }
 
-
-
+.victoryBG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EDEDED;
+    letter-spacing: 3px;
+    margin-top: 20px;
+}
 
