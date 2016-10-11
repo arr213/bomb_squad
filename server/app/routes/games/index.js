@@ -12,10 +12,18 @@ router.post('/createGame', function(req,res){
     let newGame = gameGenerator.generate();
     newGame.users = [user];
     newGame.squadname = req.body.squadname;
+    newGame.creatorId = user;
     let game = gameDB.push(newGame);
     game.once('value', function(snap){
         res.send(snap.key);
     })
+});
+
+router.post('/logGame', function(req, res){
+
+    console.log(req.body);
+    res.sendStatus(200);
+
 });
 
 router.put('/joinGame', function(req,res){
@@ -44,7 +52,7 @@ router.put('/joinGame', function(req,res){
 
 router.put('/startGame/:gameKey', function(req, res, next) {
     let gameKey = req.params.gameKey;
-
+    console.log("ROUTE WAS HIT UPDATING GAME!!!!!!!!!!!!!!!");
     gameDB.child(gameKey).once('value', function(snap) {
         let thisGame = snap.val();
         gameGenerator.update(thisGame);
