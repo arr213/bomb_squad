@@ -1,7 +1,7 @@
 app.config(function ($stateProvider) {
 
     $stateProvider.state('staging', {
-        url: '/staging/:gameKey/:squadname',
+        url: '/staging/:gameKey',
         templateUrl: 'js/staging/staging.html',
         controller: 'StagingCtrl',
         resolve: {
@@ -92,7 +92,7 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
         }
     });
 
-   
+
 
 
 })
