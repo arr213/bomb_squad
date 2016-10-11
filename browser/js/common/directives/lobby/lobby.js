@@ -15,11 +15,10 @@ app.controller('LobbyController', function($scope, $http, AuthService, $state) {
 /////////////////////////////////
     var publicChatRef = firebase.database().ref('/public-chat');
    // var publicChatRef = firebase.database().ref().child('chat');
-   console.log()
 
     publicChatRef.once('value', function(snap){
         $scope.lobbyChat = snap.val();
-        console.log('lobby chat', $scope.lobbyChat);
+       // console.log('lobby chat', $scope.lobbyChat);
 
         $scope.$evalAsync();
     })
@@ -47,13 +46,14 @@ app.controller('LobbyController', function($scope, $http, AuthService, $state) {
  ////////////////////////////////
 
 
-    $scope.createGame = function() {
-        console.log("Creating Game");
-        $http.post('/api/games/createGame')
-            .then(function(res) {
-                $state.go('staging', { gameKey: res.data });
-            });
-    };
+    // $scope.createGame = function() {
+    //     console.log("Creating Game");
+    //     $http.post('/api/games/createGame')
+    //         .then(function(res) {
+    //             console.log('#####################', res)
+    //             $state.go('staging', { gameKey: res.data });
+    //         });
+    // };
     $scope.joinGame = function() {
         console.log("Joining Game ", $scope.gamePass);
         $http.put('/api/games/joinGame', { gamePass: $scope.gamePass.toUpperCase() })
