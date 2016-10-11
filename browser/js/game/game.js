@@ -14,9 +14,9 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $mdToast) {
-    
+
     //console.log(currgame);
-    
+
     $scope.currentStage = 0;
 
     $scope.squadName = $stateParams.squad;

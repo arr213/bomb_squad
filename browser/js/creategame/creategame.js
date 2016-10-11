@@ -25,6 +25,7 @@ app.controller('CreateGameCtrl', function($scope, $http, $state){
         console.log("Creating Game");
         $http.post('/api/games/createGame', {squadname: $scope.squadname})
             .then(function(res) {
+                console.log('#############', res.data)
                 $state.go('staging', { gameKey: res.data, squadname: $scope.squadname });
             });
     };
