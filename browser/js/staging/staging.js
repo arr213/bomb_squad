@@ -23,7 +23,7 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
         $scope.$evalAsync();
     });
 
-    $scope.squadName = 'Don\'t cut the red wire!';
+    $scope.squadName = 'We are the bomb team and so cool';
 
     gameRef.child('users').on('value', function (snap) {
         $scope.userCount = snap.val().length;
