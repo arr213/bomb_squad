@@ -78,6 +78,8 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
         let readyCount = snap.val();
 
         showReadyCount(readyCount);
+        console.log('readyCount', readyCount);
+        console.log('$scope.userCount', $scope.userCount);
 
         if (readyCount === $scope.userCount) {
             StagingFactory.updateGame($stateParams.gameKey)
