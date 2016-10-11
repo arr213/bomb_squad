@@ -111,8 +111,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-/*  padding: auto;
-  margin: auto;*/
+  padding-bottom: 5%;
 }
 
 .main-content {
@@ -431,7 +430,6 @@ h6:after {
   justify-content: center;
   height: 100%;
 /*  flex-wrap: wrap;*/
-/*  padding-top: 30%;*/
   background-color: #4b49fb;
 }
 
@@ -555,6 +553,7 @@ button.ready-button {
  display: block;
  width: 80%;
  text-align: center;
+/* height: 100%;*/
 }
 
 button.submit-chat {
