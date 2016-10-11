@@ -3,11 +3,15 @@ const _ = require('lodash');
 const moduleGenerator = {};
 module.exports = moduleGenerator;
 const wireGenerator = require('../mod-1-wires/wireGenerator');
+const symbolGenerator = require('../mod-2-symbols/symbolGenerator');
 
 const modTypes = [{
     type: 'wires',
     generate: wireGenerator.generate
-}]
+},{
+    type: 'symbols',
+    generate: symbolGenerator.generate
+}];
 
 function objectifyMod(modType, game, stageNum) {
     const modObj = {
