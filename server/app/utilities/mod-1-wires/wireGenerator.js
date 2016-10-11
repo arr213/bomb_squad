@@ -29,6 +29,6 @@ function objectifyWire(color, ind) {
     };
 }
 
-var testObj = {batteries: [{color: 'green'}, {color: 'red'}]};
-wireGenerator.generate(testObj);
-console.log(testObj)
+// var testObj = {batteries: [{color: 'green'}, {color: 'red'}]};
+// wireGenerator.generate(testObj);
+// console.log(testObj)
