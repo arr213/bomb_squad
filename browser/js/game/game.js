@@ -4,11 +4,20 @@ app.config(function ($stateProvider) {
         url: '/game/:gameKey/:squad/:userId',
         templateUrl: '/js/game/game.html',
         controller: 'GameCtrl',
+        resolve: {
+            currgame: function(GameFactory, $stateParams){
+                return GameFactory.promiseToHaveGames($stateParams.gameKey);
+            }
+        }
     });
 
 });
 
 app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $mdToast) {
+    
+    //console.log(currgame);
+    
+    $scope.currentStage = 0;
 
     $scope.squadName = $stateParams.squad;
 
@@ -33,7 +42,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
     };
 
     let interval;
-    $scope.currentStage = 0;
     var rootRef = firebase.database().ref('/game');
     $scope.currentGame = rootRef.child($stateParams.gameKey);
 
@@ -45,13 +53,15 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.currentGame.child('currentStage').on('value', function (snap) {
         $scope.currentStage = snap.val();
+        if($scope.gamePlaying){
         if($scope.currentStage === $scope.stages.length){
             $scope.currentGame = null;
             clearInterval(interval);
             $state.go('victory');
         }
+        }
     });
-    
+
     $scope.currentGame.child('strikes').on('value', function (snapshot) {
         $scope.strikes = snapshot.val();
         if($scope.strikes[0]['active']){
@@ -60,8 +70,8 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
                     position: 'bottom right',
                     controller: 'ToastCtrl',
                     template: '<md-toast>' +
-                        '<div class="md-toast-content">' +
-                        "STRIKE" +
+                        '<div class="md-toast-content" style="background-color: #3836EB">' +
+                        "STRIKE!" +
                         '</div>' +
                         '</md-toast>'
         });
@@ -76,18 +86,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.gamePlaying = null;
 
-    $scope.currentGame.child('gameStarted').on('value', function (snap) {
-        if (snap.val()) {
-            if (!$scope.gamePlaying) {
-                $scope.gamePlaying = true;
-                $scope.startGame();
-                $scope.$evalAsync();
-            } else {
-                return;
-            }
-        }
-    });
-
     $scope.startGame = function () {
 
         if (!$scope.gamePlaying) {
@@ -99,9 +97,9 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
                 startTime: Date.now()
             });
         }
-        
+
         $scope.timerNum = '';
-        
+
         $scope.currentGame.on('value', function (snapshot) {
             $scope.startTime = snapshot.val().startTime;
             $scope.timeLimit = snapshot.val().timeLimit;
@@ -128,5 +126,16 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
         }, 500);
     };
 
+    $scope.currentGame.child('gameStarted').on('value', function (snap) {
+        if (snap.val()) {
+            if (!$scope.gamePlaying) {
+                $scope.gamePlaying = true;
+                $scope.startGame();
+                $scope.$evalAsync();
+            } else {
+                return;
+            }
+        }
+    });
 
 });

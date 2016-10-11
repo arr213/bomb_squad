@@ -19,11 +19,9 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
 
     gameRef.once('value', function (snap) {
         $scope.gamePass = snap.val().gamePass;
-        // $scope.squadName = snap.val().squadName;
+        $scope.squadname = snap.val().squadname;
         $scope.$evalAsync();
     });
-
-    $scope.squadName = 'We are the bomb team and so cool';
 
     gameRef.child('users').on('value', function (snap) {
         $scope.userCount = snap.val().length;
@@ -42,6 +40,7 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
     let clickedReady = false;
 
     $scope.ready = function () {
+        console.log('clicked');
         gameRef.child('readyUp').once('value', function (snap) {
             // if (clickedReady) {
             //     gameRef.update({
@@ -67,7 +66,7 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
             controller: 'ToastCtrl',
             template:
         '<md-toast>' +
-          '<div class="md-toast-content">' +
+          '<div class="md-toast-content" style="background-color: #3836EB">' +
             readyCount+' users have clicked ready!' +
           '</div>' +
         '</md-toast>'
@@ -79,6 +78,8 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
         let readyCount = snap.val();
 
         showReadyCount(readyCount);
+        console.log('readyCount', readyCount);
+        console.log('$scope.userCount', $scope.userCount);
 
         if (readyCount === $scope.userCount) {
             StagingFactory.updateGame($stateParams.gameKey)

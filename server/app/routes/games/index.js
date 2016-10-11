@@ -11,7 +11,7 @@ router.post('/createGame', function(req,res){
     let user = String(req.user.id) || 'user';
     let newGame = gameGenerator.generate();
     newGame.users = [user];
-
+    newGame.squadname = req.body.squadname;
     let game = gameDB.push(newGame);
     game.once('value', function(snap){
         res.send(snap.key);
