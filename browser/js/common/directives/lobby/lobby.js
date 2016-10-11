@@ -33,7 +33,9 @@ app.controller('LobbyController', function($scope, $http, AuthService, $state) {
     $scope.lobbyMessages = [];
 
       publicChatRef.on('child_added', function(snap) {
+          if($scope.messages){
           $scope.messages.push(snap.val())
+          }
       })
 
 

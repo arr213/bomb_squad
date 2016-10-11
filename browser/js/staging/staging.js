@@ -1,7 +1,7 @@
 app.config(function ($stateProvider) {
 
     $stateProvider.state('staging', {
-        url: '/staging/:gameKey',
+        url: '/staging/:gameKey/:squadname',
         templateUrl: 'js/staging/staging.html',
         controller: 'StagingCtrl',
         resolve: {
@@ -19,6 +19,7 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
 
     gameRef.once('value', function (snap) {
         $scope.gamePass = snap.val().gamePass;
+        $scope.squadname = snap.val().squadname;
         $scope.$evalAsync();
     });
 
