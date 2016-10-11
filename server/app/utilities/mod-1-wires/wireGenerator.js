@@ -11,6 +11,9 @@ wireGenerator.generate = function(game, modObj) {
     let wireSeq = _.cloneDeep(wireColorGen(numWires));
     let solution = _.cloneDeep(wireSolver.solve(wireSeq, game.batteries));
     let objSeq = _.cloneDeep(wireColorGen(numWires).map(objectifyWire));
+    for(let i = 0; i< objSeq.length; i++){
+        objSeq[i].order = i;
+    }
     objSeq[solution].solution = true;
     return objSeq;
 };
@@ -20,7 +23,7 @@ function wireColorGen(num) {
     return _.times(num, () => _.sample(wireColors));
 }
 
-function objectifyWire(color) {
+function objectifyWire(color, order) {
     return {
         color: color,
         wasCut: false,
