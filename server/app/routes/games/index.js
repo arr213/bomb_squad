@@ -11,9 +11,9 @@ router.post('/createGame', function(req,res){
     let user = String(req.user.id) || 'user';
     let newGame = gameGenerator.generate();
     newGame.users = [user];
-
-    let gameKey = gameDB.push(newGame);
-    gameKey.once('value', function(snap){
+    newGame.squadname = req.body.squadname;
+    let game = gameDB.push(newGame);
+    game.once('value', function(snap){
         res.send(snap.key);
     })
 });
@@ -28,7 +28,7 @@ router.put('/joinGame', function(req,res){
             let key = Object.keys(snap.val())[0];
             let game = snap.val()[key];
             let users = game.users;
-            if(users.indexOf(user)!==-1 || users.length>3){
+            if(users.indexOf(user)!==-1){ // let users return to game
                 res.sendStatus(401);
                 return;
             }

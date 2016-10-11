@@ -8,14 +8,17 @@ const symbolOptions = require('./symbolOptions')
 symbolGenerator.generate = function(game, modObj) {
     var column = _.sample(symbolOptions.columns);
     const buttons = buttonGen(column);
-    modObj.content = buttons;
+    console.log(buttons);
+    return buttons;
 };
 
 
 function buttonGen(column) {
     var thisCol = column;
-    for (let i = 0; i < 3; i++) {
+    let i = 0;
+    while(thisCol.length!==4){
         thisCol.splice(_.random(0, 6 - i), 1);
+        i++;
     }
     for (let i = 0; i < thisCol.length; i++) {
         thisCol[i].pressOrder = i + 1;
@@ -27,5 +30,5 @@ function buttonGen(column) {
 
 // // Test below:
 // var testObj = {};
-// symbolGenerator.generate(testObj);
-// console.log(testObj)
+// var testButtons = symbolGenerator.generate(testObj);
+// console.log(testButtons)

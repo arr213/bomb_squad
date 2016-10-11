@@ -1,4 +1,12 @@
 /* Put your custom styles here */
+@font-face{
+    font-family: 'Manteka';
+    src: url('/fonts/manteka.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 html {
   height: 100%;
@@ -8,6 +16,16 @@ body {
     height: 100%;
     background-color: #FF534F;
 }
+
+
+#titlefont {
+  font-family: 'Manteka';
+}
+
+#bodyfont {
+  font-family: 'Montserrat';
+}
+
 
 .spacer {
     height: 100px;
@@ -88,6 +106,14 @@ body {
   height: 100%
 }
 
+.login-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
 .main-content {
   display: flex;
   justify-content: center;
@@ -100,7 +126,6 @@ body {
   width: 100%;
   height: 250px;
   margin: 0px auto;
-  padding: 15px;
   text-align: center;
 }
 
@@ -114,9 +139,10 @@ h2 {
 
 .login-input {
   width: 100%;
-  height: 45px;
+  height: 60px;
   margin-bottom: 20px;
   padding-left: 30px;
+  font-family: 'Montserrat';
   border: 2.5px solid #F34A47;
   border-radius: 50px;
   outline: none;
@@ -154,23 +180,23 @@ h2 {
   letter-spacing: 2px;
 }
 
-.login-button {
+button.login-button {
   display: block;
   margin: auto;
   width: 100%;
-  height: 45px;
+  height: 60px;
   background: #3836EB;
   border: none;
   border-radius: 50px;
   outline: none;
-  font-family: 'Helvetica';
+  font-family: 'Montserrat';
   font-size: 18px;
   letter-spacing: 3px;
   color: #ffffff;
   text-transform: uppercase;
 }
 
-.login-button:hover {
+button.login-button:hover {
   background: #312fdc;
 }
 
@@ -200,13 +226,35 @@ h2 {
   }
 }
 
-.logo-placeholder {
+/*img.logo-placeholder {
     width: 300px;
     display: block;
-    background-color: #CCCCCC;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 50px;
+}*/
+.logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+/*margin-top: 20%;*/
 }
+
+.bomb, .squad {
+  font-family: 'Manteka';
+  font-size: 80px;
+  display: inline-block;
+  line-height: 55px;
+  color: #FFF;
+}
+
+.bomb {
+  letter-spacing: 12px;
+  padding-left: 14px;
+}
+
+
 
 .signup-text {
     text-align: center;
@@ -248,15 +296,198 @@ h2 {
 
 .timer {
     color: black;
+    letter-spacing: 2px;
+    font-weight: bolder;
 }
 
-.startbtn {
-  height: 50px;
+
+button.startbtn {
+  height: 60px;
   width: 200px;
   display: inline-block;
   border-radius: 50px;
 
 }
+
+#header-3 .home {
+  background-color: #FFFFFF;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  padding: 50px 0 300px 0;
+  height: 100%;
+}
+
+#header-3 .home h1 {
+  margin-top: 100px;
+  font-weight: 600;
+  color: #31152B;
+}
+
+#header-3 .home .lead {
+  font-weight: 600;
+  color: #723147;
+}
+
+.join-input {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  border: 2.5px solid #FF534F;
+  border-radius: 50px;
+  outline: none;
+}
+
+.join-input:hover {
+  border: 2px solid #FF534F;
+}
+
+.join-input:focus {
+  border: 2px solid #FF534F;
+}
+
+.join-input[type="text"] {
+  color: #FF534F;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+button.join-button {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 60px;
+  background: #FF534F;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+button.create-button {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 60px;
+  background: #3836EB;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+
+h6 {
+    overflow: hidden;
+    text-align: center;
+    padding: 8px;
+}
+
+h6:before,
+h6:after {
+    background-color: #686868;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+
+h6:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+h6:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.top-margin {
+    margin-top: 60px;
+}
+
+.game-lobby {
+  background-color: #FFF;
+}
+
+.lobby-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+/*  flex-wrap: wrap;*/
+  background-color: #4b49fb;
+}
+
+.lobby-container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+/*  flex-wrap: wrap;*/
+  padding-top: 20%;
+  background-color: #FFF;
+}
+
+.gamekeyBG {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3836eb;
+  letter-spacing: 3px;
+  margin-top: 40px;
+}
+
+.gamepass {
+  padding-bottom: 10px;
+  font-size: 30px;
+  color: white;
+  align-items: center;
+}
+
+.numPlayers {
+  font-size: 14px;
+  color: #FFF;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+button.ready-button {
+  display: block;
+  margin-top: 50px;
+  width: 100%;
+  height: 60px;
+  background-color: #FFF;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: #000;
+  text-transform: uppercase;
+}
+
+/*.ready-button:hover {
+  background: #3836eb;;
+}*/
+
+
 
 /****************************************/
 /****************************************/
@@ -317,21 +548,38 @@ h2 {
   width: 100%;
 }
 
-.lobby-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  flex-wrap: wrap;
-  padding-top: 30%;
-  background-color: #FF534F;
-}
 
 .stagingArea {
-  height: 100%;
+ display: block;
+ width: 80%;
+ text-align: center;
+/* height: 100%;*/
 }
 
 button.submit-chat {
   background-color: blue;
   width: 40px;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: all 5000s ease-in-out 0s;
+    transition-property: background-color, color;
+}
+
+.dotted {
+  padding: 2.25em 1.6875em;
+  background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  -webkit-background-size: 3px 3px;
+  -moz-background-size: 3px 3px;
+  background-size: 3px 3px;
+}
+
+
+
+

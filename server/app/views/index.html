@@ -4,7 +4,7 @@
     <base href="/" />
     <meta charset="utf-8">
     <title>Bomb Squad</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="keywords" content="pinegrow, blocks, bootstrap" />
     <meta name="description" content="My new website" />
     <link rel="shortcut icon" href="ico/favicon.png">
@@ -12,6 +12,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet">
     <!-- Style Library -->
     <link href="css/style-library-1.css" rel="stylesheet">
@@ -26,9 +27,11 @@
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <script src="/lodash/index.js"></script>
     <script src="/angular/angular.js"></script>
+    <script src="/angular-touch/angular-touch.js"></script>
     <script src="/angular-animate/angular-animate.js"></script>
     <script src="/angular-aria/angular-aria.js"></script>
     <script src="/angular-material/angular-material.js"></script>
+    <script src="/mobile-angular-ui/dist/js/mobile-angular-ui.js"></script>
     <script src="/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
@@ -41,8 +44,8 @@
 </head>
 
 
-<body ng-app="FullstackGeneratedApp">
-    
+<body ng-app="FullstackGeneratedApp" ui-prevent-touchmove-defaults>
+
     <ui-view></ui-view>
 
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>

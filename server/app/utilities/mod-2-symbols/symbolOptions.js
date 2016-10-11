@@ -18,7 +18,7 @@ symbolOptions.symbolList = [{
 }, {
     id: 4,
     name: 'zig-zag',
-    unicode: 'ѭ'
+    unicode: 'ϟ'
 }, {
     id: 5,
     name: 'kitty-cat',

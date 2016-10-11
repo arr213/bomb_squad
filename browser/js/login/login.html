@@ -1,25 +1,20 @@
-<header id="header-3" class="soft-scroll header-3">
-    <section class="hero">
-        <div class="container">
-            <div class="container" style="background-color: #FF534F">
-                <div>
-                    <img class="logo-placeholder" src="https://c1.staticflickr.com/9/8271/29489026654_bc7816dd05_n.jpg">
-                </div>
 
-                <form class="login-form" novalidate name="loginForm" ng-submit="sendLogin(login)">
-                    <input class="login-input" ng-model="login.email" ng-class="{ invalid: formInvalid }" placeholder="email" type="email" name="username" required/>
-                    <input class="login-input" ng-model="login.password" ng-class="{ invalid: formInvalid }" placeholder="password" type="password" name="username" required/>
+<div class="login-container" style="background-color: #FF534F">
 
-                    <button class="login-button" type="submit">continue</button>
-                </form>
+<div style="width: 80%;">
+    <div class="logo">
+        <h1 class="bomb">BOMB</h1>
+        <h1 class="squad">SQUAD</h1>
+    </div>
+   <!--  </div> -->
+    <form class="login-form" novalidate name="loginForm" ng-submit="sendLogin(login)">
+        <input class="login-input" ng-model="login.email" ng-class="{ invalid: formInvalid }" placeholder="email" type="email" name="username" required/>
+        <input class="login-input" ng-model="login.password" ng-class="{ invalid: formInvalid }" placeholder="password" type="password" name="username" required/>
+        <button class="login-button" type="submit">continue</button>
+    </form>
+    <div id="bodyfont" class="signup-text">
+        <h5>Don't have an account? <a ui-sref="signup" style="color: #3836EB">Sign Up</a></h5>
+    </div>
+</div>
+</div>
 
-                <div class="signup-text">
-                <h5>Don't have an account? <a ui-sref="signup" style="color: #3836EB">Sign Up</a></h5>
-                </div>
-
-            </div>
-
-
-         </div>
-    </section>
-</header>

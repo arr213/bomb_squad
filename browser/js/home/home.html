@@ -1,9 +1,6 @@
-<section id="home">
-    <button class="btn btn-primary" ui-sref="login">LOG IN</button>
-    <button class="btn btn-default" ui-sref="signup">SIGN UP</button>
-</section>
 
-<body>
-    <lobby></lobby>
-    <public-chat></public-chat>
-</body>
+    <div md-swipe-right="onSwipeRight()" md-swipe-left="onSwipeLeft()">
+        <lobby ng-show="!swiped"></lobby>
+        <public-chat ng-show="swiped"></public-chat>
+    </div>
+
