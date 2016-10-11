@@ -61,7 +61,7 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
         }
         }
     });
-    
+
     $scope.currentGame.child('strikes').on('value', function (snapshot) {
         $scope.strikes = snapshot.val();
         if($scope.strikes[0]['active']){
@@ -70,8 +70,8 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
                     position: 'bottom right',
                     controller: 'ToastCtrl',
                     template: '<md-toast>' +
-                        '<div class="md-toast-content">' +
-                        "STRIKE" +
+                        '<div class="md-toast-content" style="background-color: #3836EB">' +
+                        "STRIKE!" +
                         '</div>' +
                         '</md-toast>'
         });
@@ -97,9 +97,9 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
                 startTime: Date.now()
             });
         }
-        
+
         $scope.timerNum = '';
-        
+
         $scope.currentGame.on('value', function (snapshot) {
             $scope.startTime = snapshot.val().startTime;
             $scope.timeLimit = snapshot.val().timeLimit;
@@ -125,7 +125,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
             $scope.$evalAsync();
         }, 500);
     };
-
 
     $scope.currentGame.child('gameStarted').on('value', function (snap) {
         if (snap.val()) {
