@@ -1,32 +1,16 @@
-<!--<header id="header-3" class="soft-scroll header-3">
-    <section class="hero">-->
+
 <div class="lobby-container">
-    <!--<div class="container" style="background-color: #FF534F">-->
-    <!--<div>-->
-    <!--<img class="logo-placeholder" src="https://c1.staticflickr.com/9/8271/29489026654_bc7816dd05_n.jpg">-->
-    <!--</div>-->
     <div class="stagingArea">
-    
-    <!--limit squadname to one input-->
-    <div>
-        <h1>Enter Your Squad Name:</h1> 
-      <input ng-model="squad" type="text">
 
+        <h1 id="titlefont" style="color: #FFF; font-size: 50px;">{{ squadName }}</h1>
 
-        <h1>Gamepass: {{gamePass}}</h1>
-
-        <h1>Players: {{userCount}}</h1>
-
-        <div ng-repeat="user in usernames">
-            <h1>{{user}}</h1>
+        <div class="gamekeyBG">
+        <h1 id="bodyfont" class="gamepass"><span style="font-weight:bold; color: #2625b0; padding-right: 10px">KEY:</span>{{gamePass}}</h1>
         </div>
 
-        <md-button class="md-raised" ng-click="ready()">Ready?</md-button>
+        <h1 id="bodyfont" class="numPlayers">player count: {{userCount}}</h1>
+
+        <button class="ready-button" ng-click="ready()" type="submit">Ready?</button>
 
     </div>
-
-
-
-
-
 </div>

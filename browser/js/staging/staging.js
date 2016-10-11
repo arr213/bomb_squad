@@ -19,8 +19,11 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
 
     gameRef.once('value', function (snap) {
         $scope.gamePass = snap.val().gamePass;
+        // $scope.squadName = snap.val().squadName;
         $scope.$evalAsync();
     });
+
+    $scope.squadName = 'Don\'t cut the red wire!';
 
     gameRef.child('users').on('value', function (snap) {
         $scope.userCount = snap.val().length;
@@ -91,7 +94,7 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
         }
     });
 
-   
+
 
 
 })
