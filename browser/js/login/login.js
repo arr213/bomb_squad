@@ -15,7 +15,8 @@ app.controller('LoginCtrl', function ($scope, AuthService, $state, $timeout, $lo
     $scope.login = {};
 
     $scope.sendLogin = function (loginInfo) {
-        if (loginInfo.$invalid) {
+        console.log('login info #######', loginInfo)
+        if (loginInfo.email.$invalid) {
           $scope.formInvalid = true;
           $timeout(function(){
             $scope.formInvalid = false;
