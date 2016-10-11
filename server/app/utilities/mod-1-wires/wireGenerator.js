@@ -20,11 +20,12 @@ function wireColorGen(num) {
     return _.times(num, () => _.sample(wireColors));
 }
 
-function objectifyWire(color) {
+function objectifyWire(color, ind) {
     return {
         color: color,
         wasCut: false,
-        solution: false
+        solution: false,
+        index: ind
     };
 }
 
