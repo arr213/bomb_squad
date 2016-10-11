@@ -1,15 +1,15 @@
 /* Put your custom styles here */
-@font-face{
+
+@font-face {
     font-family: 'Manteka';
-    src: url('/fonts/manteka.ttf') format('truetype');
+    src: url('/fonts/manteka.ttf') format('truetype'),
+         url('/fonts/manteka.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-
-
 html {
-  height: 100%;
+    height: 100%;
 }
 
 body {
@@ -17,15 +17,13 @@ body {
     background-color: #FF534F;
 }
 
-
 #titlefont {
-  font-family: 'Manteka';
+    font-family: 'Manteka';
 }
 
 #bodyfont {
-  font-family: 'Montserrat';
+    font-family: 'Montserrat';
 }
-
 
 .spacer {
     height: 100px;
@@ -52,179 +50,179 @@ body {
 }
 
 .header {
-  width: 100%;
-  height: 150px;
-  background-color: #ff534f;
-  position: fixed;
+    width: 100%;
+    height: 150px;
+    background-color: #ff534f;
+    position: fixed;
 }
 
 .top-header {
-  background-color: #ff534f;
-  height: 50%;
-  color: white;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  font-size: 30px;
-  font-weight: bolder;
+    background-color: #ff534f;
+    height: 50%;
+    color: white;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bolder;
 }
 
 .bottom-header {
-  background-color: white;
-  height: 50%;
-  border-bottom: .3px solid lightgrey;
+    background-color: white;
+    height: 50%;
+    border-bottom: .3px solid lightgrey;
 }
 
 .bottom-header .cont {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  color: #ff534f;
-  line-height: 50px;
-  height: 100%;
-  justify-content: center;
-  border-right: .3px solid lightgrey;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    color: #ff534f;
+    line-height: 50px;
+    height: 100%;
+    justify-content: center;
+    border-right: .3px solid lightgrey;
 }
 
 .cont .circle {
-  height: 20px;
-  width: 20px;
-  margin-top: 15px;
-  margin-right: 10px;
-  justify-content: space-around;
+    height: 20px;
+    width: 20px;
+    margin-top: 15px;
+    margin-right: 10px;
+    justify-content: space-around;
 }
 
 .stroked {
-  background-color: #4b49fb;
+    background-color: #4b49fb;
 }
 
 .unstroked {
-  background-color: grey;
+    background-color: grey;
 }
 
 .container {
-  height: 100%
+    height: 100%
 }
 
 .login-container {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10%;
 }
 
 .main-content {
-  display: flex;
-  justify-content: center;
-  height: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
 }
 
 .login-form {
-  display: block;
-  border: none;
-  width: 100%;
-  height: 250px;
-  margin: 0px auto;
-  text-align: center;
+    display: block;
+    border: none;
+    width: 100%;
+    height: 250px;
+    margin: 0px auto;
+    text-align: center;
 }
 
 h2 {
-  text-align: center;
-  margin: 50px;
-  font-size: 40px;
-  letter-spacing: 2px;
+    text-align: center;
+    margin: 50px;
+    font-size: 40px;
+    letter-spacing: 2px;
 }
 
-
 .login-input {
-  width: 100%;
-  height: 60px;
-  margin-bottom: 20px;
-  padding-left: 30px;
-  font-family: 'Montserrat';
-  border: 2.5px solid #F34A47;
-  border-radius: 50px;
-  outline: none;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    font-family: 'Montserrat';
+    border: 2.5px solid #F34A47;
+    border-radius: 50px;
+    outline: none;
 }
 
 .login-input:hover {
-  border: 2px solid #3836EB;
+    border: 2px solid #3836EB;
 }
 
 .login-input:focus {
-  border: 2px solid #3836EB;
+    border: 2px solid #3836EB;
 }
 
 ::-webkit-input-placeholder {
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .login-input[type="email"] {
-  color: #1D88EA;
-  font-size: 15px;
-  letter-spacing: 2px;
+    color: #1D88EA;
+    font-size: 15px;
+    letter-spacing: 2px;
 }
 
 .login-input[type="username"] {
-  color: #1D88EA;
-  font-size: 15px;
-  letter-spacing: 2px;
+    color: #1D88EA;
+    font-size: 15px;
+    letter-spacing: 2px;
 }
 
 .login-input[type="password"] {
-  color: #1D88EA;
-  font-size: 20px;
-  letter-spacing: 2px;
+    color: #1D88EA;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
 
 button.login-button {
-  display: block;
-  margin: auto;
-  width: 100%;
-  height: 60px;
-  background: #3836EB;
-  border: none;
-  border-radius: 50px;
-  outline: none;
-  font-family: 'Montserrat';
-  font-size: 18px;
-  letter-spacing: 3px;
-  color: #ffffff;
-  text-transform: uppercase;
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 60px;
+    background: #3836EB;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
 }
 
 button.login-button:hover {
-  background: #312fdc;
+    background: #312fdc;
 }
 
 .invalid {
-  animation: shake 300ms ease-in-out;
-  border: 4px solid #F34A47;
+    animation: shake 300ms ease-in-out;
+    border: 4px solid #F34A47;
 }
 
 @keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(10px) rotate(-5deg);
-  }
-  40% {
-    transform: translateX(-3px) rotate(4deg);
-  }
-  60% {
-    transform: translateX(10px) rotate(-3deg);
-  }
-  80% {
-    transform: translateX(-10px) rotate(2deg);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(10px) rotate(-5deg);
+    }
+    40% {
+        transform: translateX(-3px) rotate(4deg);
+    }
+    60% {
+        transform: translateX(10px) rotate(-3deg);
+    }
+    80% {
+        transform: translateX(-10px) rotate(2deg);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
+
 
 /*img.logo-placeholder {
     width: 300px;
@@ -233,28 +231,28 @@ button.login-button:hover {
     margin-right: auto;
     padding-top: 50px;
 }*/
+
 .logo {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 50px;
-/*margin-top: 20%;*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    /*margin-top: 20%;*/
 }
 
-.bomb, .squad {
-  font-family: 'Manteka';
-  font-size: 80px;
-  display: inline-block;
-  line-height: 55px;
-  color: #FFF;
+.bomb,
+.squad {
+    font-family: 'Manteka';
+    font-size: 80px;
+    display: inline-block;
+    line-height: 55px;
+    color: #FFF;
 }
 
 .bomb {
-  letter-spacing: 12px;
-  padding-left: 14px;
+    letter-spacing: 12px;
+    padding-left: 14px;
 }
-
-
 
 .signup-text {
     text-align: center;
@@ -279,9 +277,7 @@ button.login-button:hover {
     margin-right: auto;
 }
 
-.wires-container {
-
-}
+.wires-container {}
 
 .wires-background {
     margin-top: 220px;
@@ -293,101 +289,96 @@ button.login-button:hover {
     justify-content: center;
 }
 
-
 .timer {
     color: black;
     letter-spacing: 2px;
     font-weight: bolder;
 }
 
-
 button.startbtn {
-  height: 60px;
-  width: 200px;
-  display: inline-block;
-  border-radius: 50px;
-
+    height: 60px;
+    width: 200px;
+    display: inline-block;
+    border-radius: 50px;
 }
 
 #header-3 .home {
-  background-color: #FFFFFF;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-  padding: 50px 0 300px 0;
-  height: 100%;
+    background-color: #FFFFFF;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 50px 0 300px 0;
+    height: 100%;
 }
 
 #header-3 .home h1 {
-  margin-top: 100px;
-  font-weight: 600;
-  color: #31152B;
+    margin-top: 100px;
+    font-weight: 600;
+    color: #31152B;
 }
 
 #header-3 .home .lead {
-  font-weight: 600;
-  color: #723147;
+    font-weight: 600;
+    color: #723147;
 }
 
 .join-input {
-  width: 100%;
-  height: 60px;
-  margin-bottom: 20px;
-  padding-left: 30px;
-  border: 2.5px solid #FF534F;
-  border-radius: 50px;
-  outline: none;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    border: 2.5px solid #FF534F;
+    border-radius: 50px;
+    outline: none;
 }
 
 .join-input:hover {
-  border: 2px solid #FF534F;
+    border: 2px solid #FF534F;
 }
 
 .join-input:focus {
-  border: 2px solid #FF534F;
+    border: 2px solid #FF534F;
 }
 
 .join-input[type="text"] {
-  color: #FF534F;
-  font-size: 15px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    color: #FF534F;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 button.join-button {
-  display: block;
-  margin: auto;
-  width: 100%;
-  height: 60px;
-  background: #FF534F;
-  border: none;
-  border-radius: 50px;
-  outline: none;
-  font-family: 'Montserrat';
-  font-size: 18px;
-  letter-spacing: 3px;
-  color: #ffffff;
-  text-transform: uppercase;
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 60px;
+    background: #FF534F;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
 }
 
 button.create-button {
-  display: block;
-  margin: auto;
-  width: 100%;
-  height: 60px;
-  background: #3836EB;
-  border: none;
-  border-radius: 50px;
-  outline: none;
-  font-family: 'Montserrat';
-  font-size: 18px;
-  letter-spacing: 3px;
-  color: #ffffff;
-  text-transform: uppercase;
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 60px;
+    background: #3836EB;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
 }
-
 
 h6 {
     overflow: hidden;
@@ -421,78 +412,85 @@ h6:after {
 }
 
 .game-lobby {
-  background-color: #FFF;
+    background-color: #FFF;
 }
 
 .lobby-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-/*  flex-wrap: wrap;*/
-  background-color: #4b49fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /*  flex-wrap: wrap;*/
+    background-color: #4b49fb;
 }
 
 .lobby-container2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-/*  flex-wrap: wrap;*/
-  padding-top: 20%;
-  background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /*  flex-wrap: wrap;*/
+    padding-top: 20%;
+    background-color: #FFF;
 }
 
 .gamekeyBG {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #3836eb;
-  letter-spacing: 3px;
-  margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3836eb;
+    letter-spacing: 3px;
+    margin-top: 40px;
 }
 
 .gamepass {
-  padding-bottom: 10px;
-  font-size: 30px;
-  color: white;
-  align-items: center;
+    padding-bottom: 10px;
+    font-size: 30px;
+    color: white;
+    align-items: center;
 }
 
 .numPlayers {
-  font-size: 14px;
-  color: #FFF;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+    font-size: 14px;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
-
 
 button.ready-button {
-  display: block;
-  margin-top: 50px;
-  width: 100%;
-  height: 60px;
-  background-color: #FFF;
-  border: none;
-  border-radius: 50px;
-  outline: none;
-  font-family: 'Montserrat';
-  font-size: 18px;
-  letter-spacing: 3px;
-  color: #000;
-  text-transform: uppercase;
+    display: block;
+    margin-top: 50px;
+    width: 100%;
+    height: 60px;
+    background-color: #FFF;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #000;
+    text-transform: uppercase;
 }
+
 
 /*.ready-button:hover {
   background: #3836eb;;
 }*/
 
 
+/****************************************/
+
 
 /****************************************/
-/****************************************/
+
+
 /************CRAZY CHAT STYLEZZZZ********/
+
+
 /****************************************/
+
+
 /****************************************/
 
 .chat-background {
@@ -507,58 +505,57 @@ button.ready-button {
 }
 
 #messages {
-  background-color: white;
-  height: 75%;
-  width: 90%;
-/*  align-self: flex-start;*/
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  align-items: center;
-/*  -webkit-align-items: flex-end;
+    background-color: white;
+    height: 75%;
+    width: 90%;
+    /*  align-self: flex-start;*/
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    /*  -webkit-align-items: flex-end;
   align-items: flex-end;*/
 }
 
 .txt-box {
-  background-color: white;
-  height: 40px;
-  width: 95%;
-  border-bottom: 1px solid lightgrey;
-  display: flex;
-/*  -webkit-flex-direction: row;
+    background-color: white;
+    height: 40px;
+    width: 95%;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    /*  -webkit-flex-direction: row;
   flex-direction: row;*/
-/*  align-items: center;*/
+    /*  align-items: center;*/
 }
 
 .msg {
-  margin-left: auto;
-  padding-right: 10px;
+    margin-left: auto;
+    padding-right: 10px;
 }
 
 #send-message {
-  margin-top: 20px;
-  background-color: white;
-  width: 90%;
-  height: 10%;
-  display: inline-flex;
+    margin-top: 20px;
+    background-color: white;
+    width: 90%;
+    height: 10%;
+    display: inline-flex;
 }
 
 .msg-input {
-  width: 100%;
+    width: 100%;
 }
 
-
 .stagingArea {
- display: block;
- width: 80%;
- text-align: center;
-/* height: 100%;*/
+    display: block;
+    width: 78%;
+    text-align: center;
+    /* height: 100%;*/
 }
 
 button.submit-chat {
-  background-color: blue;
-  width: 40px;
+    background-color: blue;
+    width: 40px;
 }
 
 input:-webkit-autofill,
