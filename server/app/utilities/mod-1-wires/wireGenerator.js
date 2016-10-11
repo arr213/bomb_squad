@@ -6,7 +6,7 @@ module.exports = wireGenerator;
 //5 available colors
 const wireColors = ['white', 'blue', 'yellow', 'black', 'red'];
 
-wireGenerator.generate = function(game, modObj) {
+wireGenerator.generate = function(game) {
     let numWires = _.random(3, 6);
     let wireSeq = wireColorGen(numWires);
     let solution = wireSolver.solve(wireSeq, game.batteries);
