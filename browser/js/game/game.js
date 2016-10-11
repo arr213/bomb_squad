@@ -14,7 +14,6 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $mdToast, $http) {
-
     //console.log(currgame);
 
     $scope.currentStage = 0;

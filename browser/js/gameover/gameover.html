@@ -1,23 +1,19 @@
- <div class="lobby-container">
-            <!--<div class="container" style="background-color: #FF534F">-->
-                <!--<div>-->
-                <!--<img class="logo-placeholder" src="https://c1.staticflickr.com/9/8271/29489026654_bc7816dd05_n.jpg">-->
-                <!--</div>-->
-                <div class="stagingArea">
-                
-                <h1>GAME OVER</h1>
-
-                <button ng-click="playAgain()">Play Again?</button>
-
-                </div>
-                <!--<form class="login-form" novalidate name="loginForm" ng-submit="sendLogin(login)">
-                    <input class="login-input" ng-model="login.email" ng-class="{ invalid: formInvalid }" placeholder="email" type="email" name="username" required/>
-                    <input class="login-input" ng-model="login.password" ng-class="{ invalid: formInvalid }" placeholder="password" type="password" name="username" required/>
-
-                    <button class="login-button" type="submit">continue</button>
-                </form>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="signup-text">-->
-            <!--<h5>Don't have an account? <a ui-sref="signup" style="color: #3836EB">Sign Up</a></h5>-->
-        </div>
+ <div class="login-container dotted">
+    <div style="width: 78%;">
+         <center>
+             <div class="row">
+                 <h1 id="titlefont" style="font-size: 60px" class="disable-text-selection">FAIL!</h1>
+             </div>
+             <div class="row">
+                     <h1 id="bodyfont" style="color: #FF534F" class="gamepass">YOU HAVE EXPLODED.</h1>
+             </div>
+             <div class="row">
+                 <img src="/images/bomb.svg" height="250px">
+             </div>
+             <br>
+             <div class="row">
+                 <button class="join-button" type="submit" ui-sref="home">Play Again</button>
+             </div>
+         </center>
+    </div>
+ </div>

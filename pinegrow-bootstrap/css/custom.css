@@ -112,6 +112,51 @@ body {
     padding-bottom: 10%;
 }
 
+#symbol-container {
+   display: -webkit-flex;
+   display: flex;
+  -ms-box-orient: horizontal;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: horizontal;
+  height: 100%;
+  background: #ececec;
+}
+
+.symbol {
+   width: 50%;
+   display: -webkit-flex;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: 4px solid #FFF;
+}
+
+button.symbol-button {
+   width: 150px;
+   height: 100%;
+   font-size: 60px;
+   border:none;
+   outline:none
+}
+
+.btn-disabled {
+    background-color: #3836eb;
+    color: #FFF;
+    border:none;
+}
+
+@keyframes wrong {
+    from {background-color: lightgrey;}
+    to {background-color: red;}
+}
+
+.btn-incorrect {
+    animation-name: wrong;
+    animation-duration: .5s;
+    background: lightgrey;
+}
+
 .main-content {
     display: flex;
     justify-content: center;
@@ -119,7 +164,6 @@ body {
 }
 
 .login-form {
-    display: block;
     border: none;
     width: 100%;
     height: 250px;
@@ -275,6 +319,7 @@ button.login-button:hover {
     height: 15px;
     margin-left: auto;
     margin-right: auto;
+    outline: none;
 }
 
 .wires-container {}
@@ -331,6 +376,7 @@ button.startbtn {
     border: 2.5px solid #FF534F;
     border-radius: 50px;
     outline: none;
+    text-transform: uppercase;
 }
 
 .join-input:hover {
@@ -428,9 +474,9 @@ h6:after {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+/*    height: 100%;*/
     /*  flex-wrap: wrap;*/
-    padding-top: 20%;
+    padding-top: 30%;
     background-color: #FFF;
 }
 
@@ -547,10 +593,8 @@ button.ready-button {
 }
 
 .stagingArea {
-    display: block;
     width: 78%;
     text-align: center;
-    /* height: 100%;*/
 }
 
 button.submit-chat {
@@ -577,6 +621,12 @@ input:-webkit-autofill:active {
   background-size: 3px 3px;
 }
 
-
-
+.victoryBG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EDEDED;
+    letter-spacing: 3px;
+    margin-top: 20px;
+}
 
