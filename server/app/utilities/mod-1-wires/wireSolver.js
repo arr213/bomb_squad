@@ -39,4 +39,4 @@ function sixWireSolver(arr, batteries) {
     return 3;
 }
 
-console.log(wireSolver.solve(['red','white','red']));
+// console.log(wireSolver.solve(['red','white','red']));

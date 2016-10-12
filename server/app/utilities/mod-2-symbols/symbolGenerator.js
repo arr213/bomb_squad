@@ -8,21 +8,19 @@ const symbolOptions = require('./symbolOptions')
 symbolGenerator.generate = function(game) {
     var column = _.sample(symbolOptions.columns);
     const buttons = buttonGen(column);
-    console.log(buttons);
+    //console.log(buttons);
     return buttons;
 };
 
 
 function buttonGen(column) {
-    var thisCol = column;
-    let i = 0;
-    while(thisCol.length!==4){
-        thisCol.splice(_.random(0, 6 - i), 1);
-        i++;
+    var thisCol = _.cloneDeep(column);
+    while (thisCol.length > 4) {
+        thisCol.splice(_.random(0, thisCol.length), 1);
     }
-    for (let i = 0; i < thisCol.length; i++) {
-        thisCol[i].pressOrder = i + 1;
-        thisCol[i].pressed = false;
+    for (let j = 0; j < thisCol.length; j++) {
+        thisCol[j].pressOrder = j + 1;
+        thisCol[j].pressed = false;
     }
     thisCol = _.shuffle(thisCol);
     return thisCol;
