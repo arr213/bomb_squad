@@ -1,21 +1,22 @@
-<header id="header-3" class="soft-scroll header-3">
-    <section class="home">
-        <div class="container">
-            <div class="container">
-                <center>
-                    <h2 style="color: #000000">Create Your Squad!</h2>
-                </center>
-                <form name="options" class="login-form" ng-submit="createGame(squadname)">
-                    <input class="login-input" type="username" ng-model="squadname" placeholder="Squad Name" required/>
-                    <h6 style="color: #000000">MODE</h6>
-                    <h3 style="color: #000000">{{}}STANDARD</h3>
-                    <h6 style="color: #000000">MODULES</h6>
-                    <input class="login-input" type="username" ng-model="numModules" placeholder="0-5 Modules"/>
-                     <h6 style="color: #000000">MINUTES</h6>
-                    <input class="login-input" type="username" ng-model="timePerRound" placeholder="1-3 Minutes"/>
-                    <button type="submit" id="submit">Create</button>
-                </form>
+<div class="create-container">
+    <div class="create2-container" style="width: 78%; height: 95%"">
+        <h2 id="titlefont" style="color: #000000">Create Your Squad!</h2>
+        <form name="options" class="login-form" ng-submit="createGame(squadname)">
+            <input class="login-input" type="username" ng-model="squadname" placeholder="Squad Name" required/>
+            <h6 style="color: #000000">MODE</h6>
+            <div class="standard-container">
+                <div style="width: 100%"><img src="/images/icon-arrow-left.png"
+                style="margin-top: 10px; margin-right: 50px; outline: none" height="45px" ng-click="changeMode()" /></div>
+                <div style="width: 100%"><h3 id="titlefont" style="color: #000000">{{ gameMode }}</h3></div>
+                <div style="width: 100%"><img src="/images/icon-arrow-right.png" style="margin-top: 10px; margin-left: 50px; outline: none" height="45px" ng-click="changeMode()" /></div>
             </div>
-        </div>
-    </section>
-</header>
+            <div ng-show="gameMode === 'CUSTOM'">
+                <h6 style="color: #000000">MODULES</h6>
+                <input class="login-input" type="username" ng-model="numModules" placeholder="1-5 Modules"/>
+                 <h6 style="color: #000000">MINUTES</h6>
+                <input class="login-input" type="username" ng-model="timePerRound" placeholder="1-3 Minutes"/>
+            </div>
+            <button style="position: fixed; bottom: 15px; width: 78%" class="login-button" type="submit" id="submit">Create</button>
+        </form>
+    </div>
+</div>
