@@ -17,8 +17,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.currentStage = 0;
 
-    $scope.squadName = $stateParams.squad;
-
     $scope.userId = $stateParams.userId;
     $rootScope.userId = $scope.userId;
 
@@ -59,9 +57,10 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     })
 
-    $scope.currentGame.child('stages').once('value', function (snap) {
-        $scope.stages = snap.val();
+    $scope.currentGame.once('value', function (snap) {
+        $scope.stages = snap.val().stages;
         $scope.currentModule = $scope.stages[$scope.currentStage].modules[0];
+        $scope.squadName = snap.val().squadname;
         $scope.$evalAsync();
     });
 
