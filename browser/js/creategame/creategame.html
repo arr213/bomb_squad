@@ -5,7 +5,7 @@
                 <center>
                     <h2 style="color: #000000">Create Your Squad!</h2>
                 </center>
-                <form name="options" class="login-form" ng-submit="createGame(squadname)">
+                <form name="options" class="login-form" ng-submit="createGame(squadname.toUpperCase())">
                     <input class="login-input" type="username" ng-model="squadname" placeholder="Squad Name" required/>
                     <h6 style="color: #000000">MODE</h6>
                     <h3 style="color: #000000">{{}}STANDARD</h3>
