@@ -2,7 +2,7 @@ const _ = require('lodash');
 const batteryGenerator = {};
 module.exports = batteryGenerator;
 
-const batteryColors = ['yellow', 'green', 'black']
+const batteryColors = ['yellow', 'green', 'blue']
 
 batteryGenerator.generate = function(game) {
     const batteries = [];
