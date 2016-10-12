@@ -61,8 +61,8 @@ symbolOptions.symbolList = [{
     unicode: 'Ж'
 }, {
     id: 15,
-    name: 'right-half-R',
-    unicode: 'Ꝛ'
+    name: 'swirly',
+    unicode: '₪'
 }, {
     id: 16,
     name: 'lowercase-delta',
