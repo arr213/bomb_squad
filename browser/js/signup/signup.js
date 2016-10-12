@@ -33,7 +33,7 @@ app.controller('SignupCtrl', function ($scope, $state, $log, AuthService, UserFa
                         password: data.password
                     };
 
-                    AuthService.login($scope.loginInfo);
+                    return AuthService.login($scope.loginInfo);
                 })
                 .then(function() {
                     $state.go('home');

@@ -120,6 +120,13 @@ body {
     align-items: center;
 }
 
+.create2-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #symbol-container {
    display: -webkit-flex;
    display: flex;
