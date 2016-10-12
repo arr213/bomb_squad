@@ -13,7 +13,8 @@ gameGenerator.generate = function() {
         timeLimit: 300000,
         mode: 'standard',
         chatLog: [],
-        readyUp: 0
+        readyUp: 0,
+        gameStatus: 'initiated'
     };
     game.gamePass = gamePassGenerator.generate(); // Add generated gamepass to the game object.
     return game;

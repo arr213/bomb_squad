@@ -20,6 +20,7 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
     gameRef.once('value', function (snap) {
         $scope.gamePass = snap.val().gamePass;
         $scope.squadname = snap.val().squadname;
+        $scope.creatorId = snap.val().creatorId;
         $scope.$evalAsync();
     });
 
@@ -48,12 +49,12 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
             //     });
             //     clickedReady = false;
             // } else {
-                if(!clickedReady){
+            if (!clickedReady) {
                 gameRef.update({
                     'readyUp': snap.val() + 1
                 });
                 clickedReady = true;
-                }
+            }
             // }
         });
 
@@ -64,12 +65,11 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
             hideDelay: 1000,
             position: 'bottom right',
             controller: 'ToastCtrl',
-            template:
-        '<md-toast>' +
-          '<div class="md-toast-content" style="background-color: #3836EB">' +
-            readyCount+' users have clicked ready!' +
-          '</div>' +
-        '</md-toast>'
+            template: '<md-toast>' +
+                '<div class="md-toast-content" style="background-color: #3836EB">' +
+                readyCount + ' users have clicked ready!' +
+                '</div>' +
+                '</md-toast>'
         });
     };
 
@@ -77,20 +77,30 @@ app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user,
 
         let readyCount = snap.val();
 
+        let gameStart = function () {
+            $state.go('game', {
+                gameKey: $stateParams.gameKey,
+                squad: $scope.squad,
+                userId: user.id
+            });
+        }
+
         showReadyCount(readyCount);
         console.log('readyCount', readyCount);
         console.log('$scope.userCount', $scope.userCount);
 
         if (readyCount === $scope.userCount) {
-            StagingFactory.updateGame($stateParams.gameKey)
-                .then(function (updatedGame) {
-                    $state.go('game', {
-                        gameKey: $stateParams.gameKey,
-                        squad : $scope.squad,
-                        userId : user.id
-                    });
-                })
-                .catch($log.error);
+            if ($scope.creatorId === String(user.id)) {
+                console.log("I am the creator and I am updating the game!");
+                StagingFactory.updateGame($stateParams.gameKey)
+                    .then(() => gameStart())
+                    .catch($log.error);
+            } else {
+                console.log('I am not updating the game')
+                var delayed = function() {
+                    window.setTimeout(gameStart, 1000);
+                }();
+            }
 
         }
     });

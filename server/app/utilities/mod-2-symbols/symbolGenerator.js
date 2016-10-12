@@ -5,7 +5,7 @@ module.exports = symbolGenerator;
 const symbolOptions = require('./symbolOptions')
 
 
-symbolGenerator.generate = function(game, modObj) {
+symbolGenerator.generate = function(game) {
     var column = _.sample(symbolOptions.columns);
     const buttons = buttonGen(column);
     console.log(buttons);

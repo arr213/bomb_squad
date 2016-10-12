@@ -5,7 +5,7 @@ app.config(function ($stateProvider) {
         templateUrl: '/js/game/game.html',
         controller: 'GameCtrl',
         resolve: {
-            currgame: function(GameFactory, $stateParams){
+            currgame: function (GameFactory, $stateParams) {
                 return GameFactory.promiseToHaveGames($stateParams.gameKey);
             }
         }
@@ -13,9 +13,7 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $mdToast, AuthService) {
-
-    //console.log(currgame);
+app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $mdToast, $http) {
 
     $scope.currentStage = 0;
 
@@ -27,16 +25,16 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.swiped = false;
 
-    $scope.onSwipeRight = function(ev){
+    $scope.onSwipeRight = function (ev) {
         console.log('swiped right!')
-        if(!$scope.swiped){
+        if (!$scope.swiped) {
             $scope.swiped = true;
         }
     };
 
-    $scope.onSwipeLeft = function(ev){
+    $scope.onSwipeLeft = function (ev) {
         console.log('swiped left!');
-        if($scope.swiped){
+        if ($scope.swiped) {
             $scope.swiped = false;
         }
     };
@@ -46,15 +44,19 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
     $scope.currentGame = rootRef.child($stateParams.gameKey);
 
     $scope.currentGame.child('batteries').once('value', function (snap) {
-        var batteryArray = snap.val();
-        var user = AuthService.getLoggedInUser()
-        $scope.batteries = [];
+        $scope.batteries = snap.val();
+        console.log('batteriesssss', $scope.batteries)
+        $scope.userId = $rootScope.userId;
+        // $scope.user = AuthService.getLoggedInUser()
+             console.log('userrr', $scope.userId)
+        // $scope.loggedInUserId = user.id;
+        // $scope.batteries = [];
         // console.log('@@@@@', batteryObject)
-        for(var i = 0; i < batteryArray.length; i++){
-            if(user.id === batteryArray[i].userAssigned){
-                $scope.batteries.push(batteryArray[i]);
-            }
-        }
+        // for(var i = 0; i < batteryArray.length; i++){
+        //     if(user.id === batteryArray[i].userAssigned){
+        //         $scope.batteries.push(batteryArray[i]);
+        //     }
+
     })
 
     $scope.currentGame.child('stages').once('value', function (snap) {
@@ -65,12 +67,33 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.currentGame.child('currentStage').on('value', function (snap) {
         $scope.currentStage = snap.val();
-        if($scope.gamePlaying){
-        if($scope.currentStage === $scope.stages.length){
-            $scope.currentGame = null;
-            clearInterval(interval);
-            $state.go('victory');
-        }
+        if ($scope.gamePlaying) {
+            if ($scope.currentStage === $scope.stages.length) {
+                $scope.currentGame.once('value')
+                    .then(function (snap2) {
+                        console.log("this is the creatorId", snap2.val().creatorId)
+                        console.log("this is the userId", snap2.val().creatorId)
+                        if (snap2.val().creatorId !== $scope.userId) {
+                            console.log("I am not the creator");
+                            $scope.currentGame = null;
+                            clearInterval(interval);
+                            $state.go('victory');
+                        } else {
+                            console.log('I am the creator');
+                            $scope.currentGame.update({
+                                gameStatus: 'victory'
+                            });
+                            var logGame = snap2.val();
+                            logGame.gameStatus = 'victory';
+                            $http.post('/api/games/logGame', logGame)
+                                .then(() => {
+                                    clearInterval(interval);
+                                    $scope.currentGame = null;
+                                    $state.go('victory')
+                                });
+                        }
+                    });
+            }
         }
     });
 
@@ -78,17 +101,17 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.currentGame.child('strikes').on('value', function (snapshot) {
         $scope.strikes = snapshot.val();
-        if($scope.strikes[0]['active']){
-             $mdToast.show({
-                    hideDelay: 1000,
-                    position: 'bottom right',
-                    controller: 'ToastCtrl',
-                    template: '<md-toast>' +
-                        '<div class="md-toast-content" style="background-color: #3836EB">' +
-                        "STRIKE!" +
-                        '</div>' +
-                        '</md-toast>'
-        });
+        if ($scope.strikes[0]['active']) {
+            $mdToast.show({
+                hideDelay: 1000,
+                position: 'bottom right',
+                controller: 'ToastCtrl',
+                template: '<md-toast>' +
+                    '<div class="md-toast-content" style="background-color: #3836EB">' +
+                    "STRIKE!" +
+                    '</div>' +
+                    '</md-toast>'
+            });
         }
         if ($scope.strikes[2]['active']) {
             $scope.currentGame = null;

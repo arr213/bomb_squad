@@ -38,3 +38,5 @@ function sixWireSolver(arr, batteries) {
     if (arr.indexOf('red') === -1) return 5;
     return 3;
 }
+
+console.log(wireSolver.solve(['red','white','red']));

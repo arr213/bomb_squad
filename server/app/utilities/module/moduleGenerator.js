@@ -6,14 +6,16 @@ const wireGenerator = require('../mod-1-wires/wireGenerator');
 const symbolGenerator = require('../mod-2-symbols/symbolGenerator');
 
 const modTypes = [
-    {
+{
     type: 'wires',
     generate: wireGenerator.generate
-},
+}
+,
 {
     type: 'symbols',
     generate: symbolGenerator.generate
-}];
+}
+];
 
 function objectifyMod(modType, game, stageNum) {
     const modObj = {
@@ -24,7 +26,7 @@ function objectifyMod(modType, game, stageNum) {
         timeStarted: 0,
         timeCompleted: 0
     };
-    modObj.content = modType.generate(game, modObj);
+    modObj.content = modType.generate(game);
     return modObj;
 }
 

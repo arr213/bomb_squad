@@ -6,11 +6,11 @@ module.exports = wireGenerator;
 //5 available colors
 const wireColors = ['white', 'blue', 'yellow', 'black', 'red'];
 
-wireGenerator.generate = function(game, modObj) {
-    const numWires = _.random(3, 6);
-    const wireSeq = wireColorGen(numWires);
-    const solution = wireSolver.solve(wireSeq, game.batteries);
-    const objSeq = wireColorGen(numWires).map(objectifyWire);
+wireGenerator.generate = function(game) {
+    let numWires = _.random(3, 6);
+    let wireSeq = wireColorGen(numWires);
+    let solution = wireSolver.solve(wireSeq, game.batteries);
+    let objSeq = wireSeq.map(objectifyWire);
     objSeq[solution].solution = true;
     return objSeq;
 };
@@ -20,11 +20,12 @@ function wireColorGen(num) {
     return _.times(num, () => _.sample(wireColors));
 }
 
-function objectifyWire(color) {
+function objectifyWire(color, ind) {
     return {
         color: color,
         wasCut: false,
-        solution: false
+        solution: false,
+        index: ind
     };
 }
 
