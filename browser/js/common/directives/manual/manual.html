@@ -1,16 +1,15 @@
-<div class="col-xs-12">
-	<h2>BOMB MANUAL</h2>
+<!-- <div class="col-xs-12">
+    <h2>BOMB MANUAL</h2>
     <div ng-repeat="section in sections" ng-click="showBody(section)">{{ section.header }}
         <div ng-show="section.show">
             <p>{{ section.body }}</p>
         </div>
     </div>
-</div>
+</div> -->
 
-
-<div class="col-xs-12">
-	<h2>BOMB MANUAL</h2>
-    <div ng-repeat="section in sections">
-    	<chapter section="section"></chapter>
-    </div>
+<div style="display: relative; top: 200px;" class="col-xs-12">
+    <h2>BOMB MANUAL</h2>
+    <manual-intro></manual-intro>
+    <manual-wires></manual-wires>
+    <manual-symbols></manual-symbols>
 </div>
