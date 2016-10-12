@@ -6,7 +6,7 @@
         </div>
         <div class="cont batteries col-xs-4">
             <div class="battery-container" ng-repeat="battery in batteries" ng-if="battery.userAssigned === userId">
-                <svg class="battery-styles" ng-class="{ greenbattery: battery.color === 'green', yellowbattery: battery.color === 'yellow' }" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="326.4px" height="612px" viewBox="0 0 326.4 612" enable-background="new 0 0 326.4 612" xml:space="preserve">
+                <svg class="battery-styles" ng-class="{ greenbattery: battery.color === 'green', yellowbattery: battery.color === 'yellow', bluebattery: battery.color === 'blue' }" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="326.4px" height="612px" viewBox="0 0 326.4 612" enable-background="new 0 0 326.4 612" xml:space="preserve">
                     <g>
                         <path d="M291.1,40.8h-66.7V0H102v40.8H35.3C15.9,40.8,0,56.7,0,76.1v500.5C0,596.1,15.9,612,35.3,612h255.7
     c19.5,0,35.3-15.9,35.3-35.3V76.1C326.4,56.7,310.5,40.8,291.1,40.8z M122.4,20.4H204v20.4h-81.6V20.4z M306,576.7
