@@ -12,7 +12,7 @@ router.post('/createGame', function(req,res){
     let newGame = gameGenerator.generate();
     newGame.users = [user];
     newGame.squadname = req.body.squadname;
-    newGame.modPerPerson = req.body.modPerPerson;
+    newGame.modPerPerson = +req.body.modPerPerson;
     newGame.timePerMod = req.body.timePerMod;
     newGame.creatorId = user;
     let game = gameDB.push(newGame);

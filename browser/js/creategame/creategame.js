@@ -24,16 +24,25 @@ app.controller('CreateGameCtrl', function($scope, $http, $state){
         console.log("Creating Game");
     };
 
+    $scope.gameMode = "STANDARD";
+
+    $scope.changeMode = function() {
+        if ($scope.gameMode === "STANDARD") {
+            $scope.gameMode = "CUSTOM";
+        } else {
+            $scope.gameMode = "STANDARD";
+        }
+    };
 
     $scope.createGame = function(squadname) {
         
-        if($scope.gameMode === 'custom'){
-            let modPerPerson = $scope.modPerPerson;
-            let timePerMod = $scope.timePerMod;
+        if($scope.gameMode === 'CUSTOM'){
+            modPerPerson = $scope.modPerPerson || 2;
+            timePerMod = $scope.timePerMod || 45000;
         }
 
         console.log("Creating Game");
-        $http.post('/api/games/createGame', {squadname: squadname, modPerPerson: modPerPerson, timePerMod: timePerMod , gameMode: gameMode})
+        $http.post('/api/games/createGame', {squadname: squadname, modPerPerson: modPerPerson, timePerMod: timePerMod , gameMode: $scope.gameMode})
             .then(function(res) {
                 console.log('#############', res.data)
                 $state.go('staging', { gameKey: res.data, squadname: squadname });
