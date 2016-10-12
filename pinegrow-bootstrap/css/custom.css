@@ -113,6 +113,13 @@ body {
     padding-bottom: 10%;
 }
 
+.create-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #symbol-container {
    display: -webkit-flex;
    display: flex;
@@ -661,3 +668,9 @@ input:-webkit-autofill:active {
     margin-top: 20px;
 }
 
+.standard-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

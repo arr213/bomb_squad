@@ -20,6 +20,15 @@ app.controller('CreateGameCtrl', function($scope, $http, $state){
         console.log("Creating Game");
     };
 
+    $scope.gameMode = "STANDARD";
+
+    $scope.changeMode = function() {
+        if ($scope.gameMode === "STANDARD") {
+            $scope.gameMode = "CUSTOM";
+        } else {
+            $scope.gameMode = "STANDARD";
+        }
+    };
 
     $scope.createGame = function() {
         console.log("Creating Game");
