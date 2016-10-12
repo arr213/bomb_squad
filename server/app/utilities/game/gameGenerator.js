@@ -10,11 +10,12 @@ gameGenerator.generate = function() {
         users: [],
         numModules: 4,
         strikeLimit: 3,
-        timeLimit: 300000,
+        timePerMod: 45000,
         mode: 'standard',
         chatLog: [],
         readyUp: 0,
-        gameStatus: 'initiated'
+        gameStatus: 'initiated',
+        modPerPerson: 2,
     };
     game.gamePass = gamePassGenerator.generate(); // Add generated gamepass to the game object.
     return game;
@@ -25,8 +26,8 @@ gameGenerator.generate = function() {
 gameGenerator.update = function(gameObj) {
     const game = gameObj;
     if (game.mode === 'standard') {
-        game.numModules = game.users.length;
-        game.timeLimit = 75000 * game.users.length;
+        game.numModules = game.users.length * game.modPerPerson;
+        game.timeLimit = 45000 * game.numModules;
         game.currentStage = 0;
     }
     game.batteries = batteryGenerator.generate(game); // Add generated batteries to the game object.
