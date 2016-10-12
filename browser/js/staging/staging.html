@@ -1,6 +1,6 @@
 
-<div class="lobby-container">
-    <div class="stagingArea">
+<div class="staging-container" md-swipe-right="onSwipeRight()" md-swipe-left="onSwipeLeft()">
+    <div ng-show="!swiped" class="stagingArea">
         <h1 id="titlefont" style="color: #FFF; font-size: 50px;">{{ squadname }}</h1>
 
         <div class="gamekeyBG">
@@ -12,4 +12,5 @@
         <button class="ready-button" ng-click="ready()" type="submit">Ready?</button>
 
     </div>
+     <public-chat ng-show="swiped"></public-chat>
 </div>

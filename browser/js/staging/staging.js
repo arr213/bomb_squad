@@ -15,6 +15,22 @@ app.config(function ($stateProvider) {
 
 app.controller('StagingCtrl', function ($http, $scope, $stateParams, $log, user, $state, StagingFactory, $mdToast) {
 
+    $scope.swiped = false;
+
+    $scope.onSwipeRight = function (ev) {
+        console.log('swiped right!')
+        if (!$scope.swiped) {
+            $scope.swiped = true;
+        }
+    };
+
+    $scope.onSwipeLeft = function (ev) {
+        console.log('swiped left!');
+        if ($scope.swiped) {
+            $scope.swiped = false;
+        }
+    };
+
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
     gameRef.once('value', function (snap) {
