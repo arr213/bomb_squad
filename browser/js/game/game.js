@@ -55,6 +55,7 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
         $scope.stages = snap.val().stages;
         $scope.currentModule = $scope.stages[$scope.currentStage].modules[0];
         $scope.squadName = snap.val().squadname;
+        console.log($scope.squadName);
         $scope.$evalAsync();
     });
 

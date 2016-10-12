@@ -11,7 +11,7 @@ gameGenerator.generate = function() {
         numModules: 4,
         strikeLimit: 3,
         timePerMod: 45000,
-        mode: 'standard',
+        gameMode: 'STANDARD',
         chatLog: [],
         readyUp: 0,
         gameStatus: 'initiated',
@@ -25,11 +25,11 @@ gameGenerator.generate = function() {
 
 gameGenerator.update = function(gameObj) {
     const game = gameObj;
-    if (game.mode === 'standard') {
+    if (game.gameMode === 'STANDARD' || game.gameMode === 'CUSTOM') {
         game.numModules = game.users.length * game.modPerPerson;
-        game.timeLimit = 45000 * game.numModules;
+        game.timeLimit = game.timePerMod * game.numModules;
         game.currentStage = 0;
-    }
+    } 
     game.batteries = batteryGenerator.generate(game); // Add generated batteries to the game object.
     game.strikes = strikeGenerator.generate(game); // Add generated strikes to the game object.
     game.stages = stageGenerator.generate(game); // Add generated stages to the game object.;

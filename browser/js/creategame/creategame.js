@@ -10,6 +10,10 @@ app.config(function ($stateProvider) {
 
 app.controller('CreateGameCtrl', function($scope, $http, $state){
 
+    let modPerPerson = 2;
+    let timePerMod = 45000;
+    let gameMode = 'standard';
+
     $scope.things = "HERE"
 
     $scope.click = function(){
@@ -30,12 +34,18 @@ app.controller('CreateGameCtrl', function($scope, $http, $state){
         }
     };
 
-    $scope.createGame = function() {
+    $scope.createGame = function(squadname) {
+        
+        if($scope.gameMode === 'CUSTOM'){
+            modPerPerson = $scope.modPerPerson || 2;
+            timePerMod = $scope.timePerMod*1000 || 45000;
+        }
+
         console.log("Creating Game");
-        $http.post('/api/games/createGame', {squadname: $scope.squadname})
+        $http.post('/api/games/createGame', {squadname: squadname, modPerPerson: modPerPerson, timePerMod: timePerMod , gameMode: $scope.gameMode})
             .then(function(res) {
                 console.log('#############', res.data)
-                $state.go('staging', { gameKey: res.data, squadname: $scope.squadname });
+                $state.go('staging', { gameKey: res.data, squadname: squadname });
             });
     };
 
