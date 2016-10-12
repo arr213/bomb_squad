@@ -342,9 +342,11 @@ button.login-button:hover {
 
 button.startbtn {
     height: 60px;
-    width: 200px;
+    width: 300px;
     display: inline-block;
     border-radius: 50px;
+    outline: none;
+    border: none;
 }
 
 #header-3 .home {
@@ -517,6 +519,13 @@ button.ready-button {
     letter-spacing: 3px;
     color: #000;
     text-transform: uppercase;
+}
+
+img.battery-test{
+    background-color: green;
+    height: 50%;
+    width: 50%;
+    transform: rotate(90deg);
 }
 
 

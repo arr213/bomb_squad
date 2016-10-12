@@ -14,7 +14,6 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $mdToast, $http) {
-    //console.log(currgame);
 
     $scope.currentStage = 0;
 
@@ -43,6 +42,22 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
     let interval;
     var rootRef = firebase.database().ref('/game');
     $scope.currentGame = rootRef.child($stateParams.gameKey);
+
+    $scope.currentGame.child('batteries').once('value', function (snap) {
+        $scope.batteries = snap.val();
+        console.log('batteriesssss', $scope.batteries)
+        $scope.userId = $rootScope.userId;
+        // $scope.user = AuthService.getLoggedInUser()
+             console.log('userrr', $scope.userId)
+        // $scope.loggedInUserId = user.id;
+        // $scope.batteries = [];
+        // console.log('@@@@@', batteryObject)
+        // for(var i = 0; i < batteryArray.length; i++){
+        //     if(user.id === batteryArray[i].userAssigned){
+        //         $scope.batteries.push(batteryArray[i]);
+        //     }
+
+    })
 
     $scope.currentGame.child('stages').once('value', function (snap) {
         $scope.stages = snap.val();
@@ -81,6 +96,8 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
             }
         }
     });
+
+
 
     $scope.currentGame.child('strikes').on('value', function (snapshot) {
         $scope.strikes = snapshot.val();

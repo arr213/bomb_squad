@@ -5,8 +5,10 @@
         <div class="cont timer col-xs-4" ng-click="clicked()">
           <h1 id="titlefont" class="timer">{{ timerNum }}</h1>
         </div>
-        <div class="cont components col-xs-4">
-          <div ng-show="components.userAssigned === loggedInUserId">
+        <div class="cont batteries col-xs-4">
+          <div ng-repeat="battery in batteries" ng-if="battery.userAssigned === userId">
+         <!--  <div ng-class="battery-test">hi</div> -->
+          <img class="battery-test" src="/js/common/directives/game-header/battery.svg"/>
           </div>
         </div>
 
