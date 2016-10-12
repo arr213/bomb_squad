@@ -561,7 +561,6 @@ svg.battery-styles{
     height: 110%;
     width: 110%;
     transform: rotate(90deg);
-    fill: #3836EB;
 }
 
 .greenbattery {
@@ -570,6 +569,10 @@ svg.battery-styles{
 
 .yellowbattery {
     fill: #ffdb13;
+}
+
+.bluebattery {
+    fill: #3836EB;
 }
 
 
