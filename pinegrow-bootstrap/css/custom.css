@@ -140,7 +140,7 @@ body {
   flex-wrap: wrap;
   flex-direction: horizontal;
   height: 100%;
-  background: #ececec;
+  background-color: #ececec;
 }
 
 .symbol {
@@ -150,14 +150,16 @@ body {
    justify-content: center;
    align-items: center;
    border: 4px solid #FFF;
+   background-color: #ececec;
 }
 
-button.symbol-button {
+.symbol-button {
    width: 150px;
    height: 100%;
    font-size: 60px;
    border:none;
-   outline:none
+   outline:none;
+   background-color: #ececec;
 }
 
 .btn-disabled {
@@ -167,14 +169,14 @@ button.symbol-button {
 }
 
 @keyframes wrong {
-    from {background-color: lightgrey;}
+    from {background-color: #ececec;}
     to {background-color: red;}
 }
 
 .btn-incorrect {
     animation-name: wrong;
     animation-duration: .5s;
-    background: lightgrey;
+    background-color: #ececec;
 }
 
 .main-content {
@@ -687,4 +689,9 @@ input:-webkit-autofill:active {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.start-game {
+    font-size: 20px;
+    margin-bottom
 }
