@@ -13,7 +13,7 @@ router.post('/createGame', function(req,res){
     newGame.users = [user];
     newGame.squadname = req.body.squadname;
     newGame.modPerPerson = req.body.modPerPerson;
-    newGame.timePerRound = req.body.timePerRound;
+    newGame.timePerMod = req.body.timePerMod;
     newGame.creatorId = user;
     let game = gameDB.push(newGame);
     game.once('value', function(snap){

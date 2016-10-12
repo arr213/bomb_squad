@@ -6,7 +6,7 @@
           <h1 id="titlefont" class="timer">{{ timerNum }}</h1>
         </div>
         <div class="cont batteries col-xs-4">
-          <div class="battery-container" ng-repeat="battery in batteries" ng-if="battery.userAssigned === userId">
+          <div ng-show="gamePlaying" class="battery-container" ng-repeat="battery in batteries" ng-if="battery.userAssigned === userId">
          <!--  <div ng-class="battery-test">hi</div> -->
 <!--          ng-class="{ green-battery: battery.color === 'green' }" -->
    <!--        <img class="battery-test green-battery" src="/js/common/directives/game-header/battery.svg"/> -->

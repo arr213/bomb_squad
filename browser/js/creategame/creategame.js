@@ -10,6 +10,10 @@ app.config(function ($stateProvider) {
 
 app.controller('CreateGameCtrl', function($scope, $http, $state){
 
+    let modPerPerson = 2;
+    let timePerMod = 45000;
+    let gameMode = 'standard';
+
     $scope.things = "HERE"
 
     $scope.click = function(){
@@ -26,10 +30,6 @@ app.controller('CreateGameCtrl', function($scope, $http, $state){
         if($scope.gameMode === 'custom'){
             let modPerPerson = $scope.modPerPerson;
             let timePerMod = $scope.timePerMod;
-        } else {
-            let modPerPerson = $scope.modPerPerson || 2;
-            let timePerMod = 45000;
-            let gameMode = 'standard';
         }
 
         console.log("Creating Game");
