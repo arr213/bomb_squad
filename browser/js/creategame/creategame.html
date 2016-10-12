@@ -1,7 +1,12 @@
+<div class="arrow-div" style="background-color: #FFFFFF">
+    <a ui-sref="home">
+        <img class="arrow" src="/images/go-back-arrow.png">
+    </a>
+</div>
 
 <div class="create-container">
     <div class="create2-container" style="width: 78%; height: 100%">
-        <h2 id="titlefont" style="color: #000000">Create Your Squad!</h2>
+        <h2 id="titlefont" style="color: #000000">Create Squad!</h2>
         <form name="options" class="login-form" ng-submit="createGame(squadname)">
             <input class="login-input" type="username" ng-model="squadname" placeholder="Squad Name" required/>
             <h6 style="color: #000000">MODE</h6>
@@ -13,9 +18,9 @@
             </div>
             <div ng-show="gameMode === 'CUSTOM'">
                 <h6 style="color: #000000">MODULES</h6>
-                <input class="login-input" type="username" ng-model="modPerPerson" placeholder="1-5 Modules"/>
+                <input class="login-input" type="username" ng-model="modPerPerson" placeholder="1-5 Modules Per Person"/>
                  <h6 style="color: #000000">SECONDS</h6>
-                <input class="login-input" type="username" ng-model="timePerMod" placeholder="Seconds"/>
+                <input class="login-input" type="username" ng-model="timePerMod" placeholder="Seconds Per Person"/>
             </div>
             <button style="position: fixed; bottom: 15px; width: 78%" class="login-button" type="submit" id="submit">Create</button>
         </form>
