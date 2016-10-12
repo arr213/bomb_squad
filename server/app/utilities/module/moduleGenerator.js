@@ -16,7 +16,7 @@ const modTypes = [{
 function objectifyMod(modType, game, stageNum) {
     const modObj = {
         type: modType.type,
-        userAssigned: game.users[stageNum],
+        userAssigned: game.users[stageNum % game.users.length],
         stageDisplayed: stageNum,
         status: 'pending',
         timeStarted: 0,
