@@ -38,7 +38,7 @@ app.controller('CreateGameCtrl', function($scope, $http, $state){
         
         if($scope.gameMode === 'CUSTOM'){
             modPerPerson = $scope.modPerPerson || 2;
-            timePerMod = $scope.timePerMod || 45000;
+            timePerMod = $scope.timePerMod*1000 || 45000;
         }
 
         console.log("Creating Game");
