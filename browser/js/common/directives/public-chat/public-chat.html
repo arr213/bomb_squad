@@ -3,8 +3,8 @@
  <!--    <p>this is a chat</p> -->
     <div id="messages">
 
-      <div ng-repeat="message in messages" class="txt-box">
-      <p class="msg">{{ message.username }}  {{ message.message }}</p>
+      <div id="bodyfont" ng-repeat="message in messages | limitTo: -50" class="txt-box">
+      <p class="msg"><strong>{{ message.username }}:</strong>    {{ message.message }}</p>
       </div>
 
     </div>
@@ -12,11 +12,11 @@
 
     <div id="send-message">
 
-    <form class="msg-input" novalidate name="chat" ng-submit="submit(chat.message)">
+    <form class="msg-form" novalidate name="chat" ng-submit="submit(chat.message)">
 
-    <input ng-model="chat.message" type="text" name="msg" required/>
+    <input class="msg-input" ng-model="chat.message" type="text" name="msg" required/>
 
-    <button class="submit-chat" type="submit">send</button>
+    <button id="bodyfont" class="submit-chat" type="submit">send</button>
   </form>
     </div>
 
