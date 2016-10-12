@@ -33,7 +33,7 @@ function fiveWireSolver(arr, batteries) {
 }
 
 function sixWireSolver(arr, batteries) {
-    if (arr.indexOf('yellow') === -1 && _.filter(batteries, _.matches({ color: 'black' }) % 2 !== 0)) return 2;
+    if (arr.indexOf('yellow') === -1 && _.filter(batteries, _.matches({ color: 'blue' }) % 2 !== 0)) return 2;
     if (arr.filter(color => color === 'yellow').length === 1 && arr.filter(color => color === 'white').length > 1) return 3;
     if (arr.indexOf('red') === -1) return 5;
     return 3;
