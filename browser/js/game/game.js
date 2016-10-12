@@ -45,18 +45,12 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.currentGame.child('batteries').once('value', function (snap) {
         $scope.batteries = snap.val();
-        console.log('batteriesssss', $scope.batteries)
-        $scope.userId = $rootScope.userId;
-        // $scope.user = AuthService.getLoggedInUser()
-             console.log('userrr', $scope.userId)
-        // $scope.loggedInUserId = user.id;
-        // $scope.batteries = [];
-        // console.log('@@@@@', batteryObject)
-        // for(var i = 0; i < batteryArray.length; i++){
-        //     if(user.id === batteryArray[i].userAssigned){
-        //         $scope.batteries.push(batteryArray[i]);
-        //     }
+        for(var i=0; i<$scope.batteries.length;i++){
+            console.log('batteriesssss color', $scope.batteries[i].color)
+        }
 
+
+        $scope.userId = $rootScope.userId;
     })
 
     $scope.currentGame.child('stages').once('value', function (snap) {
