@@ -62,7 +62,7 @@ symbolOptions.symbolList = [{
 }, {
     id: 15,
     name: 'swirly',
-    unicode: '₪'
+    unicode: '§'
 }, {
     id: 16,
     name: 'lowercase-delta',

@@ -71,7 +71,7 @@ app.controller('ManualSymbolsController', function($scope) {
 }, {
     id: 15,
     name: 'swirly',
-    unicode: '₪'
+    unicode: '§'
 }, {
     id: 16,
     name: 'lowercase-delta',
