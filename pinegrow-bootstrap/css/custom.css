@@ -85,20 +85,26 @@ body {
     border-right: .3px solid lightgrey;
 }
 
-.cont .x {
-    height: 25px;
-    width: 25px;
-/*    margin-top: 15px;*/
+.x-container {
+    height: 20px;
+    width: 20px;
+    display: flex;
     margin-right: 5px;
     justify-content: space-around;
+    align-items: center;
+}
+
+.x {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .stroked {
-    background-color: #4b49fb;
+    fill: #000;
 }
 
 .unstroked {
-    background-color: grey;
+   fill: lightgrey;;
 }
 
 .container {
@@ -538,22 +544,21 @@ button.ready-button {
     padding: 13px;
 }
 
-svg.battery-test{
+svg.battery-styles{
     height: 110%;
     width: 110%;
-    transform: rotate(90deg);;
+    transform: rotate(90deg);
+    fill: #3836EB;
 }
 
 .greenbattery {
-    fill: #04dbc4;
+    fill: #58e0a2;
 }
 
-/*.green-battery {
-background-color: #04dbc4;
-}*/
-/*.ready-button:hover {
-  background: #3836eb;;
-}*/
+.yellowbattery {
+    fill: #ffdb13;
+}
+
 
 
 /****************************************/
