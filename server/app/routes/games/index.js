@@ -54,11 +54,9 @@ router.put('/joinGame', function(req,res){
 
 router.put('/startGame/:gameKey', function(req, res, next) {
     let gameKey = req.params.gameKey;
-    console.log("ROUTE WAS HIT UPDATING GAME!!!!!!!!!!!!!!!");
     gameDB.child(gameKey).once('value', function(snap) {
         let thisGame = snap.val();
         gameGenerator.update(thisGame);
-        console.log('thisGame', thisGame)
         return gameDB.child(gameKey).set(thisGame);
     })
     .then(updatedGame => res.send(updatedGame))

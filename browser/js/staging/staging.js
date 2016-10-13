@@ -29,13 +29,6 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $log, user, 
         }
     };
 
-    $scope.gameStart = function() {
-        $state.go('game', {
-            gameKey: $stateParams.gameKey,
-            squad: $scope.squad,
-            userId: user.id
-        });
-    }
 
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
@@ -59,7 +52,13 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $log, user, 
     });
 
     gameRef.child('gameReady').on('value', function(snap) {
-        if (snap.val()) $scope.gameStart()
+        if (snap.val()) {
+            $state.go('game', {
+                gameKey: $stateParams.gameKey,
+                squad: $scope.squad,
+                userId: user.id
+            });
+        }
     })
 
     $scope.clickedReady = false;
