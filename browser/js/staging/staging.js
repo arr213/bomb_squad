@@ -65,6 +65,7 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $log, user, 
     $scope.clickedReady = false;
 
     $scope.ready = function() {
+
         console.log('clicked');
         gameRef.child('readyUp').once('value', function(snap) {
             // if (clickedReady) {

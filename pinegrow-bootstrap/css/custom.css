@@ -564,6 +564,16 @@ button.ready-button {
     text-transform: uppercase;
 }
 
+button.ready-button:active {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+button.ready-button:focus {
+    background: #000000;
+    color: #FFFFFF;
+}
+
 .batteries {
     display: inline-flex;
     height: 100%;
