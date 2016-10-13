@@ -8,30 +8,45 @@ app.directive('publicChat', function() {
 
 });
 
-app.controller('PublicChatCtrl', function($scope, AuthService){
-  var chatRef =  firebase.database().ref('/public-chat');
+app.controller('PublicChatCtrl', function($scope, AuthService) {
+    var chatRef = firebase.database().ref('/public-chat');
 
-  // var username = user.username;
-  // console.log('user name', username)
-
-      AuthService.getLoggedInUser()
-            .then(function(user){
-              $scope.username = user.username;
-      })
-
-   $scope.messages = [];
-
-  chatRef.on('child_added', function(snap){
-    $scope.messages.push(snap.val())
-  })
+    // window.onload = function() {
+    //     $("#messages").animate({ scrollTop: $(document).height() }, "slow");
+    // }
 
 
+    // var chatbox = document.getElementById("messages").onload = function(){ $scope.updateScroll() };
+    // chatbox.scrollTop = chatbox.scrollHeight;
 
-  $scope.submit = function(chatMsg){
-    chatMsg = angular.copy(chatMsg);
-    // console.log('chat message', chatMsg);
-    chatRef.push({username: $scope.username, 'message': chatMsg })
-  }
+
+    AuthService.getLoggedInUser()
+        .then(function(user) {
+            $scope.username = user.username;
+        })
+
+    $scope.messages = [];
+
+    $scope.updateScroll = function() {
+        var chatbox = document.getElementById('messages');
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+
+    chatRef.on('child_added', function(snap) {
+        $scope.updateScroll();
+        console.log('snaaaapppp', snap.val())
+        $scope.messages.push(snap.val())
+    })
+
+
+    $scope.submit = function(chatMsg) {
+        chatMsg = angular.copy(chatMsg);
+        chatRef.push({ username: $scope.username, message: chatMsg })
+        document.getElementById('msgForm').reset();
+    }
 
 
 })
+
+

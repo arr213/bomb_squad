@@ -7,32 +7,32 @@ app.directive('chat', function() {
     };
 });
 
-app.controller('ChatCtrl', function($scope, AuthService){
-  var chatRef =  $scope.currentGame.child('chat'); //firebase.database().ref('/chat');
+app.controller('ChatCtrl', function($scope, AuthService) {
+    var chatRef = $scope.currentGame.child('chat');
 
-  // var username = user.username;
-  // console.log('user name', username)
+    AuthService.getLoggedInUser()
+        .then(function(user) {
+            $scope.username = user.username;
+        })
 
-      AuthService.getLoggedInUser()
-            .then(function(user){
-              $scope.username = user.username;
-      })
+    $scope.gameMessages = [];
+
+    $scope.updateScroll = function() {
+        var chatbox = document.getElementById("messages");
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    chatRef.on('child_added', function(snap) {
+        $scope.updateScroll();
+        $scope.gameMessages.push(snap.val())
+    })
 
 
-  // console.log('username in controller', $scope.username)
-
-   $scope.gameMessages = [];
-
-  chatRef.on('child_added', function(snap){
-    $scope.messages.push(snap.val())
-  })
-
-
-
-  $scope.submit = function(chatMsg){
-    chatMsg = angular.copy(chatMsg);
-    chatRef.push({username: $scope.username, 'message': chatMsg })
-  }
+    $scope.submit = function(chatMsg) {
+        chatMsg = angular.copy(chatMsg);
+        chatRef.push({ username: $scope.username, message: chatMsg })
+        document.getElementById("msgForm").reset();
+    }
 
 
 })
