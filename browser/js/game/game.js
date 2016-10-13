@@ -61,6 +61,20 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.currentGame.child('currentStage').on('value', function (snap) {
         $scope.currentStage = snap.val();
+
+        if ($scope.currentGame !== null && $scope.gamePlaying) {
+                    $mdToast.show({
+                hideDelay: 1000,
+                position: 'bottom right',
+                controller: 'ToastCtrl',
+                template: '<md-toast>' +
+                    '<div class="md-toast-content" style="background-color: #3836EB">' +
+                    "Module completed! On to the next..." +
+                    '</div>' +
+                    '</md-toast>'
+            });
+        }
+
         if ($scope.gamePlaying) {
             if ($scope.currentStage === $scope.stages.length) {
                 $scope.currentGame.once('value')
@@ -101,7 +115,7 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
                 position: 'bottom right',
                 controller: 'ToastCtrl',
                 template: '<md-toast>' +
-                    '<div class="md-toast-content" style="background-color: #3836EB">' +
+                    '<div class="md-toast-content" style="background-color: #FF534F">' +
                     "STRIKE!" +
                     '</div>' +
                     '</md-toast>'
