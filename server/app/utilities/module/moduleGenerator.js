@@ -4,6 +4,7 @@ const moduleGenerator = {};
 module.exports = moduleGenerator;
 const wireGenerator = require('../mod-1-wires/wireGenerator');
 const symbolGenerator = require('../mod-2-symbols/symbolGenerator');
+const mazeGenerator = require('../mod-3-maze/mazeGenerator');
 
 const modTypes = [{
     type: 'wires',
@@ -11,6 +12,9 @@ const modTypes = [{
 }, {
     type: 'symbols',
     generate: symbolGenerator.generate
+}, {
+    type: 'mazes',
+    generate: mazeGenerator.generate
 }];
 
 function objectifyMod(modType, game, stageNum) {
