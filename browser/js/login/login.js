@@ -13,7 +13,7 @@ app.controller('LoginCtrl', function ($scope, AuthService, $state, $timeout, $lo
     $scope.formInvalid = false;
 
     $scope.login = {};
-
+    
     $scope.sendLogin = function (loginInfo) {
         if (loginInfo.$invalid) {
           $scope.formInvalid = true;

@@ -3,7 +3,7 @@
         <div class="wires-background disable-text-selection">
             <div class="wires-container disable-text-selection">
                 <div ng-repeat="wire in wires">
-                    <div class="wire disable-text-selection" ng-class="assignColor(wire)" ng-click="submit(wire)"></div>
+                    <div class="wire disable-text-selection" ng-class="[assignColor(wire), cutWire(wire)]" ng-click="submit(wire)"></div>
                 </div>
             </div>
         </div>

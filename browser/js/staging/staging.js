@@ -64,6 +64,7 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $log, user, 
     $scope.clickedReady = false;
 
     $scope.ready = function() {
+
         console.log('clicked');
         gameRef.child('readyUp').once('value', function(snap) {
             // if (clickedReady) {
@@ -86,7 +87,7 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $log, user, 
             position: 'bottom right',
             controller: 'ToastCtrl',
             template: '<md-toast>' +
-                '<div class="md-toast-content" style="background-color: #3836EB">' +
+                '<div class="md-toast-content" style="background-color: #000000">' +
                 readyCount + ' users have clicked ready!' +
                 '</div>' +
                 '</md-toast>'
