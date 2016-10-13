@@ -24,14 +24,12 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
     $scope.swiped = false;
 
     $scope.onSwipeRight = function (ev) {
-        console.log('swiped right!')
         if (!$scope.swiped) {
             $scope.swiped = true;
         }
     };
 
     $scope.onSwipeLeft = function (ev) {
-        console.log('swiped left!');
         if ($scope.swiped) {
             $scope.swiped = false;
         }
@@ -43,11 +41,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.currentGame.child('batteries').once('value', function (snap) {
         $scope.batteries = snap.val();
-        for(var i=0; i<$scope.batteries.length;i++){
-            console.log('batteriesssss color', $scope.batteries[i].color)
-        }
-
-
         $scope.userId = $rootScope.userId;
     })
 
@@ -55,7 +48,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
         $scope.stages = snap.val().stages;
         $scope.currentModule = $scope.stages[$scope.currentStage].modules[0];
         $scope.squadName = snap.val().squadname;
-        console.log($scope.squadName);
         $scope.$evalAsync();
     });
 
@@ -79,15 +71,11 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
             if ($scope.currentStage === $scope.stages.length) {
                 $scope.currentGame.once('value')
                     .then(function (snap2) {
-                        console.log("this is the creatorId", snap2.val().creatorId)
-                        console.log("this is the userId", snap2.val().creatorId)
                         if (snap2.val().creatorId !== $scope.userId) {
-                            console.log("I am not the creator");
                             $scope.currentGame = null;
                             clearInterval(interval);
                             $state.go('victory');
                         } else {
-                            console.log('I am the creator');
                             $scope.currentGame.update({
                                 gameStatus: 'victory'
                             });
@@ -152,7 +140,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
         interval = setInterval(function () {
             if ($scope.timerNum === '0:00') {
-                console.log('YOU EXPLODED!!!!');
                 clearInterval(interval);
                 $state.go('gameover');
                 return;

@@ -1,4 +1,13 @@
-app.directive('wires', function () {
+app.config(function ($stateProvider) {
+
+    $stateProvider.state('maze', {
+        url: '/maze',
+        template: '<maze></maze>',
+    });
+
+});
+
+app.directive('maze', function() {
 
     return {
         restrict: 'E',
@@ -6,16 +15,16 @@ app.directive('wires', function () {
         scope: {
             module: '='
         },
-        controller: 'WiresCtrl'
+        controller: 'MazeCtrl'
     };
 
 });
 
-app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams, $firebaseObject, $firebaseArray, SuccessFactory, $mdToast) {
+app.controller('MazeCtrl', function($scope, StrikeFactory, $http, $stateParams, $firebaseObject, $firebaseArray, SuccessFactory) {
 
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
-    gameRef.on('value', function (snap) {
+    gameRef.on('value', function(snap) {
         $scope.currentGame = snap.val();
         $scope.strikes = $scope.currentGame.strikes;
         $scope.currentStage = snap.val().currentStage;
@@ -26,11 +35,7 @@ app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams
 
     $scope.wires = $scope.module.content;
 
-    $scope.submit = function (wire) {
-
-        // $scope.class = "wirebreak";
-        wire.wasCut = true;
-
+    $scope.submit = function(wire) {
         if (wire.solution) {
             SuccessFactory.success($scope.currentStage, gameRef);
         } else {
@@ -39,14 +44,8 @@ app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams
         $scope.$evalAsync();
     };
 
-    $scope.assignColor = function (wire) {
+    $scope.assignColor = function(wire) {
         return wire.color;
     };
-
-    $scope.cutWire = function(wire) {
-        if (wire.wasCut) {
-            return 'wirebreak';
-        }
-    }
 
 });
