@@ -28,6 +28,10 @@ app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams
     $scope.wires = $scope.module.content;
 
     $scope.submit = function (wire) {
+
+        // $scope.class = "wirebreak";
+        wire.wasCut = true;
+
         if (wire.solution) {
             console.log('YOU WIN!!');
             SuccessFactory.success($scope.currentStage, gameRef);
@@ -41,5 +45,11 @@ app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams
     $scope.assignColor = function (wire) {
         return wire.color;
     };
+
+    $scope.cutWire = function(wire) {
+        if (wire.wasCut) {
+            return "wirebreak";
+        }
+    }
 
 });
