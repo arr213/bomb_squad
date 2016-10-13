@@ -30,7 +30,6 @@ app.controller('CreateGameCtrl', function($scope, $http, $state) {
             timePerMod = $scope.timePerMod * 1000 || 45000;
         }
 
-        console.log('Creating Game');
         $http.post('/api/games/createGame', { squadname: squadname, modPerPerson: modPerPerson, timePerMod: timePerMod, gameMode: $scope.gameMode })
             .then(function(res) {
                 $state.go('staging', { gameKey: res.data, squadname: squadname });

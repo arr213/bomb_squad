@@ -64,8 +64,6 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $log, user, 
     $scope.clickedReady = false;
 
     $scope.ready = function() {
-
-        console.log('clicked');
         gameRef.child('readyUp').once('value', function(snap) {
             // if (clickedReady) {
             //     gameRef.update({
@@ -101,7 +99,6 @@ app.controller('StagingCtrl', function($http, $scope, $stateParams, $log, user, 
 
         if (readyCount === $scope.userCount && $scope.creatorId === String(user.id)) {
             StagingFactory.updateGame($stateParams.gameKey)
-                .then(() => console.log('the game is ready!'))
                 .catch($log.error);
         }
     });

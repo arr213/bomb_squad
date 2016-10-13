@@ -45,7 +45,7 @@ app.controller('WiresCtrl', function ($scope, StrikeFactory, $http, $stateParams
 
     $scope.cutWire = function(wire) {
         if (wire.wasCut) {
-            return "wirebreak";
+            return 'wirebreak';
         }
     }
 

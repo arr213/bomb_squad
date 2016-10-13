@@ -1,6 +1,6 @@
 const mazeOptions = {};
 
-mazeOptions.mazeCell = function (x, y) {
+mazeOptions.MazeCell = function(x, y) {
     this.up = 'wall';
     this.down = 'wall';
     this.left = 'wall';
@@ -11,12 +11,12 @@ mazeOptions.mazeCell = function (x, y) {
     this.anchor = false;
 };
 
-mazeOptions.generateEmptyMaze = function (dim) {
-    maze = [];
+mazeOptions.generateEmptyMaze = function(dim) {
+    let maze = [];
     for (let i = 0; i < dim; i++) {
         maze.push([]);
         for (let j = 0; j < dim; j++) {
-            maze[i].push(new mazeOptions.mazeCell(j, i));
+            maze[i].push(new mazeOptions.MazeCell(j, i));
         }
     }
     return maze;

@@ -7,13 +7,13 @@ const symbolGenerator = require('../mod-2-symbols/symbolGenerator');
 const mazeGenerator = require('../mod-3-maze/mazeGenerator');
 
 const modTypes = [{
-    type: 'wires',
-    generate: wireGenerator.generate
-}, {
-    type: 'symbols',
-    generate: symbolGenerator.generate
-}, {
-    type: 'mazes',
+//     type: 'wires',
+//     generate: wireGenerator.generate
+// }, {
+//     type: 'symbols',
+//     generate: symbolGenerator.generate
+// }, {
+    type: 'maze',
     generate: mazeGenerator.generate
 }];
 
