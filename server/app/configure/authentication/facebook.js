@@ -16,6 +16,7 @@ module.exports = function (app, db) {
 
     var verifyCallback = function (accessToken, refreshToken, profile, done) {
 
+        let firstName = profile.displayName.split(' ')[0];
         User.findOne({
                 where: {
                     facebook_id: profile.id
@@ -26,7 +27,8 @@ module.exports = function (app, db) {
                     return user;
                 } else {
                     return User.create({
-                        facebook_id: profile.id
+                        facebook_id: profile.id,
+                        username: firstName
                     });
                 }
             })
@@ -47,7 +49,7 @@ module.exports = function (app, db) {
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {failureRedirect: '/login'}),
         function (req, res) {
-            res.redirect('/');
+            res.redirect('/home');
         });
 
 };

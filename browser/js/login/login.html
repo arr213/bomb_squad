@@ -1,4 +1,24 @@
 
+<body>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '344778585864647',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="login-container" style="background-color: #FF534F">
 
 <div style="width: 78%;">
@@ -6,15 +26,20 @@
         <h1 class="bomb">BOMB</h1>
         <h1 class="squad">SQUAD</h1>
     </div>
-   <!--  </div> -->
+
     <form class="login-form" novalidate name="loginForm" ng-submit="sendLogin(login)">
         <input class="login-input" ng-model="login.email" ng-class="{ invalid: formInvalid }" placeholder="email" type="email" name="username" required/>
         <input class="login-input" ng-model="login.password" ng-class="{ invalid: formInvalid }" placeholder="password" type="password" name="username" required/>
         <button class="login-button" type="submit">continue</button>
     </form>
+   <!--  <div id="bodyfont" class="signup-text">
+        <h5>Log in with Facebook: </h5>
+    </div> -->
+    <button><a href="/auth/facebook" style="color: #3836EB">Facebook Login</a></button>
     <div id="bodyfont" class="signup-text">
         <h5>Don't have an account? <a ui-sref="signup" style="color: #3836EB">Sign Up</a></h5>
     </div>
-</div>
-</div>
 
+</div>
+</div>
+</body>
