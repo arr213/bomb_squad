@@ -25,6 +25,10 @@ body {
     font-family: 'Montserrat';
 }
 
+.bodyfont {
+     font-family: 'Montserrat';
+}
+
 .spacer {
     height: 100px;
 }
@@ -180,9 +184,15 @@ body {
 }
 
 .main-content {
+/*    display: flex;
+    justify-content: center;
+    height: 100%;*/
+
     display: flex;
+    align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
 }
 
 .login-form {
@@ -614,6 +624,25 @@ svg.battery-styles{
     flex-direction: column;
 }
 
+.userMsg {
+    background-color: #3836eb;
+    font-weight: light;
+    padding-left: 10px;
+    padding-top: 8px;
+    color: white;
+}
+
+.userMsg p {
+    color: #FFF;
+}
+
+.otherMsg {
+    background-color: white;
+    font-weight: light;
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
 #messages {
     background-color: white;
     width: 300px;
@@ -630,18 +659,18 @@ svg.battery-styles{
 }
 
 .txt-box {
-    background-color: white;
+/*    background-color: white;*/
     height: 40px;
     width: 100%;
     border-bottom: 1px solid lightgrey;
     align-items: center;
 }
 
-.msg {
+/*.msg {
     font-weight: light;
     padding-left: 10px;
     padding-top: 8px;
-}
+}*/
 
 #send-message {
   /*  margin-top: 20px;*/
@@ -678,6 +707,7 @@ button.submit-chat {
     outline: none;
     border: 1px solid #bebebe;
     background-color: #FFF;
+    padding-left: 10px;
 }
 
 .stagingArea {

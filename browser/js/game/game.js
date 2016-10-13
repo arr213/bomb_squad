@@ -21,6 +21,7 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
     $rootScope.userId = $scope.userId;
 
 
+
     $scope.swiped = false;
 
     $scope.onSwipeRight = function (ev) {
