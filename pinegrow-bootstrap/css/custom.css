@@ -742,3 +742,48 @@ input:-webkit-autofill:active {
     font-size: 20px;
     margin-bottom
 }
+
+/*maze css*/
+.maze-cell {
+    height: 20px;
+    width: 20px;
+    background-color: #444;
+    margin: 8px;
+    display: inline-block;
+}
+
+.anchor {
+    border: 5px solid green;
+}
+
+.currcell {
+    background-color: #0AF;
+}
+
+.goal {
+    background-color: red;
+}
+
+.maze-button {
+
+}
+
+.up-button {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+
+.right-button {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+.down-button {
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+}
+
+
