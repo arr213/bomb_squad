@@ -25,6 +25,10 @@ body {
     font-family: 'Montserrat';
 }
 
+.bodyfont {
+     font-family: 'Montserrat';
+}
+
 .spacer {
     height: 100px;
 }
@@ -188,9 +192,15 @@ body {
 
 
 .main-content {
+/*    display: flex;
+    justify-content: center;
+    height: 100%;*/
+
     display: flex;
+    align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
 }
 
 .login-form {
@@ -365,9 +375,16 @@ button.login-button:hover {
 }
 
 .timer {
-    color: black;
+    color: #FFFFFF;
     letter-spacing: 2px;
-    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.alertTimer {
+    color: #FF534F;
+    letter-spacing: 2px;
     justify-content: center;
     align-items: center;
     padding-bottom: 5px;
@@ -632,6 +649,25 @@ svg.battery-styles{
     flex-direction: column;
 }
 
+.userMsg {
+    background-color: #3836eb;
+    font-weight: light;
+    padding-left: 10px;
+    padding-top: 8px;
+    color: white;
+}
+
+.userMsg p {
+    color: #FFF;
+}
+
+.otherMsg {
+    background-color: white;
+    font-weight: light;
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
 #messages {
     background-color: white;
     width: 300px;
@@ -648,18 +684,18 @@ svg.battery-styles{
 }
 
 .txt-box {
-    background-color: white;
+/*    background-color: white;*/
     height: 40px;
     width: 100%;
     border-bottom: 1px solid lightgrey;
     align-items: center;
 }
 
-.msg {
+/*.msg {
     font-weight: light;
     padding-left: 10px;
     padding-top: 8px;
-}
+}*/
 
 #send-message {
   /*  margin-top: 20px;*/
@@ -696,6 +732,7 @@ button.submit-chat {
     outline: none;
     border: 1px solid #bebebe;
     background-color: #FFF;
+    padding-left: 10px;
 }
 
 .stagingArea {
@@ -786,4 +823,27 @@ input:-webkit-autofill:active {
     transform: rotate(270deg);
 }
 
+/*morse stuff*/
+.morse-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+}
+
+button.tx {
+    font-family: 'Montserrat';
+    color: #FFFFFF;
+    background-color: #F34A47;
+    border: 2.5px solid #F34A47;
+    border-radius: 50px;
+    outline: none;
+    padding: 20px;
+}
+
+.tx-box {
+    justify-content: center;
+    padding: 40px;
+}
 

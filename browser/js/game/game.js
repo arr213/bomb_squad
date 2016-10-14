@@ -20,7 +20,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
     $scope.userId = $stateParams.userId;
     $rootScope.userId = $scope.userId;
 
-
     $scope.swiped = false;
 
     $scope.onSwipeRight = function (ev) {
@@ -119,6 +118,9 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     $scope.gamePlaying = null;
 
+    $scope.alertTimer = false;
+    $scope.timer = true;
+
     $scope.startGame = function () {
 
         if (!$scope.gamePlaying) {
@@ -139,6 +141,12 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
         });
 
         interval = setInterval(function () {
+            if (parseInt($scope.timerNum.slice(2)) <= 10 && parseInt($scope.timerNum[0]) === 0) {
+                $scope.alertTimer = true;
+            } else {
+                $scope.timer = true;
+            }
+
             if ($scope.timerNum === '0:00') {
                 clearInterval(interval);
                 $state.go('gameover');
