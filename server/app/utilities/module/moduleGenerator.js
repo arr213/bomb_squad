@@ -13,16 +13,13 @@ const modTypes = [{
 }, {
     type: 'symbols',
     generate: symbolGenerator.generate
-},
-// {
-//     type: 'maze',
-//     generate: mazeGenerator.generate
-// },
-// {
-//     type: 'morse',
-//     generate: morseGenerator.generate
-// }
-];
+}, {
+    type: 'maze',
+    generate: mazeGenerator.generate
+}, {
+    type: 'morse',
+    generate: morseGenerator.generate
+}];
 
 
 

@@ -1,12 +1,3 @@
-app.config(function ($stateProvider) {
-
-    $stateProvider.state('morse', {
-        url: '/morse',
-        template: '<morse></morse>',
-    });
-
-});
-
 app.directive('morse', function() {
 
     return {
@@ -22,18 +13,18 @@ app.directive('morse', function() {
 
 app.controller('MorseCtrl', function($scope, StrikeFactory, $http, $stateParams, $firebaseObject, $firebaseArray, SuccessFactory) {
 
-    // let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
+    let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
-    // gameRef.on('value', function(snap) {
-    //     $scope.currentGame = snap.val();
-    //     $scope.strikes = $scope.currentGame.strikes;
-    //     $scope.currentStage = snap.val().currentStage;
-    //     $scope.$evalAsync();
-    // });
+    gameRef.on('value', function(snap) {
+        $scope.currentGame = snap.val();
+        $scope.strikes = $scope.currentGame.strikes;
+        $scope.currentStage = snap.val().currentStage;
+        $scope.$evalAsync();
+    });
 
-    // var wordObj = $scope.module.content;
-    // $scope.word = wordObj.word;
-    // $scope.solutionFrequency = wordObj.frequency;
+    var wordObj = $scope.module.content;
+    $scope.word = wordObj.word;
+    $scope.solutionFrequency = wordObj.frequency;
 
     $scope.frequency = 500;
 
