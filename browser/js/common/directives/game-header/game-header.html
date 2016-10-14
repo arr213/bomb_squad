@@ -1,8 +1,8 @@
 <div class="header main-nav navbar-fixed-top headroom--pinned">
     <div class="top-header"><h1 id="titlefont">{{ squadName }}</h1></div>
     <div class="bottom-header">
-        <div class="cont timer col-xs-4" ng-click="clicked()">
-            <h1 id="titlefont" class="timer">{{ timerNum }}</h1>
+        <div class="cont timer col-xs-4" style="background-color: #000000" ng-click="clicked()">
+            <h1 id="titlefont" ng-class="{timer: timer, alertTimer: alertTimer}">{{ timerNum }}</h1>
         </div>
         <div class="cont batteries col-xs-4">
             <div class="battery-container" ng-repeat="battery in batteries" ng-if="battery.userAssigned === userId">
