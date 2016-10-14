@@ -1747,7 +1747,7 @@ const maze6 = [
         up: 'valid',
         down: 'valid',
         left: 'edge',
-        right: 'valid',
+        right: 'wall',
         coordX: 0,
         coordY: 1,
         goal: false,
@@ -1755,8 +1755,8 @@ const maze6 = [
     }, {
         up: 'valid',
         down: 'valid',
-        left: 'valid',
-        right: 'valid',
+        left: 'wall',
+        right: 'wall',
         coordX: 1,
         coordY: 1,
         goal: false,
@@ -1764,16 +1764,16 @@ const maze6 = [
     }, {
         up: 'valid',
         down: 'valid',
-        left: 'valid',
-        right: 'valid',
+        left: 'wall',
+        right: 'wall',
         coordX: 2,
         coordY: 1,
         goal: false,
         anchor: false
     }, {
-        up: 'valid',
+        up: 'wall',
         down: 'valid',
-        left: 'valid',
+        left: 'wall',
         right: 'valid',
         coordX: 3,
         coordY: 1,
@@ -1781,9 +1781,9 @@ const maze6 = [
         anchor: false
     }, {
         up: 'valid',
-        down: 'valid',
+        down: 'wall',
         left: 'valid',
-        right: 'valid',
+        right: 'wall',
         coordX: 4,
         coordY: 1,
         goal: false,
@@ -1791,7 +1791,7 @@ const maze6 = [
     }, {
         up: 'valid',
         down: 'valid',
-        left: 'valid',
+        left: 'wall',
         right: 'edge',
         coordX: 5,
         coordY: 1,
@@ -1809,18 +1809,18 @@ const maze6 = [
         anchor: false
     }, {
         up: 'valid',
-        down: 'valid',
+        down: 'wall',
         left: 'valid',
-        right: 'valid',
+        right: 'wall',
         coordX: 1,
         coordY: 2,
         goal: false,
         anchor: false
     }, {
         up: 'valid',
-        down: 'valid',
-        left: 'valid',
-        right: 'valid',
+        down: 'wall',
+        left: 'wall',
+        right: 'wall',
         coordX: 2,
         coordY: 2,
         goal: false,
@@ -1828,16 +1828,16 @@ const maze6 = [
     }, {
         up: 'valid',
         down: 'valid',
-        left: 'valid',
-        right: 'valid',
+        left: 'wall',
+        right: 'wall',
         coordX: 3,
         coordY: 2,
         goal: false,
         anchor: false
     }, {
-        up: 'valid',
+        up: 'wall',
         down: 'valid',
-        left: 'valid',
+        left: 'wall',
         right: 'valid',
         coordX: 4,
         coordY: 2,
@@ -1845,7 +1845,7 @@ const maze6 = [
         anchor: false
     }, {
         up: 'valid',
-        down: 'valid',
+        down: 'wall',
         left: 'valid',
         right: 'edge',
         coordX: 5,
@@ -1855,7 +1855,7 @@ const maze6 = [
     }],
     [{
         up: 'valid',
-        down: 'valid',
+        down: 'wall',
         left: 'edge',
         right: 'valid',
         coordX: 0,
@@ -1863,18 +1863,18 @@ const maze6 = [
         goal: false,
         anchor: false
     }, {
-        up: 'valid',
+        up: 'wall',
         down: 'valid',
         left: 'valid',
-        right: 'valid',
+        right: 'wall',
         coordX: 1,
         coordY: 3,
         goal: false,
         anchor: false
     }, {
-        up: 'valid',
+        up: 'wall',
         down: 'valid',
-        left: 'valid',
+        left: 'wall',
         right: 'valid',
         coordX: 2,
         coordY: 3,
@@ -1884,7 +1884,7 @@ const maze6 = [
         up: 'valid',
         down: 'valid',
         left: 'valid',
-        right: 'valid',
+        right: 'wall',
         coordX: 3,
         coordY: 3,
         goal: false,
@@ -1892,16 +1892,16 @@ const maze6 = [
     }, {
         up: 'valid',
         down: 'valid',
-        left: 'valid',
-        right: 'valid',
+        left: 'wall',
+        right: 'wall',
         coordX: 4,
         coordY: 3,
         goal: false,
         anchor: false
     }, {
-        up: 'valid',
+        up: 'wall',
         down: 'valid',
-        left: 'valid',
+        left: 'wall',
         right: 'edge',
         coordX: 5,
         coordY: 3,
@@ -1909,7 +1909,7 @@ const maze6 = [
         anchor: false
     }],
     [{
-        up: 'valid',
+        up: 'wall',
         down: 'valid',
         left: 'edge',
         right: 'valid',
@@ -1919,35 +1919,35 @@ const maze6 = [
         anchor: false
     }, {
         up: 'valid',
-        down: 'valid',
+        down: 'wall',
         left: 'valid',
-        right: 'valid',
+        right: 'wall',
         coordX: 1,
         coordY: 4,
         goal: false,
         anchor: false
     }, {
         up: 'valid',
-        down: 'valid',
-        left: 'valid',
-        right: 'valid',
+        down: 'wall',
+        left: 'wall',
+        right: 'wall',
         coordX: 2,
         coordY: 4,
         goal: false,
-        anchor: false
+        anchor: true
     }, {
         up: 'valid',
         down: 'valid',
-        left: 'valid',
-        right: 'valid',
+        left: 'wall',
+        right: 'wall',
         coordX: 3,
         coordY: 4,
         goal: false,
         anchor: false
     }, {
         up: 'valid',
-        down: 'valid',
-        left: 'valid',
+        down: 'wall',
+        left: 'wall',
         right: 'valid',
         coordX: 4,
         coordY: 4,
@@ -1973,7 +1973,7 @@ const maze6 = [
         goal: false,
         anchor: false
     }, {
-        up: 'valid',
+        up: 'wall',
         down: 'edge',
         left: 'valid',
         right: 'valid',
@@ -1982,7 +1982,7 @@ const maze6 = [
         goal: false,
         anchor: false
     }, {
-        up: 'valid',
+        up: 'wall',
         down: 'edge',
         left: 'valid',
         right: 'valid',
@@ -1994,15 +1994,15 @@ const maze6 = [
         up: 'valid',
         down: 'edge',
         left: 'valid',
-        right: 'valid',
+        right: 'wall',
         coordX: 3,
         coordY: 5,
         goal: false,
         anchor: false
     }, {
-        up: 'valid',
+        up: 'wall',
         down: 'edge',
-        left: 'valid',
+        left: 'wall',
         right: 'valid',
         coordX: 4,
         coordY: 5,
