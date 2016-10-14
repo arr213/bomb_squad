@@ -2,4 +2,5 @@
 <!-- <pre>{{ module | json }}</pre> -->
 <wires ng-if="module.type === 'wires'" module="module"></wires>
 <symbols ng-if="module.type === 'symbols'" module="module"></symbols>
-<symbols ng-if="module.type === 'maze'" module="module"></symbols>
+<maze ng-if="module.type === 'maze'" module="module"></maze>
+<morse ng-if="module.type === 'morse'" module="module"></morse>
