@@ -375,9 +375,16 @@ button.login-button:hover {
 }
 
 .timer {
-    color: black;
+    color: #FFFFFF;
     letter-spacing: 2px;
-    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.alertTimer {
+    color: #FF534F;
+    letter-spacing: 2px;
     justify-content: center;
     align-items: center;
     padding-bottom: 5px;
@@ -771,4 +778,27 @@ input:-webkit-autofill:active {
 .start-game {
     font-size: 20px;
     margin-bottom
+}
+
+.morse-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+}
+
+button.tx {
+    font-family: 'Montserrat';
+    color: #FFFFFF;
+    background-color: #F34A47;
+    border: 2.5px solid #F34A47;
+    border-radius: 50px;
+    outline: none;
+    padding: 20px;
+}
+
+.tx-box {
+    justify-content: center;
+    padding: 40px;
 }
