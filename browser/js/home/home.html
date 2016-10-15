@@ -1,6 +1,7 @@
 
     <div id="home" md-swipe-right="onSwipeRight()" md-swipe-left="onSwipeLeft()">
         <lobby ng-show="!swiped"></lobby>
-        <public-chat ng-show="swiped"></public-chat>
+        <div ng-show="swiped" class="staging-container">
+        <public-chat style="width: 100%; height: 100%;"></public-chat>
+        </div>
     </div>
-
