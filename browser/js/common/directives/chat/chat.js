@@ -18,7 +18,7 @@ app.controller('ChatCtrl', function($scope, AuthService) {
     $scope.gameMessages = [];
 
     $scope.updateScroll = function() {
-        var chatbox = document.getElementById("messages");
+        var chatbox = document.getElementById('messages');
         chatbox.scrollTop = chatbox.scrollHeight;
     }
 
@@ -31,7 +31,7 @@ app.controller('ChatCtrl', function($scope, AuthService) {
     $scope.submit = function(chatMsg) {
         chatMsg = angular.copy(chatMsg);
         chatRef.push({ username: $scope.username, message: chatMsg })
-        document.getElementById("msgForm").reset();
+        document.getElementById('msgForm').reset();
     }
 
 

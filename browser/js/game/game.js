@@ -20,8 +20,6 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
     $scope.userId = $stateParams.userId;
     $rootScope.userId = $scope.userId;
 
-
-
     $scope.swiped = false;
 
     $scope.onSwipeRight = function (ev) {

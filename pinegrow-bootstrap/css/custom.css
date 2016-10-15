@@ -17,6 +17,12 @@ body {
     background-color: #FF534F;
 }
 
+#home {
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
 #titlefont {
     font-family: 'Manteka';
 }
@@ -357,7 +363,7 @@ button.login-button:hover {
 .wires-container {}
 
 .wires-background {
-    margin-top: 220px;
+    margin-top: 100px;
     background-color: #ececec;
     height: 315px;
     width: 315px;
@@ -511,9 +517,9 @@ h6:after {
     display: flex;
     align-items: center;
     justify-content: center;
-/*    height: 100%;*/
+    height: 100%;
     /*  flex-wrap: wrap;*/
-    padding-top: 30%;
+/*    padding-top: 30%;*/
     background-color: #FFF;
 }
 
@@ -613,10 +619,23 @@ svg.battery-styles{
 
 /****************************************/
 
+#chat-header {
+    background-color: #FFF;
+    font-family: 'Montserrat';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding-top: 20px;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
 .chat-background {
 /*    margin-top: 220px;*/
-    background-color: #ececec;
+    background-color: #FFF;
     height: 100%;
+    max-height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -645,11 +664,15 @@ svg.battery-styles{
 
 #messages {
     background-color: white;
-    width: 300px;
+   /* width: 300px;
     max-height: 400px;
+    height: 400px;*/
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
     padding: 10px;
     display: -webkit-flex;
-/*    display: flex;*/
+    display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
     align-items: center;
@@ -674,11 +697,13 @@ svg.battery-styles{
 
 #send-message {
   /*  margin-top: 20px;*/
-    background-color: #ececec;
+    background-color: #ECECEC;
     width: 100%;
     height: 80px;
     display: inline-flex;
     padding: 10px;
+    position:relative;
+    margin-bottom:0px;
 }
 
 form.msg-form {
@@ -695,7 +720,7 @@ form.msg-form {
 button.submit-chat {
    background-color: #FF534F;
    width: 20%;
-   height: 60%;
+   height: 90%;
    outline: none;
    border: none;
    color: #FFF;
@@ -703,14 +728,19 @@ button.submit-chat {
 
 .msg-input {
     width: 80%;
-    height: 60%;
+    height: 90%;
     outline: none;
-    border: 1px solid #bebebe;
+    /*border: 1px solid #bebebe;*/
     background-color: #FFF;
     padding-left: 10px;
 }
 
 .stagingArea {
+    width: 78%;
+    text-align: center;
+}
+
+.home-stagingArea {
     width: 78%;
     text-align: center;
 }
