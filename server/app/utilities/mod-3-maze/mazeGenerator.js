@@ -11,7 +11,7 @@ mazeGenerator.generate = function() {
 
 mazeGenerator.setGoalAndStart = function(maze) {
     const setXYCoord = function() {
-        let coord = []
+        let coord = [];
         coord.push(_.random(0, 5));
         coord.push(_.random(0, 5));
         return coord;

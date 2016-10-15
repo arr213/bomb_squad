@@ -1,26 +1,17 @@
-app.config(function ($stateProvider) {
-
-    $stateProvider.state('maze', {
-        url: '/maze',
-        template: '<maze></maze>',
-    });
-
-});
-
 app.directive('maze', function() {
 
     return {
         restrict: 'E',
-        templateUrl: 'js/common/directives/wires/wires.html',
+        templateUrl: 'js/common/directives/maze/maze.html',
+        controller: 'MazeCtrl',
         scope: {
             module: '='
-        },
-        controller: 'MazeCtrl'
+        }
     };
 
 });
 
-app.controller('MazeCtrl', function($scope, StrikeFactory, $http, $stateParams, $firebaseObject, $firebaseArray, SuccessFactory) {
+app.controller('MazeCtrl', function($scope, StrikeFactory, SuccessFactory, $stateParams) {
 
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
@@ -32,20 +23,60 @@ app.controller('MazeCtrl', function($scope, StrikeFactory, $http, $stateParams, 
     });
 
     console.log('This is the module content: ', $scope.module.content);
+    $scope.maze = $scope.module.content.maze;
+    $scope.currX = $scope.module.content.startX;
+    $scope.currY = $scope.module.content.startY;
 
-    $scope.wires = $scope.module.content;
-
-    $scope.submit = function(wire) {
-        if (wire.solution) {
-            SuccessFactory.success($scope.currentStage, gameRef);
-        } else {
+    $scope.moveRight = function() {
+        let moveStatus = $scope.maze[$scope.currY][$scope.currX].right;
+        if (moveStatus === 'wall') {
             StrikeFactory.strike($scope.strikes, gameRef);
+            $scope.$evalAsync();
         }
-        $scope.$evalAsync();
-    };
+        if ($scope.currX < 5 && moveStatus === 'valid') $scope.currX++;
+        if ($scope.maze[$scope.currY][$scope.currX].goal === true) {
+            SuccessFactory.success($scope.currentStage, gameRef);
+            $scope.$evalAsync();
+        }
+    }
 
-    $scope.assignColor = function(wire) {
-        return wire.color;
-    };
+    $scope.moveLeft = function() {
+        let moveStatus = $scope.maze[$scope.currY][$scope.currX].left;
+        if (moveStatus === 'wall') {
+            StrikeFactory.strike($scope.strikes, gameRef);
+            $scope.$evalAsync();
+        }
+        if ($scope.currX > 0 && moveStatus === 'valid') $scope.currX--;
+        if ($scope.maze[$scope.currY][$scope.currX].goal === true) {
+            SuccessFactory.success($scope.currentStage, gameRef);
+            $scope.$evalAsync();
+        }
+    }
+
+    $scope.moveUp = function() {
+        let moveStatus = $scope.maze[$scope.currY][$scope.currX].up;
+        if (moveStatus === 'wall') {
+            StrikeFactory.strike($scope.strikes, gameRef);
+            $scope.$evalAsync();
+        }
+        if ($scope.currY > 0 && moveStatus === 'valid') $scope.currY--;
+        if ($scope.maze[$scope.currY][$scope.currX].goal === true) {
+            SuccessFactory.success($scope.currentStage, gameRef);
+            $scope.$evalAsync();
+        }
+    }
+
+    $scope.moveDown = function() {
+        let moveStatus = $scope.maze[$scope.currY][$scope.currX].down;
+        if (moveStatus === 'wall') {
+            StrikeFactory.strike($scope.strikes, gameRef);
+            $scope.$evalAsync();
+        }
+        if ($scope.currY < 5 && moveStatus === 'valid') $scope.currY++;
+        if ($scope.maze[$scope.currY][$scope.currX].goal === true) {
+            SuccessFactory.success($scope.currentStage, gameRef);
+            $scope.$evalAsync();
+        }
+    }
 
 });

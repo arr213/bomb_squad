@@ -22,7 +22,6 @@ const modTypes = [{
 }];
 
 
-
 function objectifyMod(modType, game, stageNum) {
     const modObj = {
         type: modType.type,
