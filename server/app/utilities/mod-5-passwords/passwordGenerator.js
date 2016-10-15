@@ -6,7 +6,8 @@ const passwordOptions = require('./passwordOptions')
 
 passwordGenerator.generate = function(game) {
     var password = _.cloneDeep(_.sample(passwordOptions.combinationList));
-    password.shuffledPassword = password.combinations.map(arr => _.shuffle(arr));
-
+    password.shuffledPassword = password.combinations.map(function(arr){
+      return { currentIndex: 0, letterOptions: _.shuffle(arr)}
+    });
     return password;
 };

@@ -987,14 +987,34 @@ opacity: 0;
     height: 100%;
 }
 
+.passwords-background {
+    margin-top: 100px;
+    background-color: #ececec;
+    height: 315px;
+    width: 315px;
+    padding: 20px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+
 .passwords-container {
    display: -webkit-flex;
    display: flex;
    -webkit-flex-direction: row;
    flex-direction: row;
    background-color: red;
+   width: 100%;
+   height: 100%;
 }
 
 .passwords-container div {
     background-color: pink;
 }
+
