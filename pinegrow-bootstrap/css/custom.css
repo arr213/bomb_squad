@@ -987,7 +987,14 @@ opacity: 0;
     height: 100%;
 }
 
-/*div {
-    border: 1px solid red;
-}*/
+.passwords-container {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+   background-color: red;
+}
 
+.passwords-container div {
+    background-color: pink;
+}
