@@ -1,35 +1,32 @@
-<div class="col-xs-12">
-    <div>
-        <div class="wires-background disable-text-selection">
-            <div class="wires-container disable-text-selection">
-                <div class="row text-center">
-                    <button>
-                        <img class="arrow maze-button up-button" src="/images/go-back-arrow.png">
-                    </button>
-                </div>
-                <div class="row">
-                    <div class="col-xs-1">
-                        <button>
-                            <img rotate="90" class="arrow" src="/images/go-back-arrow.png">
-                        </button>
-                    </div>
-                    <div class="col-xs-9">
-                        <div class="text-center" ng-repeat="row in maze">
-                            <div class="maze-cell" ng-class="{anchor: cell.anchor, goal: cell.goal, currcell: cell.coordX === currX && cell.coordY === currY}" ng-repeat="cell in row"></div>
-                        </div>
-                    </div>
-                    <div class="col-xs-1">
-                        <button>
-                            <img rotate="90" class="arrow maze-button right-button" src="/images/go-back-arrow.png">
-                        </button>
-                    </div>
-                </div>
-                <div class="row text-center">
-                    <button>
-                        <img class="arrow maze-button down-button" src="/images/go-back-arrow.png">
-                    </button>
-                </div>
+<div id="maze-module-container" class="container">
+    <div class="row text-center">
+        <div style="display: inline-block;" class="maze-button">
+            <img class="maze-button up-button" src="/images/icon-arrow-right.png" ng-click="moveUp()"/>
+        </div>
+    </div>
+    <div class="row">
+        <div id="no-pad" class="col-xs-1">
+            <div class="maze-button">
+                <img id="shift-left" class="maze-button" src="/images/icon-arrow-left.png" ng-click="moveLeft()"/>
+            </div>
+        </div>
+        <div id="maze-grid-container" class="col-xs-10">
+            <div class="text-center" ng-repeat="row in maze">
+                <div class="maze-cell" ng-class="{anchor: cell.anchor, goal: cell.goal, currcell: cell.coordX === currX && cell.coordY === currY}" ng-repeat="cell in row"></div>
+            </div>
+        </div>
+        <div id="no-pad" class="col-xs-1">
+            <div class="maze-button">
+                <img id="shift-right" class="maze-button" src="/images/icon-arrow-right.png" ng-click="moveRight()"/>
             </div>
         </div>
     </div>
+    <div class="row text-center">
+        <div style="display: inline-block;" class="maze-button">
+            <img class="maze-button down-button" src="/images/icon-arrow-right.png" ng-click="moveDown()"/>
+        </div>
+    </div>
 </div>
+
+<p>The current x coordinate is: {{currX}}</p>
+<p>The current y coordinate is: {{currY}}</p>
