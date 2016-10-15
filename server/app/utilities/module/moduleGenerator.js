@@ -8,6 +8,7 @@ const mazeGenerator = require('../mod-3-maze/mazeGenerator');
 const morseGenerator = require('../mod-4-morse/morseGenerator');
 
 const modTypes = [{
+<<<<<<< HEAD
 //     type: 'wires',
 //     generate: wireGenerator.generate
 // }, {
@@ -20,6 +21,21 @@ const modTypes = [{
 //     type: 'morse',
 //     generate: morseGenerator.generate
 }];
+=======
+    type: 'wires',
+    generate: wireGenerator.generate
+}, {
+    type: 'symbols',
+    generate: symbolGenerator.generate
+}, {
+    type: 'maze',
+    generate: mazeGenerator.generate
+}, {
+    type: 'morse',
+    generate: morseGenerator.generate
+}];
+
+>>>>>>> 9bf6d7efb6389ea2966902a70c40e10060fe7857
 
 
 function objectifyMod(modType, game, stageNum) {

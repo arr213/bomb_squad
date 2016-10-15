@@ -2,14 +2,17 @@
     <div>
         <div class="wires-background disable-text-selection">
             <div class="wires-container disable-text-selection">
+                <div class="blink-box">
+                    <center><div class="outer-circle"><div ng-class="word" class="blink"></div></div></center>
+                </div>
                 <div class="standard-container">
                     <div style="width: 100%"><img src="/images/icon-arrow-left.png"
                     style="margin-top: 10px; margin-right: 50px; outline: none" height="45px" ng-click="decreaseFrequency()" /></div>
-                    <div style="width: 100%; background-color: #000000; text-align: center"><h3 id="titlefont" style="color: #FFFFFF">3.{{ frequency }} MHz</h3></div>
+                    <div style="width: 100%; background-color: #000000; text-align: center"><h3 id="titlefont" style="color: #FFFFFF; padding-bottom: 9px">3.{{ frequency }} MHz</h3></div>
                     <div style="width: 100%"><img src="/images/icon-arrow-right.png" style="margin-top: 10px; margin-left: 50px; outline: none" height="45px" ng-click="increaseFrequency()" /></div>
                 </div>
                 <div class="tx-box">
-                    <center><button class="tx">TX</button></center>
+                    <center><button class="tx" ng-click="submit()">ENTER</button></center>
                 </div>
             </div>
         </div>

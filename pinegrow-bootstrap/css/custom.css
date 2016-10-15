@@ -870,12 +870,87 @@ button.tx {
     border: 2.5px solid #F34A47;
     border-radius: 50px;
     outline: none;
-    padding: 20px;
+    padding: 20px 5px 20px 5px;
 }
 
 .tx-box {
     justify-content: center;
-    padding: 40px;
+    padding: 35px;
+}
+
+body{
+  background: black;
+}
+
+/* @keyframes shell {
+  0%, 100%    { opacity: 0; }
+  0%, 16% {opacity: 0;}
+  16%, 17%   { opacity: 1; }
+  70%, 71%   { opacity: 0; }
+  80%, 90%   { opacity: 1; }
+} */
+
+@keyframes shell {
+/*   letter s */
+  0%, 1.9% { opacity: 1; }
+  2%, 3.9% { opacity: 0; }
+  4%, 5.9% { opacity: 1; }
+  6%, 7.9% { opacity: 0; }
+  8%, 9.9% { opacity: 1; }
+  10%, 15.9% { opacity: 0; }
+  16%, 17.9% { opacity: 1; }
+  18%, 19.9% { opacity: 0; }
+  20%, 21.9% { opacity: 1; }
+  22%, 23.9% { opacity: 0; }
+  24%, 25.9% { opacity: 1; }
+  26%, 27.9% { opacity: 0; }
+  28%, 29.9% { opacity: 1; }
+  30%, 35.9% { opacity: 0; }
+  36%, 37.9% { opacity: 1; }
+  38%, 43.9% { opacity: 0; }
+  44%, 45.9% { opacity: 1; }
+  46%, 47.9% { opacity: 0; }
+  48%, 53.9% { opacity: 1; }
+  54%, 55.9% { opacity: 0; }
+  56%, 57.9% { opacity: 1; }
+  58%, 59.9% { opacity: 0; }
+  60%, 61.9% { opacity: 1; }
+  62%, 67.9% { opacity: 0; }
+  68%, 69.9% { opacity: 1; }
+  70%, 71.9% { opacity: 0; }
+  72%, 77.9% { opacity: 1; }
+  78%, 79.9% { opacity: 0; }
+  80%, 81.9% { opacity: 1; }
+  82%, 83.9% { opacity: 0; }
+  84%, 85.9% { opacity: 1; }
+  86%, 99.9% { opacity: 0; }
+}
+
+.shell {
+ animation-name: shell;
+ animation-duration: 18s; /* or: Xms */
+ animation-iteration-count: infinite;
+ animation-direction: normal; /* or: normal */
+ animation-timing-function: linear; /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+  animation-delay: 1s;
+}
+
+.blink {
+height: 60px;
+width: 60px;
+background: #FFDB13;
+border-radius: 150px;
+opacity: 0;
+}
+
+.blink-box {
+    padding: 35px;
+}
+
+.outer-circle {
+    border-radius: 150px;
+    background-color: #CCCCCC;
+    display: inline-block;
 }
 
 .fill {
