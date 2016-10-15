@@ -6,19 +6,23 @@ const wireGenerator = require('../mod-1-wires/wireGenerator');
 const symbolGenerator = require('../mod-2-symbols/symbolGenerator');
 const mazeGenerator = require('../mod-3-maze/mazeGenerator');
 const morseGenerator = require('../mod-4-morse/morseGenerator');
+const passwordGenerator = require('../mod-5-passwords/passwordGenerator');
 
 const modTypes = [{
-    type: 'wires',
-    generate: wireGenerator.generate
-}, {
-    type: 'symbols',
-    generate: symbolGenerator.generate
-}, {
-    type: 'maze',
-    generate: mazeGenerator.generate
-}, {
-    type: 'morse',
-    generate: morseGenerator.generate
+//     type: 'wires',
+//     generate: wireGenerator.generate
+// }, {
+//     type: 'symbols',
+//     generate: symbolGenerator.generate
+// }, {
+//     type: 'maze',
+//     generate: mazeGenerator.generate
+// }, {
+//     type: 'morse',
+//     generate: morseGenerator.generate
+// }, {
+    type: 'passwords',
+    generate: passwordGenerator.generate
 }];
 
 
