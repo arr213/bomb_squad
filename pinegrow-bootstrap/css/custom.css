@@ -820,15 +820,15 @@ input:-webkit-autofill:active {
 }
 
 .anchor {
-    border: 5px solid green;
+    border: 5px solid #58e0a2;
 }
 
 .currcell {
-    background-color: #0AF;
+    background-color: #3836EB;
 }
 
 .goal {
-    background-color: red;
+    background-color: #FF534F;
 }
 
 .maze-button {
@@ -1073,6 +1073,7 @@ opacity: 0;
    height: 45px;
 }
 
+
 .letterOptions {
     background-color: #FFF;
    display: -webkit-flex;
@@ -1100,4 +1101,7 @@ button.passwords-button {
     letter-spacing: 3px;
     color: #ffffff;
     text-transform: uppercase;
+
+#symbol-text {
+    font-size: 25px;
 }

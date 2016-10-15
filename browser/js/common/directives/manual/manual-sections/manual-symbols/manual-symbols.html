@@ -1,5 +1,5 @@
 <div>
-    <h2>symbols</h2>
+    <h2 id="bodyfont">symbols</h2>
 </div>
 <div>
     <p>I'm not sure what these symbols are, but I suspect they have something to do with occult.</p>
@@ -8,10 +8,12 @@
         <li>Press the four buttons in the order their symbols appear from top to bottom within that column.</li>
     </ul>
 </div>
-<div class="row">
-    <div class="col-xs-2" ng-repeat="column in columns">
-        <div class="sym" ng-repeat="symbol in column">
-            <span>{{symbol.unicode}}</span>
+<div class="row" style="padding-top: 20px">
+    <center>
+        <div class="col-xs-2" ng-repeat="column in columns">
+            <div class="sym" ng-repeat="symbol in column">
+                <span id="symbol-text">{{symbol.unicode}}</span>
+            </div>
         </div>
-    </div>
+    </center>
 </div>

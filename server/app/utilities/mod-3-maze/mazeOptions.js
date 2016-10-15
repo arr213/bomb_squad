@@ -1518,7 +1518,7 @@ const maze5 = [
         coordX: 5,
         coordY: 2,
         goal: false,
-        anchor: true
+        anchor: false
     }],
     [{
         up: 'valid',
