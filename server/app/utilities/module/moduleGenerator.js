@@ -20,12 +20,12 @@ const modTypes = [{
 }, {
     type: 'morse',
     generate: morseGenerator.generate
-}
-// {
-//     type: 'passwords',
-//     generate: passwordGenerator.generate
-// }
-];
+}, {
+    type: 'passwords',
+    generate: passwordGenerator.generate
+}];
+
+
 
 
 function objectifyMod(modType, game, stageNum) {
