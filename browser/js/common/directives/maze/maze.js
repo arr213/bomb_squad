@@ -1,13 +1,3 @@
-// app.config(function($stateProvider) {
-
-//     $stateProvider.state('maze', {
-//         url: '/maze',
-//         controller: 'MazeCtrl',
-//         templateUrl: 'js/common/directives/maze/maze.html',
-//     });
-
-// });
-
 app.directive('maze', function() {
 
     return {
@@ -21,7 +11,7 @@ app.directive('maze', function() {
 
 });
 
-app.controller('MazeCtrl', function($scope, StrikeFactory, SuccessFactory) {
+app.controller('MazeCtrl', function($scope, StrikeFactory, SuccessFactory, $stateParams) {
 
     let gameRef = firebase.database().ref('/game').child($stateParams.gameKey);
 
@@ -33,13 +23,14 @@ app.controller('MazeCtrl', function($scope, StrikeFactory, SuccessFactory) {
     });
 
     console.log('This is the module content: ', $scope.module.content);
-    $scope.currX = $scope.module.content;
-    $scope.currY = 2;
+    $scope.maze = $scope.module.content.maze;
+    $scope.currX = $scope.module.content.startX;
+    $scope.currY = $scope.module.content.startY;
 
     $scope.moveRight = function() {
         let moveStatus = $scope.maze[$scope.currY][$scope.currX].right;
         if (moveStatus === 'wall') {
-            StrikeFactory.strike($scope.currentStage, gameRef);
+            StrikeFactory.strike($scope.strikes, gameRef);
             $scope.$evalAsync();
         }
         if ($scope.currX < 5 && moveStatus === 'valid') $scope.currX++;
@@ -52,7 +43,7 @@ app.controller('MazeCtrl', function($scope, StrikeFactory, SuccessFactory) {
     $scope.moveLeft = function() {
         let moveStatus = $scope.maze[$scope.currY][$scope.currX].left;
         if (moveStatus === 'wall') {
-            StrikeFactory.strike($scope.currentStage, gameRef);
+            StrikeFactory.strike($scope.strikes, gameRef);
             $scope.$evalAsync();
         }
         if ($scope.currX > 0 && moveStatus === 'valid') $scope.currX--;
@@ -65,7 +56,7 @@ app.controller('MazeCtrl', function($scope, StrikeFactory, SuccessFactory) {
     $scope.moveUp = function() {
         let moveStatus = $scope.maze[$scope.currY][$scope.currX].up;
         if (moveStatus === 'wall') {
-            StrikeFactory.strike($scope.currentStage, gameRef);
+            StrikeFactory.strike($scope.strikes, gameRef);
             $scope.$evalAsync();
         }
         if ($scope.currY > 0 && moveStatus === 'valid') $scope.currY--;
@@ -78,7 +69,7 @@ app.controller('MazeCtrl', function($scope, StrikeFactory, SuccessFactory) {
     $scope.moveDown = function() {
         let moveStatus = $scope.maze[$scope.currY][$scope.currX].down;
         if (moveStatus === 'wall') {
-            StrikeFactory.strike($scope.currentStage, gameRef);
+            StrikeFactory.strike($scope.strikes, gameRef);
             $scope.$evalAsync();
         }
         if ($scope.currY < 5 && moveStatus === 'valid') $scope.currY++;

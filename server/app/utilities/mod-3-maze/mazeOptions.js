@@ -2687,7 +2687,6 @@ const maze8 = [
 ];
 
 
-
 mazeOptions.options = [maze1, maze2, maze3, maze4, maze5, maze6, maze7, maze8];
 
 module.exports = mazeOptions;
