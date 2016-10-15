@@ -15,14 +15,14 @@ const modTypes = [{
 //     type: 'symbols',
 //     generate: symbolGenerator.generate
 // }, {
-//     type: 'maze',
-//     generate: mazeGenerator.generate
+    type: 'maze',
+    generate: mazeGenerator.generate
 // }, {
 //     type: 'morse',
 //     generate: morseGenerator.generate
 // }, {
-    type: 'passwords',
-    generate: passwordGenerator.generate
+//     type: 'passwords',
+//     generate: passwordGenerator.generate
 }];
 
 
