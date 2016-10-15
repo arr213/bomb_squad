@@ -36,6 +36,9 @@ app.controller('GameCtrl', function ($scope, $stateParams, $state, $rootScope, $
 
     let interval;
     var rootRef = firebase.database().ref('/game');
+
+    //rootRef.set({restart: 'restart'});
+
     $scope.currentGame = rootRef.child($stateParams.gameKey);
 
     $scope.currentGame.child('batteries').once('value', function (snap) {
