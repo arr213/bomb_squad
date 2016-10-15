@@ -995,26 +995,109 @@ opacity: 0;
     padding: 20px;
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
+/*    -webkit-flex-direction: row;
+    flex-direction: row;*/
     -webkit-align-items: center;
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 
 .passwords-container {
    display: -webkit-flex;
    display: flex;
-   -webkit-flex-direction: row;
-   flex-direction: row;
-   background-color: red;
+   justify-content: center;
+   align-items: center;
+/*   -webkit-flex-direction: row;
+   flex-direction: row;*/
+/*   background-color: red;*/
    width: 100%;
-   height: 100%;
+   height: 40%;
+/*   padding: 10px;*/
 }
 
-.passwords-container div {
-    background-color: pink;
+/*.passwords-container div {
+    background-color: #FFF;
+   display: -webkit-flex;
+    display: flex;
+  justify-content: center;
+   align-items: center;
+    width: 100%;
+    height: 100%;
+    border: .5px solid #000;
+    font-family: Manteka;
+    font-size: 40px;
+}*/
+
+.upArrows-container {
+/*    background-color: green;*/
+    width: 100%;
+    height: 30%;
+    display: -webkit-flex;
+   display: flex;
+/*   justify-content: center;*/
+   align-items: center;
+   justify-content: space-around;
 }
 
+.upArrows-container img {
+    display: -webkit-flex;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 45px;
+   width: auto;
+   transform: rotate(90deg);
+}
+
+.downArrows-container {
+/*    background-color: green;*/
+    width: 100%;
+    height: 30%;
+    display: -webkit-flex;
+   display: flex;
+/*   justify-content: center;*/
+   align-items: center;
+   justify-content: space-around;
+}
+
+.downArrows-container img {
+    display: -webkit-flex;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transform: rotate(-90deg);
+   width: auto;
+   height: 45px;
+}
+
+.letterOptions {
+    background-color: #FFF;
+   display: -webkit-flex;
+    display: flex;
+  justify-content: center;
+   align-items: center;
+    width: 100%;
+    height: 100%;
+    border: .5px solid #000;
+    font-family: Manteka;
+    font-size: 40px;
+}
+
+button.passwords-button {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 60px;
+    background: #000;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
