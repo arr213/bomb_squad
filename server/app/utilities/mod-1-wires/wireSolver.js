@@ -11,6 +11,7 @@ wireSolver.solve = function(arr, batteries) {
 
 //defining rules of what wires to cut
 function threeWireSolver(arr, batteries) {
+    if (_.filter(batteries, _.matches({ color: 'blue' }).length % 2 === 0) && _.filter(batteries, _.matches({ color: 'yellow' }).length % 2 !== 0)) return 0;
     if (arr.indexOf('red') === -1) return 1;
     if (arr[2] === 'white') return 2;
     if (arr[0] === 'black' && _.filter(batteries, _.matches({ color: 'blue' }).length % 2 === 0)) return 0;
@@ -37,6 +38,7 @@ function fiveWireSolver(arr, batteries) {
 
 function sixWireSolver(arr, batteries) {
     if (arr.indexOf('yellow') === -1 && _.filter(batteries, _.matches({ color: 'blue' }).length % 2 !== 0)) return 2;
+    if (_.filter(batteries, _.matches({ color: 'yellow' }).length % 2 !== 0) && _.filter(batteries, _.matches({ color: 'green' }).length % 2 !== 0)) return 0;
     if (arr.filter(color => color === 'yellow').length === 1 && arr.filter(color => color === 'white').length > 1) return 3;
     if (arr.filter(color => color === 'blue').length > 1 && _.filter(batteries, _.matches({ color: 'green' }).length % 2 === 0)) return 4;
     if (arr.indexOf('red') === -1) return 5;
