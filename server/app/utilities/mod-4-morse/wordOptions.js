@@ -4,9 +4,9 @@ module.exports = wordOptions;
 wordOptions.wordList = [{
     word: 'shell',
     frequency: '3.505'
-// }, {
-//     word: 'halls',
-//     frequency: '3.515'
+}, {
+    word: 'halls',
+    frequency: '3.515'
 // }, {
 //     word: 'slick',
 //     frequency: '3.522'
