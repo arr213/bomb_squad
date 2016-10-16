@@ -171,6 +171,104 @@ describe('wireSolver', function () {
             });
         })
 
+        describe('fourWireSolver', function () {
+            it('follows the first conditional', function () {
+                let game1 = ['red', 'red', 'white', 'white'];
+                let wireCut = wireSolver.solve(game1, batt2);
+                expect(wireCut).to.be.equal(1);
+            })
+            it('follows the second conditional', function () {
+                let game2 = ['blue', 'blue', 'yellow', 'yellow'];
+                let wireCut = wireSolver.solve(game2, batt3);
+                expect(wireCut).to.be.equal(0);
+            });
+            it('follows the third conditional', function () {
+                let game3 = ['red', 'white', 'white', 'blue'];
+                let wireCut = wireSolver.solve(game3, batt5);
+                expect(wireCut).to.be.equal(0);
+            });
+            it('follows the fourth conditional', function () {
+                let game4 = ['black', 'white', 'white','white'];
+                let wireCut = wireSolver.solve(game4, batt6);
+                expect(wireCut).to.be.equal(2);
+            });
+            it('follows the fifth conditional', function () {
+                let game5 = ['yellow', 'yellow', 'red', 'white'];
+                let wireCut = wireSolver.solve(game5, batt1);
+                expect(wireCut).to.be.equal(3);
+            });
+            it('follows the sixth conditional', function () {
+                let game5 = ['red', 'aquamarine', 'taupe', 'pink'];
+                let wireCut = wireSolver.solve(game5, batt6);
+                expect(wireCut).to.be.equal(1);
+            });
+
+            
+
+        })
+
+         describe('fiveWireSolver', function () {
+            it('follows the first conditional', function () {
+                let game1 = ['red', 'red', 'white', 'white', 'black'];
+                let wireCut = wireSolver.solve(game1, batt7);
+                expect(wireCut).to.be.equal(3);
+            })
+            it('follows the second conditional', function () {
+                let game2 = ['blue', 'blue', 'yellow', 'yellow', 'red'];
+                let wireCut = wireSolver.solve(game2, batt3);
+                expect(wireCut).to.be.equal(0);
+            });
+            it('follows the third conditional', function () {
+                let game3 = ['red', 'white', 'white', 'blue', 'blue'];
+                let wireCut = wireSolver.solve(game3, batt4);
+                expect(wireCut).to.be.equal(1);
+            });
+            it('follows the fourth conditional', function () {
+                let game4 = ['white', 'white', 'white','white', 'yellow'];
+                let wireCut = wireSolver.solve(game4, batt1);
+                expect(wireCut).to.be.equal(1);
+            });
+            it('follows the fifth conditional', function () {
+                let game5 = ['black', 'red', 'red', 'white', 'yellow'];
+                let wireCut = wireSolver.solve(game5, batt1);
+                expect(wireCut).to.be.equal(0);
+            });
+        })
+
+         describe('sixWireSolver', function () {
+            it('follows the first conditional', function () {
+                let game1 = ['red', 'red', 'white', 'white', 'black', 'blue'];
+                let wireCut = wireSolver.solve(game1, batt7);
+                expect(wireCut).to.be.equal(2);
+            })
+            it('follows the second conditional', function () {
+                let game2 = ['red', 'red', 'yellow', 'white', 'black', 'blue'];
+                let wireCut = wireSolver.solve(game2, batt6);
+                expect(wireCut).to.be.equal(0);
+            });
+            it('follows the third conditional', function () {
+                let game3 = ['red', 'white', 'white', 'blue', 'blue', 'yellow'];
+                let wireCut = wireSolver.solve(game3, batt4);
+                expect(wireCut).to.be.equal(3);
+            });
+            it('follows the fourth conditional', function () {
+                let game4 = ['blue', 'blue', 'blue','white', 'yellow', 'yellow'];
+                let wireCut = wireSolver.solve(game4, batt1);
+                expect(wireCut).to.be.equal(4);
+            });
+            it('follows the fifth conditional', function () {
+                let game5 = ['black', 'yellow', 'white', 'white', 'yellow', 'blue'];
+                let wireCut = wireSolver.solve(game5, batt1);
+                expect(wireCut).to.be.equal(5);
+            });
+            it('follows the sixth condition', function () {
+                let game6 = ['yellow','aquamarine', 'red','amethyst','yellow','gold'];
+                let wireCut = wireSolver.solve(game6, batt3);
+                expect(wireCut).to.be.equal(3);
+            })
+        })
+
+
 
     });
 
