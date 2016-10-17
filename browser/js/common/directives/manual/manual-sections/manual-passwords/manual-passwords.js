@@ -12,7 +12,7 @@ app.controller('ManualPasswordsCtrl', function($scope) {
 
     $scope.passwords = [
         'every',
-        'large',
+        'learn',
         'plant',
         'these',
         'where',
