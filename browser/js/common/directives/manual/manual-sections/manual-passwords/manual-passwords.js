@@ -41,5 +41,4 @@ app.controller('ManualPasswordsCtrl', function($scope) {
         'write'
     ].sort();
 
-       console.log('passssswords: ', $scope.passwords);
 });
