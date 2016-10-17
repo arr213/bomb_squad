@@ -5,3 +5,4 @@ public
 .DS_Store
 coverage
 server/env/firebase.js
+server/env/development.js
