@@ -74,6 +74,7 @@ body {
     align-items: center;
     font-size: 30px;
     font-weight: bolder;
+    padding-bottom: 7px;
 }
 
 .bottom-header {
@@ -535,6 +536,7 @@ h6:after {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     /*  flex-wrap: wrap;*/
     /*    padding-top: 30%;*/
     background-color: #FFF;
@@ -682,13 +684,12 @@ svg.battery-styles {
     padding-top: 8px;
     color: #FFF;
     -webkit-align-self: flex-end;
-   align-self: flex-end;
+    align-self: flex-end;
 }
 
 .userMsg p {
     color: #FFF;
 }
-
 
 .otherMsg {
     background-color: #ececec;
@@ -697,7 +698,7 @@ svg.battery-styles {
     padding-right: 20px;
     padding-top: 8px;
     -webkit-align-self: flex-start;
-   align-self: flex-start;
+    align-self: flex-start;
 }
 
 .messages {
@@ -714,7 +715,6 @@ svg.battery-styles {
     overflow: scroll;
     color: #FFF;
 }
-
 
 .txt-box {
     word-wrap: break-word;
@@ -775,11 +775,10 @@ button.submit-chat {
 }
 
 input[type="text"].msg-input::-webkit-input-placeholder {
-  text-transform: capitalize;
-  color: #CCC;
-  font-family: 'Montserrat';
+    text-transform: capitalize;
+    color: #CCC;
+    font-family: 'Montserrat';
 }
-
 
 .stagingArea {
     width: 78%;
