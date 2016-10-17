@@ -74,6 +74,7 @@ body {
     align-items: center;
     font-size: 30px;
     font-weight: bolder;
+    padding-bottom: 7px;
 }
 
 .bottom-header {
