@@ -47,5 +47,3 @@ app.controller('PublicChatCtrl', function($scope, AuthService) {
 
 
 })
-
-

@@ -682,13 +682,12 @@ svg.battery-styles {
     padding-top: 8px;
     color: #FFF;
     -webkit-align-self: flex-end;
-   align-self: flex-end;
+    align-self: flex-end;
 }
 
 .userMsg p {
     color: #FFF;
 }
-
 
 .otherMsg {
     background-color: #ececec;
@@ -697,7 +696,7 @@ svg.battery-styles {
     padding-right: 20px;
     padding-top: 8px;
     -webkit-align-self: flex-start;
-   align-self: flex-start;
+    align-self: flex-start;
 }
 
 .messages {
@@ -714,7 +713,6 @@ svg.battery-styles {
     overflow: scroll;
     color: #FFF;
 }
-
 
 .txt-box {
     word-wrap: break-word;
@@ -775,11 +773,10 @@ button.submit-chat {
 }
 
 input[type="text"].msg-input::-webkit-input-placeholder {
-  text-transform: capitalize;
-  color: #CCC;
-  font-family: 'Montserrat';
+    text-transform: capitalize;
+    color: #CCC;
+    font-family: 'Montserrat';
 }
-
 
 .stagingArea {
     width: 78%;
