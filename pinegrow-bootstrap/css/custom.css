@@ -2,8 +2,7 @@
 
 @font-face {
     font-family: 'Manteka';
-    src: url('/fonts/manteka.ttf') format('truetype'),
-         url('/fonts/manteka.woff') format('woff');
+    src: url('/fonts/manteka.ttf') format('truetype'), url('/fonts/manteka.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -32,7 +31,7 @@ body {
 }
 
 .bodyfont {
-     font-family: 'Montserrat';
+    font-family: 'Montserrat';
 }
 
 .spacer {
@@ -114,7 +113,8 @@ body {
 }
 
 .unstroked {
-   fill: lightgrey;;
+    fill: lightgrey;
+    ;
 }
 
 .container {
@@ -143,44 +143,48 @@ body {
 }
 
 #symbol-container {
-   display: -webkit-flex;
-   display: flex;
-  -ms-box-orient: horizontal;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  flex-direction: horizontal;
-  height: 100%;
-  background-color: #ececec;
+    display: -webkit-flex;
+    display: flex;
+    -ms-box-orient: horizontal;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: horizontal;
+    height: 100%;
+    background-color: #ececec;
 }
 
 .symbol {
-   width: 50%;
-   display: -webkit-flex;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   border: 4px solid #FFF;
-   background-color: #ececec;
+    width: 50%;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #FFF;
+    background-color: #ececec;
 }
 
 .symbol-button {
-   width: 150px;
-   height: 100%;
-   font-size: 60px;
-   border:none;
-   outline:none;
-   background-color: #ececec;
+    width: 150px;
+    height: 100%;
+    font-size: 60px;
+    border: none;
+    outline: none;
+    background-color: #ececec;
 }
 
 .btn-disabled {
     background-color: #3836eb;
     color: #FFF;
-    border:none;
+    border: none;
 }
 
 @keyframes wrong {
-    from {background-color: #ececec;}
-    to {background-color: red;}
+    from {
+        background-color: #ececec;
+    }
+    to {
+        background-color: red;
+    }
 }
 
 .btn-incorrect {
@@ -196,12 +200,10 @@ body {
     -webkit-transition: opacity .25s ease-in-out;
 }
 
-
 .main-content {
-/*    display: flex;
+    /*    display: flex;
     justify-content: center;
     height: 100%;*/
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -243,7 +245,7 @@ h2 {
     border: 2px solid #3836EB;
 }
 
-::-webkit-input-placeholder {
+input[placeholder].login-input::-webkit-input-placeholder {
     font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -534,7 +536,7 @@ h6:after {
     justify-content: center;
     height: 100%;
     /*  flex-wrap: wrap;*/
-/*    padding-top: 30%;*/
+    /*    padding-top: 30%;*/
     background-color: #FFF;
 }
 
@@ -610,7 +612,7 @@ button.ready-button:focus {
     padding: 13px;
 }
 
-svg.battery-styles{
+svg.battery-styles {
     height: 110%;
     width: 110%;
     transform: rotate(90deg);
@@ -629,7 +631,6 @@ svg.battery-styles{
 }
 
 
-
 /****************************************/
 
 
@@ -645,19 +646,24 @@ svg.battery-styles{
 /****************************************/
 
 #chat-header {
-    background-color: #FFF;
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(227, 227, 227, 1);
+    -moz-box-shadow: 0px 6px 5px 0px rgba(227, 227, 227, 1);
+    box-shadow: 0px 6px 5px 0px rgba(227, 227, 227, 1);
+    background-color: #000;
     font-family: 'Montserrat';
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    padding-top: 20px;
-    font-weight: bolder;
-    font-size: 40px;
+    text-align: center;
+    height: 80px;
+    width: 100%;
+    color: #FFF;
+    letter-spacing: 3px;
+    font-size: 18px;
 }
 
 .chat-background {
-/*    margin-top: 220px;*/
+    /*    margin-top: 220px;*/
     background-color: #FFF;
     height: 100%;
     max-height: 100%;
@@ -672,26 +678,30 @@ svg.battery-styles{
     background-color: #3836eb;
     font-weight: light;
     padding-left: 10px;
+    padding-right: 20px;
     padding-top: 8px;
-    color: white;
+    color: #FFF;
+    -webkit-align-self: flex-end;
+   align-self: flex-end;
 }
 
 .userMsg p {
     color: #FFF;
 }
 
+
 .otherMsg {
-    background-color: white;
+    background-color: #ececec;
     font-weight: light;
     padding-left: 10px;
+    padding-right: 20px;
     padding-top: 8px;
+    -webkit-align-self: flex-start;
+   align-self: flex-start;
 }
 
-#messages {
+.messages {
     background-color: white;
-   /* width: 300px;
-    max-height: 400px;
-    height: 400px;*/
     width: 100%;
     max-height: 100%;
     height: 100%;
@@ -701,34 +711,38 @@ svg.battery-styles{
     -webkit-flex-direction: column;
     flex-direction: column;
     align-items: center;
-/*    overflow-y: auto;*/
-/*    max-height: 500px;*/
     overflow: scroll;
+    color: #FFF;
 }
+
 
 .txt-box {
-/*    background-color: white;*/
-    height: 40px;
-    width: 100%;
-    border-bottom: 1px solid lightgrey;
-    align-items: center;
+    word-wrap: break-word;
+    border-radius: 40px;
+    margin: 5px;
+    max-width: 90%;
+    display: inline-block;
+    color: #FFF;
+    padding: 20px 20px 10px 20px;
 }
 
-/*.msg {
-    font-weight: light;
-    padding-left: 10px;
-    padding-top: 8px;
-}*/
+.txt-box p {
+    display: inline-block;
+}
+
+.username {
+    padding-right: 10px;
+    font-weight: bolder;
+}
 
 #send-message {
-  /*  margin-top: 20px;*/
     background-color: #ECECEC;
     width: 100%;
     height: 80px;
     display: inline-flex;
     padding: 10px;
-    position:relative;
-    margin-bottom:0px;
+    position: relative;
+    margin-bottom: 0px;
 }
 
 form.msg-form {
@@ -743,22 +757,29 @@ form.msg-form {
 }
 
 button.submit-chat {
-   background-color: #FF534F;
-   width: 20%;
-   height: 90%;
-   outline: none;
-   border: none;
-   color: #FFF;
+    background-color: #FF534F;
+    width: 20%;
+    height: 90%;
+    outline: none;
+    border: none;
+    color: #FFF;
+    letter-spacing: 1px;
 }
 
 .msg-input {
     width: 80%;
     height: 90%;
     outline: none;
-    /*border: 1px solid #bebebe;*/
     background-color: #FFF;
     padding-left: 10px;
 }
+
+input[type="text"].msg-input::-webkit-input-placeholder {
+  text-transform: capitalize;
+  color: #CCC;
+  font-family: 'Montserrat';
+}
+
 
 .stagingArea {
     width: 78%;
@@ -779,14 +800,14 @@ input:-webkit-autofill:active {
 }
 
 .dotted {
-  padding: 2.25em 1.6875em;
-  background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-  background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-  background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
-  -webkit-background-size: 3px 3px;
-  -moz-background-size: 3px 3px;
-  background-size: 3px 3px;
+    padding: 2.25em 1.6875em;
+    background-image: -webkit-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
+    -webkit-background-size: 3px 3px;
+    -moz-background-size: 3px 3px;
+    background-size: 3px 3px;
 }
 
 .victoryBG {
@@ -810,7 +831,9 @@ input:-webkit-autofill:active {
     margin-bottom
 }
 
+
 /*maze css*/
+
 .maze-cell {
     height: 20px;
     width: 20px;
@@ -867,24 +890,32 @@ input:-webkit-autofill:active {
 }
 
 .down-button {
-    -ms-transform: rotate(90deg); /* IE 9 */
-    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -ms-transform: rotate(90deg);
+    /* IE 9 */
+    -webkit-transform: rotate(90deg);
+    /* Chrome, Safari, Opera */
     transform: rotate(90deg);
 }
 
 .left-button {
-    -ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    -ms-transform: rotate(180deg);
+    /* IE 9 */
+    -webkit-transform: rotate(180deg);
+    /* Chrome, Safari, Opera */
     transform: rotate(180deg);
 }
 
 .up-button {
-    -ms-transform: rotate(270deg); /* IE 9 */
-    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    -ms-transform: rotate(270deg);
+    /* IE 9 */
+    -webkit-transform: rotate(270deg);
+    /* Chrome, Safari, Opera */
     transform: rotate(270deg);
 }
 
+
 /*morse stuff*/
+
 .morse-container {
     display: flex;
     flex-direction: row;
@@ -908,8 +939,8 @@ button.tx {
     padding: 35px;
 }
 
-body{
-  background: black;
+body {
+    background: black;
 }
 
 @keyframes shell {
@@ -948,12 +979,12 @@ body{
 }
 
 .shell {
- animation-name: shell;
- animation-duration: 18s; /* or: Xms */
- animation-iteration-count: infinite;
- animation-direction: normal; /* or: normal */
- animation-timing-function: linear; /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
-  animation-delay: 1s;
+    animation-name: shell;
+    animation-duration: 18s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-delay: 1s;
 }
 
 @keyframes halls {
@@ -1003,11 +1034,11 @@ body{
 }
 
 .blink {
-height: 60px;
-width: 60px;
-background: #FFDB13;
-border-radius: 150px;
-opacity: 0;
+    height: 60px;
+    width: 60px;
+    background: #FFDB13;
+    border-radius: 150px;
+    opacity: 0;
 }
 
 .blink-box {
@@ -1032,8 +1063,6 @@ opacity: 0;
     padding: 20px;
     display: -webkit-flex;
     display: flex;
-/*    -webkit-flex-direction: row;
-    flex-direction: row;*/
     -webkit-align-items: center;
     align-items: center;
     -webkit-justify-content: center;
@@ -1041,82 +1070,63 @@ opacity: 0;
     flex-direction: column;
 }
 
-
 .passwords-container {
-   display: -webkit-flex;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-/*   -webkit-flex-direction: row;
-   flex-direction: row;*/
-/*   background-color: red;*/
-   width: 100%;
-   height: 40%;
-/*   padding: 10px;*/
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40%;
 }
 
-/*.passwords-container div {
-    background-color: #FFF;
-   display: -webkit-flex;
-    display: flex;
-  justify-content: center;
-   align-items: center;
-    width: 100%;
-    height: 100%;
-    border: .5px solid #000;
-    font-family: Manteka;
-    font-size: 40px;
-}*/
-
 .upArrows-container {
-/*    background-color: green;*/
     width: 100%;
     height: 30%;
     display: -webkit-flex;
-   display: flex;
-/*   justify-content: center;*/
-   align-items: center;
-   justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    outline: none;
 }
 
 .upArrows-container img {
     display: -webkit-flex;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 45px;
-   width: auto;
-   transform: rotate(90deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: auto;
+    transform: rotate(90deg);
+    outline: none;
 }
 
 .downArrows-container {
-/*    background-color: green;*/
     width: 100%;
     height: 30%;
     display: -webkit-flex;
-   display: flex;
-/*   justify-content: center;*/
-   align-items: center;
-   justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    outline: none;
 }
 
 .downArrows-container img {
     display: -webkit-flex;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   transform: rotate(-90deg);
-   width: auto;
-   height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-90deg);
+    width: auto;
+    height: 45px;
+    outline: none;
 }
-
 
 .letterOptions {
     background-color: #FFF;
-   display: -webkit-flex;
+    display: -webkit-flex;
     display: flex;
-  justify-content: center;
-   align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     border: .5px solid #000;
@@ -1127,17 +1137,20 @@ opacity: 0;
 button.passwords-button {
     display: block;
     margin: auto;
-    width: 100%;
+    width: 50%;
     height: 60px;
-    background: #000;
     border: none;
     border-radius: 50px;
     outline: none;
     font-family: 'Montserrat';
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 3px;
-    color: #ffffff;
-    text-transform: uppercase;
+    border: 2px solid #3836eb;
+    text-transform: lowercase;
+    margin-top: 10px;
+    background-color: #3836eb;
+    color: #FFF;
+}
 
 #symbol-text {
     font-size: 25px;
