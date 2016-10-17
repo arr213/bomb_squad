@@ -1,15 +1,10 @@
-<!-- <header id="header-3" class="soft-scroll header-3">
-    <div class="container"> -->
 <game-header></game-header>
 <div class="main-content" md-swipe-right="onSwipeRight()" md-swipe-left="onSwipeLeft()">
-    <!-- <manual></manual> -->
-    <!--    <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game> -->
-    <!--   <wires ng-show="gamePlaying"></wires> -->
     <start-game ng-hide="gamePlaying" ng-click="startGame()"></start-game>
     <div ng-show="!swiped" ng-repeat="stage in stages">
         <stage ng-show="gamePlaying && currentStage === $index" stage="stage"></stage>
     </div>
-    <chat ng-show="gamePlaying && swiped"></chat>
+    <div ng-show="gamePlaying && swiped" class="staging-container">
+        <chat style="width: 100%; height: 78%; margin-top: 148px"></chat>
+    </div>
 </div>
-<!--     </div>
-</header> -->

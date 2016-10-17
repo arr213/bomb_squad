@@ -7,7 +7,7 @@ app.directive('chat', function() {
     };
 });
 
-app.controller('ChatCtrl', function($scope, AuthService) {
+app.controller('ChatCtrl', function($scope, AuthService, GameFactory, $stateParams) {
     var chatRef = $scope.currentGame.child('chat');
 
     AuthService.getLoggedInUser()
@@ -15,16 +15,18 @@ app.controller('ChatCtrl', function($scope, AuthService) {
             $scope.username = user.username;
         })
 
-    $scope.gameMessages = [];
+ $scope.messages = [];
 
     $scope.updateScroll = function() {
         var chatbox = document.getElementById('messages');
         chatbox.scrollTop = chatbox.scrollHeight;
     }
 
+
     chatRef.on('child_added', function(snap) {
         $scope.updateScroll();
-        $scope.gameMessages.push(snap.val())
+        $scope.messages.push(snap.val())
+        $scope.evalAsync();
     })
 
 
