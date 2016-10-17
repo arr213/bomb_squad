@@ -1,8 +1,8 @@
 var firebase = require("firebase");
-var Config = require('../env');
+var firebaseConfig = app.getValue('env').FIREBASE;
 
 firebase.initializeApp({
-        serviceAccount: Config.FIREBASE,
+        serviceAccount: firebaseConfig,
         databaseURL: "https://bombsquad-74087.firebaseio.com"
     });
 
