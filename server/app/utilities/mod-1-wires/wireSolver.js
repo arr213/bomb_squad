@@ -1,9 +1,10 @@
+/*jshint esversion: 6 */
 const _ = require('lodash');
 const wireSolver = {};
 module.exports = wireSolver;
 
 wireSolver.solve = function(arr, batteries) {
-    if (arr.length === 3) return threeWireSolver(arr);
+    if (arr.length === 3) return threeWireSolver(arr, batteries);
     if (arr.length === 4) return fourWireSolver(arr, batteries);
     if (arr.length === 5) return fiveWireSolver(arr, batteries);
     if (arr.length === 6) return sixWireSolver(arr, batteries);
@@ -11,7 +12,7 @@ wireSolver.solve = function(arr, batteries) {
 
 //defining rules of what wires to cut
 function threeWireSolver(arr, batteries) {
-    if (_.filter(batteries, _.matches({ color: 'blue' }).length % 2 === 0) && _.filter(batteries, _.matches({ color: 'yellow' })).length % 2 !== 0) return 0;
+    if (_.filter(batteries, _.matches({ color: 'blue' })).length % 2 === 0 && _.filter(batteries, _.matches({ color: 'yellow' })).length % 2 !== 0) return 0;
     if (arr.indexOf('red') === -1) return 1;
     if (arr[2] === 'white') return 2;
     if (arr[0] === 'black' && _.filter(batteries, _.matches({ color: 'blue' })).length % 2 === 0) return 0;
