@@ -9,20 +9,20 @@ const morseGenerator = require('../mod-4-morse/morseGenerator');
 const passwordGenerator = require('../mod-5-passwords/passwordGenerator');
 
 const modTypes = [{
-    type: 'wires',
-    generate: wireGenerator.generate
-}, {
-    type: 'symbols',
-    generate: symbolGenerator.generate
-}, {
-    type: 'maze',
-    generate: mazeGenerator.generate
-}, {
+//     type: 'wires',
+//     generate: wireGenerator.generate
+// }, {
+    // type: 'symbols',
+    // generate: symbolGenerator.generate
+// }, {
+    // type: 'maze',
+    // generate: mazeGenerator.generate
+// }, {
     type: 'morse',
     generate: morseGenerator.generate
-}, {
-    type: 'passwords',
-    generate: passwordGenerator.generate
+// }, {
+//     type: 'passwords',
+//     generate: passwordGenerator.generate
 }];
 
 
