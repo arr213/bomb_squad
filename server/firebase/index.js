@@ -1,5 +1,7 @@
 var firebase = require("firebase");
-var firebaseConfig = app.getValue('env').FIREBASE;
+var express = require('express');
+var app = express();
+var firebaseConfig = app.get('env').FIREBASE;
 
 firebase.initializeApp({
         serviceAccount: firebaseConfig,

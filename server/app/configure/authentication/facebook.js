@@ -6,7 +6,7 @@ module.exports = function (app, db) {
 
     var User = db.model('user');
 
-    var facebookConfig = app.getValue('env').FACEBOOK;
+    var facebookConfig = app.get('env').FACEBOOK;
 
     var facebookCredentials = {
         clientID: facebookConfig.clientID,
