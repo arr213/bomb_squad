@@ -14,16 +14,16 @@ module.exports = {
         consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
         callbackUrl: process.env.TWITTER_CALLBACK
     },
-    FACEBOOK: {
-        clientID: process.env.FACEBOOK_APP_ID,
-        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-        callbackURL: process.env.FACEBOOK_CALLBACK_URL
-    },
     GOOGLE: {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: process.env.GOOGLE_CALLBACK_URL
     },
+    FACEBOOK: {
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL: process.env.FACEBOOK_CALLBACK_URL
+  },
     FIREBASE: {
         type: process.env.FIREBASE_TYPE,
         project_id: process.env.FIREBASE_PROJECT_ID,
@@ -31,10 +31,10 @@ module.exports = {
         private_key: process.env.FIREBASE_PRIVATE_KEY,
         client_email: process.env.FIREBASE_CLIENT_EMAIL,
         client_id: process.env.FIREBASE_CLIENT_ID,
-        auth_uri: process.env.AUTH_URI,
-        token_uri: process.env.TOKEN_URI,
-        auth_provider_x509_cert_url: process.env.AUTH_PROVIDER,
-        client_x509_cert_url: process.env.CLIENT_CERT
+        auth_uri: process.env.FIREBASE_AUTH_URI,
+        token_uri: process.env.FIREBASE_TOKEN_URI,
+        auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER,
+        client_x509_cert_url: process.env.FIREBASE_CLIENT_CERT
     },
     LOGGING: true,
     NATIVE: true
