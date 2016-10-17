@@ -12,7 +12,6 @@ module.exports = function (app) {
     var browserPath = path.join(root, './browser');
     var bootstrapPath = path.join(root, './pinegrow-bootstrap')
 
-    app.use(favicon(app.getValue('faviconPath')));
     app.use(express.static(npmPath));
     app.use(express.static(publicPath));
     app.use(express.static(browserPath));
