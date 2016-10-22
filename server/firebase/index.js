@@ -1,8 +1,10 @@
 var firebase = require("firebase");
-var Config = require('../env/development.js');
+var express = require('express');
+var app = express();
+var firebaseConfig = app.get('env').FIREBASE;
 
 firebase.initializeApp({
-        serviceAccount: Config.FIREBASE,
+        serviceAccount: firebaseConfig,
         databaseURL: "https://bombsquad-74087.firebaseio.com"
     });
 

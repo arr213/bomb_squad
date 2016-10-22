@@ -36,7 +36,7 @@ app.controller('PublicChatCtrl', function($scope, AuthService) {
     chatRef.on('child_added', function(snap) {
         $scope.updateScroll();
         $scope.messages.push(snap.val())
-        $scope.evalAsync();
+        $scope.$evalAsync();
     })
 
 
