@@ -14,16 +14,11 @@ module.exports = {
         consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
         callbackUrl: process.env.TWITTER_CALLBACK
     },
-    GOOGLE: {
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: process.env.GOOGLE_CALLBACK_URL
-    },
     FACEBOOK: {
-    clientID: process.env.FACEBOOK_CLIENT_ID,
-    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL: process.env.FACEBOOK_CALLBACK_URL
-  },
+        clientID: process.env.FACEBOOK_CLIENT_ID,
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL: process.env.FACEBOOK_CALLBACK_URL
+    },
     FIREBASE: {
         type: process.env.FIREBASE_TYPE,
         project_id: process.env.FIREBASE_PROJECT_ID,

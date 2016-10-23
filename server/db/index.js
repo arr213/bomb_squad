@@ -5,7 +5,7 @@ module.exports = db;
 // eslint-disable-next-line no-unused-vars
 const User = require('./models/user');
 const Bomb = require('./models/bomb');
-const ModuleType = require('./models/moduleType');
+const ModuleType = require('./models/ModuleType');
 const PlayedModule = require('./models/playedModule');
 
 const Squad = db.define('squad', {});
