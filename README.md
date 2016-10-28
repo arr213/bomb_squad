@@ -18,17 +18,22 @@ share your gamekey (a four letter combination).
 
 Make sure you have the latest version of node, gulp, and Postgres SQL.
 
+```HTML
 <script>
 createdb bdc
 git clone https://github.com/arr213/bomb_squad.git
 cd bomb_squad
 npm install
 </script>
+```
 
 Open another terminal window with the same directory:
+
+```HTML
 <script>
 gulp
 <script>
+```
 
 By default the game is hosted on localhost:1337
 
