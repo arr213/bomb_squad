@@ -8,9 +8,9 @@ This game is meant for two or more players, so make sure you have buddy before s
 
 ## Live Demo
 
-Visit [bomb-squad-game.com](bomb-squad-game.com) to see a live demo of our game!
+Visit [bomb-squad-game.com](http://bomb-squad-game.com) to see a live demo of our game!
 
-Either sign up or use OAuth (via Passport) and log-in via [facebook](facebook.com).
+Either sign up or use OAuth (via Passport) and log-in via [facebook](http://facebook.com).
 Once logged in, swipe right to enter the lobby chat and see if anyone is actively looking
 for a game. 
 
