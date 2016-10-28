@@ -1,34 +1,43 @@
 # Bomb_Squad
 
 Bomb Squad is a mobile friendly single page web app of the popular computer game "Keep Talking and Nobody Explodes".
-The app's web components were built using custom CSS, bootstrap, and AngularJS. The multiplayer component
-is powered by Firebase.
+The app's web components were built using custom CSS, [Bootstrap](http://getbootstrap.com/), and [AngularJS](https://angularjs.org/). The multiplayer component
+is powered by [Firebase](https://firebase.google.com/?utm_source=firechat).
 
 This game is meant for two or more players, so make sure you have buddy before starting to play!
 
 ## Live Demo
 
 Visit [bomb-squad-game.com](bomb-squad-game.com) to see a live demo of our game :)!
+
 Either sign up or use OAuth (via Passport) and log-in via [Facebook.com](facebook.com)!
 Once logged in, swipe right to enter the lobby chat and see if anyone is actively looking
-for a game. If you're planning on playing with friends, feel free to create a game and then
+for a game. 
+
+If you're planning on playing with friends, feel free to create a game and then
 share your gamekey (a four letter combination).
 
 ## Setup
 
-Make sure you have the latest version of node, gulp, and Postgres SQL.
+Make sure you are running the latest versions of [Node](https://nodejs.org/en/), [Gulp](http://gulpjs.com/), and [PostgresSQL](https://www.postgresql.org/).
 
-<script>
-createdb bdc
+Open your terminal...
+```HTML
 git clone https://github.com/arr213/bomb_squad.git
 cd bomb_squad
 npm install
-</script>
+createdb bdc
+```
 
 Open another terminal window with the same directory:
-<script>
+```HTML
 gulp
-<script>
+```
+
+Go back to your previous terminal:
+```HTML
+npm start
+```
 
 By default the game is hosted on localhost:1337
 
