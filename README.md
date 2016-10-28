@@ -1,7 +1,7 @@
 # Bomb_Squad
 
-Bomb Squad is a mobile friendly single page web app of the popular computer game "Keep Talking and Nobody Explodes".
-The app's web components were built using custom CSS, [Bootstrap](http://getbootstrap.com/), and [AngularJS](https://angularjs.org/). The multiplayer component
+Bomb Squad is a mobile friendly, single-page web version of the popular computer game "Keep Talking and Nobody Explodes".
+Our app's web components were built using custom CSS, [Bootstrap](http://getbootstrap.com/), and [AngularJS](https://angularjs.org/). The multiplayer component
 is powered by [Firebase](https://firebase.google.com/?utm_source=firechat).
 
 This game is meant for two or more players, so make sure you have buddy before starting to play!
