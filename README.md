@@ -4,6 +4,8 @@ Bomb Squad is a mobile friendly, single-page web version of the popular computer
 Our app's web components were built using custom CSS, [Bootstrap](http://getbootstrap.com/), and [AngularJS](https://angularjs.org/). The multiplayer component
 is powered by [Firebase](https://firebase.google.com/?utm_source=firechat).
 
+Watch the presentation for our app here: https://www.youtube.com/watch?v=dffKZcUzj4M
+
 This game is meant for two or more players, so make sure you have buddy before starting to play!
 
 ## Live Demo
